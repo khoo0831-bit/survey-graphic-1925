@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="1925年5月號《Survey Graphic》區域計畫專號繁體中文全譯，附原刊掃描對照。">
+<title>區域計畫專號 1925</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;900&display=swap">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}img{max-width:100%}
+
+/* Layout: a surveyor's reading sheet. Left rail = plan index (sticky legend), centre = translation column, scans open as an overlay "light table". */
+:root{
+  --paper:#eef1ec; --sheet:#f7f8f5; --ink:#1b2528; --muted:#566462; --rule:#c6cdc6;
+  --accent:#1d5876; --accent-ink:#ffffff; --ochre:#9a6a17; --ochre-wash:#efe3c8; --panel:#e2e7e1;
+  --shade:rgba(15,22,24,.72);
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-serif:"Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",serif;
+  --f-sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --fs:1.0625rem;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#111719; --sheet:#151c1f; --ink:#dbe3e0; --muted:#94a3a0; --rule:#2b3639;
+  --accent:#86bad8; --accent-ink:#0d1416; --ochre:#d9a95a; --ochre-wash:#3a2f1c; --panel:#1b2427;
+  --shade:rgba(3,6,7,.84); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#111719; --sheet:#151c1f; --ink:#dbe3e0; --muted:#94a3a0; --rule:#2b3639;
+  --accent:#86bad8; --accent-ink:#0d1416; --ochre:#d9a95a; --ochre-wash:#3a2f1c; --panel:#1b2427;
+  --shade:rgba(3,6,7,.84); color-scheme:dark }
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:4.5rem}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+a{color:var(--accent)}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--paper);border-bottom:1px solid var(--rule)}
+.bar-in{display:flex;align-items:center;gap:.5rem;padding-block:.5rem;padding-inline:16px;max-width:1240px;margin-inline:auto}
+.bar .mark{font-family:var(--f-display);font-style:italic;font-size:1.05rem;white-space:nowrap;text-decoration:none;color:var(--ink)}
+.bar .mark b{font-style:normal;font-family:var(--f-serif);font-weight:900;margin-left:.35em;font-size:.95rem}
+.bar .cur{flex:1;min-width:0;font-family:var(--f-serif);font-size:.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tools{display:flex;gap:.25rem;flex-wrap:nowrap}
+.tb{border:1px solid var(--rule);background:var(--sheet);border-radius:3px;padding:.28rem .55rem;font-size:.8rem;cursor:pointer;white-space:nowrap}
+.tb:hover{border-color:var(--accent);color:var(--accent)}
+.tb[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.prog{height:3px;background:transparent}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .15s linear}
+@media (max-width:640px){.bar .cur{display:none}.bar-in{justify-content:space-between}.tb.opt{display:none}.bar .mark i{display:none}}
+
+/* hero */
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:16px}
+.hero{padding-block:2.5rem 1.5rem;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end;border-bottom:2px solid var(--ink)}
+.mast{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.22em;font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+.mast strong{color:var(--ink);font-weight:700}
+.hero h1{font-family:var(--f-serif);font-weight:900;font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.05;margin:.6rem 0 .5rem;letter-spacing:.02em;text-wrap:balance}
+.hero h1 em{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:.42em;display:block;letter-spacing:0;color:var(--accent);margin-top:.35rem}
+.hero p.sub{font-family:var(--f-serif);font-size:1.05rem;max-width:38em;margin:0;color:var(--ink)}
+.cover{display:block;border:1px solid var(--rule);background:var(--sheet);padding:6px;cursor:zoom-in;width:150px}
+.cover img{display:block;width:100%;height:auto}
+.cover span{display:block;font-family:var(--f-mono);font-size:.68rem;color:var(--muted);text-align:center;margin-top:4px}
+@media (max-width:640px){.hero{grid-template-columns:minmax(0,1fr)}.cover{width:120px}.mast{letter-spacing:.12em}}
+.hero>div{min-width:0}
+
+/* migrations */
+.mig{min-width:0;padding-block:1.6rem 2rem;border-bottom:1px solid var(--rule)}
+.mig h2{font-family:var(--f-serif);font-size:1.1rem;margin:0 0 .2rem;font-weight:600}
+.mig .hint{font-size:.82rem;color:var(--muted);margin:0 0 .8rem}
+.migsvg{overflow-x:auto;max-width:100%}
+.migsvg svg{display:block;width:100%;min-width:620px;height:auto}
+.band{cursor:pointer}
+.band rect{transition:opacity .15s}
+.band:focus-visible{outline:none}
+.band:focus-visible rect.b,.band:hover rect.b{stroke:var(--ink);stroke-width:1.5}
+.migcard{margin-top:.8rem;display:grid;grid-template-columns:auto minmax(0,1fr);gap:.2rem 1rem;font-family:var(--f-serif);max-width:52em}
+.migcard .n{font-family:var(--f-display);font-size:2.4rem;line-height:1;color:var(--accent);grid-row:span 2}
+.migcard h3{margin:0;font-size:1.05rem}
+.migcard p{margin:0;font-size:.95rem}
+.migcard a{font-family:var(--f-sans);font-size:.82rem}
+
+/* reader */
+.reader{display:grid;grid-template-columns:250px minmax(0,1fr);gap:3rem;padding-block:2rem 4rem}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 4rem);align-self:start;max-height:calc(100vh - 5rem);overflow:auto;padding-right:.25rem}
+.rail h2{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--muted);margin:0 0 .6rem;font-weight:500}
+.toc{list-style:none;margin:0;padding:0}
+.toc .tg{font-size:.72rem;color:var(--ochre);letter-spacing:.08em;margin:1rem 0 .25rem;font-weight:700}
+.toc .tg:first-child{margin-top:0}
+.toc a{display:grid;grid-template-columns:minmax(0,1fr);text-decoration:none;color:var(--ink);padding:.35rem .5rem .35rem .7rem;border-left:2px solid var(--rule);line-height:1.35}
+.toc a:hover{border-left-color:var(--accent)}
+.toc a.on{border-left-color:var(--accent);background:var(--panel)}
+.toc .tk{display:none}
+.toc .tt{font-family:var(--f-serif);font-weight:600;font-size:.95rem}
+.toc .ta{font-size:.74rem;color:var(--muted)}
+@media (max-width:1000px){
+  .reader{grid-template-columns:minmax(0,1fr)}
+  .rail{position:fixed;inset:0 auto 0 0;width:min(320px,86vw);max-height:none;z-index:40;background:var(--sheet);padding:calc(env(safe-area-inset-top,0px) + 1.2rem) 1rem 2rem;transform:translateX(-102%);transition:transform .2s ease;border-right:1px solid var(--rule)}
+  .rail.open{transform:none}
+}
+.scrim{position:fixed;inset:0;background:var(--shade);z-index:35}
+
+.main{min-width:0;max-width:43em}
+.sec{padding-bottom:3rem;margin-bottom:3rem;border-bottom:1px solid var(--rule)}
+.sec:last-of-type{border-bottom:0}
+.sec-head .kicker{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1rem;align-items:baseline;font-size:.78rem;color:var(--ochre);font-weight:700;letter-spacing:.08em;border-top:2px solid var(--ink);padding-top:.5rem}
+.sec-head .pages{font-weight:400;color:var(--muted);letter-spacing:0;display:flex;flex-wrap:wrap;gap:.25rem;align-items:center}
+.sec-head h2{font-family:var(--f-serif);font-weight:900;font-size:clamp(1.9rem,4.2vw,2.7rem);line-height:1.2;margin:.7rem 0 .15rem;text-wrap:balance}
+.sec-head .en{font-family:var(--f-display);font-style:italic;font-size:1.15rem;color:var(--muted)}
+.sec-head .byline{font-size:.9rem;margin-top:.6rem;font-weight:500}
+.deck{font-family:var(--f-serif);font-size:1.08rem;line-height:1.75;color:var(--muted);border-left:3px solid var(--ochre);padding-left:1rem;margin:1.1rem 0 0}
+.prose{font-family:var(--f-serif);font-size:var(--fs);line-height:1.95;letter-spacing:.01em;margin-top:1.6rem}
+.prose p{margin:0 0 1.05em;text-align:justify;text-justify:inter-ideograph}
+.prose h3{font-family:var(--f-serif);font-weight:900;font-size:1.2em;margin:2em 0 .7em;display:flex;align-items:center;gap:.6rem}
+.prose h3::before{content:"";width:.9rem;height:2px;background:var(--accent)}
+.prose strong{font-weight:600}
+.prose ol{padding-left:1.4em;margin:0 0 1.05em}
+.prose li{margin-bottom:.4em}
+.prose blockquote{margin:1.4em 0;padding:.2em 0 .2em 1.1rem;border-left:1px solid var(--ink);font-size:.95em;color:var(--ink)}
+.prose blockquote p{margin-bottom:.55em}
+.box{background:var(--panel);padding:1.1rem 1.25rem .4rem;margin:1.8em 0;font-size:.94em;line-height:1.85}
+.box h4,.poem h4{font-family:var(--f-serif);font-weight:900;margin:0 0 .6rem;font-size:1.05em;letter-spacing:.04em}
+.poem{margin:2em 0;padding:1.2rem 1.25rem;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.poem .by{font-size:.85em;color:var(--muted);margin:-.4rem 0 .9rem;font-family:var(--f-sans)}
+.poem p{text-align:left;margin-bottom:1em}
+.fig{margin:1.6em 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:.9rem;align-items:start;font-family:var(--f-sans);font-size:.86rem;line-height:1.6;color:var(--muted)}
+.fig .thumb{padding:3px;border:1px solid var(--rule);background:var(--sheet);cursor:zoom-in;line-height:0}
+.fig .thumb img{width:64px;height:auto}
+.fig .thumb:hover{border-color:var(--accent)}
+.figtag{display:flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.08em;color:var(--ochre);font-weight:700;margin-bottom:.15rem}
+.pg{font-family:var(--f-mono);font-size:.72rem;border:1px solid var(--rule);background:var(--sheet);border-radius:2px;padding:0 .35rem;cursor:zoom-in;color:var(--accent);letter-spacing:0;font-weight:500;line-height:1.6}
+.pg:hover{border-color:var(--accent)}
+.term{all:unset;cursor:help;color:inherit;background:linear-gradient(transparent 62%,var(--ochre-wash) 62%);border-bottom:1px dotted var(--ochre)}
+.term:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* popover */
+.pop{position:absolute;z-index:45;width:min(330px,calc(100vw - 32px));background:var(--sheet);border:1px solid var(--ink);padding:.85rem 1rem;box-shadow:0 10px 30px rgba(0,0,0,.18);font-size:.88rem;line-height:1.7}
+.pop b{font-family:var(--f-serif);font-size:1.02rem}
+.pop i{display:block;font-family:var(--f-display);color:var(--muted);font-size:.9rem;margin-bottom:.35rem}
+.pop .more{display:block;margin-top:.5rem;font-size:.78rem;background:none;border:0;padding:0;color:var(--accent);cursor:pointer;text-decoration:underline}
+
+/* drawers */
+.drawer{position:fixed;inset:0 0 0 auto;width:min(420px,92vw);background:var(--sheet);z-index:40;border-left:1px solid var(--rule);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 1.2rem) 1.2rem 2rem}
+.drawer h2{font-family:var(--f-serif);font-weight:900;margin:0 0 1rem;font-size:1.3rem;display:flex;justify-content:space-between;align-items:center}
+.gi{padding:.7rem 0;border-top:1px solid var(--rule)}
+.gi dt{font-family:var(--f-serif);font-weight:600}
+.gi dt span{display:block;font-family:var(--f-display);font-style:italic;font-weight:400;color:var(--muted);font-size:.9rem}
+.gi dd{margin:.3rem 0 0;font-size:.88rem;color:var(--ink)}
+.gi.hl{background:var(--ochre-wash)}
+
+/* light table */
+.lt{position:fixed;inset:0;z-index:50;background:var(--shade);display:flex;flex-direction:column}
+.lt-top{display:flex;align-items:center;gap:.5rem;padding:calc(env(safe-area-inset-top,0px) + .6rem) 16px .6rem;background:var(--sheet);border-bottom:1px solid var(--rule)}
+.lt-top .lab{flex:1;min-width:0;font-family:var(--f-mono);font-size:.82rem}
+.lt-top select{font:inherit;font-size:.8rem;background:var(--paper);color:var(--ink);border:1px solid var(--rule);padding:.2rem}
+.lt-stage{flex:1;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:1rem 16px}
+.lt-stage img{max-width:min(100%,860px);height:auto;background:#fff;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.lt-strip{display:flex;gap:6px;overflow-x:auto;padding:.5rem 16px calc(env(safe-area-inset-bottom,0px) + .5rem);background:var(--sheet);border-top:1px solid var(--rule)}
+.lt-strip button{flex:none;padding:2px;border:1px solid var(--rule);background:var(--paper);cursor:pointer;line-height:0}
+.lt-strip button.on{border-color:var(--accent);outline:2px solid var(--accent)}
+.lt-strip img{width:38px;height:auto}
+
+/* about */
+.about{font-size:.88rem;color:var(--muted);line-height:1.8;max-width:43em}
+.about h2{font-family:var(--f-serif);color:var(--ink);font-size:1.15rem;margin:0 0 .5rem}
+.about ul{padding-left:1.2em;margin:.4rem 0}
+footer.wrap{padding-block:2rem 3rem;border-top:2px solid var(--ink);font-size:.8rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar">
+  <div class="bar-in">
+    <a class="mark" href="#top"><i>The Survey</i><b>區域計畫專號</b></a>
+    <div class="cur" id="cur" aria-live="polite"></div>
+    <div class="tools">
+      <button class="tb" id="btn-toc" type="button" aria-controls="rail">目次</button>
+      <button class="tb" id="btn-gloss" type="button">詞彙</button>
+      <button class="tb" id="btn-scan" type="button">原刊</button>
+      <button class="tb opt" id="btn-fs" type="button" title="切換字級">字級</button>
+      <button class="tb opt" id="btn-theme" type="button" title="切換深淺色">深淺</button>
+    </div>
+  </div>
+  <div class="prog"><i id="prog"></i></div>
+</div>
+
+<div class="wrap" id="top">
+  <header class="hero">
+    <div>
+      <div class="mast"><strong>The Survey · Graphic Number</strong><span>Volume LIV · No. 3</span><span>May 1, 1925</span></div>
+      <h1>區域計畫專號<em>The Regional Plan Number</em></h1>
+      <p class="sub">1925年5月1日，《Survey Graphic》把整期篇幅交給美國區域計畫協會。孟福、史坦、麥凱、萊特、艾克曼、蔡斯等人在這裡第一次完整陳述「區域社群」的構想。以下是全期正文、圖說、側欄、社論與書評的繁體中文全譯。</p>
+    </div>
+    <button class="cover" type="button" data-page="1" aria-label="檢視原刊封面頁"><img src="pages/t01.jpg" alt="1925年5月號 Survey Graphic 首頁掃描" width="180" height="259"><span>原刊 p.129</span></button>
+  </header>
+
+  <section class="mig" aria-labelledby="mig-h">
+    <h2 id="mig-h">四次遷徙：本期的歷史框架</h2>
+    <p class="hint">點選色帶，看孟福如何把美國史讀成四波人口潮。年代依原刊插圖所標。</p>
+    <div class="migsvg" id="migsvg"></div>
+    <div class="migcard" id="migcard"></div>
+  </section>
+</div>
+
+<div class="wrap reader">
+  <nav class="rail" id="rail" aria-label="本期目次">
+    <h2>Contents · 目次</h2>
+    <ul class="toc" id="toc">
+<li class="tg">卷首</li>
+<li><a href="#regional-community" data-sec="regional-community"><span class="tk">卷首語</span><span class="tt">區域社群</span><span class="ta">編者</span></a></li>
+<li class="tg">流動的路線</li>
+<li><a href="#fourth-migration" data-sec="fourth-migration"><span class="tk">專文</span><span class="tt">第四次遷徙</span><span class="ta">劉易斯．孟福（Lewis Mumford）</span></a></li>
+<li class="tg">評估大城市</li>
+<li><a href="#dinosaur-cities" data-sec="dinosaur-cities"><span class="tk">專文</span><span class="tt">恐龍城市</span><span class="ta">克拉倫斯．史坦（Clarence S. Stein）</span></a></li>
+<li><a href="#new-york-today" data-sec="new-york-today"><span class="tk">圖表專頁</span><span class="tt">紐約的今日——與明日？</span><span class="ta">羅素．塞奇基金會研究</span></a></li>
+<li><a href="#our-stake" data-sec="our-stake"><span class="tk">專文</span><span class="tt">我們在壅塞中的利害</span><span class="ta">費德里克．L．艾克曼（Frederick L. Ackerman）</span></a></li>
+<li><a href="#coals-to-newcastle" data-sec="coals-to-newcastle"><span class="tk">專文</span><span class="tt">運煤到紐卡索</span><span class="ta">史都華．蔡斯（Stuart Chase）</span></a></li>
+<li class="tg">區域社群的新格局</li>
+<li><a href="#elements" data-sec="elements"><span class="tk">圖版</span><span class="tt">區域的元素</span><span class="ta">勞夫．M．皮爾森（Ralph M. Pearson）原版蝕刻</span></a></li>
+<li><a href="#regions-to-live-in" data-sec="regions-to-live-in"><span class="tk">專文</span><span class="tt">區域——為了安居</span><span class="ta">劉易斯．孟福（Lewis Mumford）</span></a></li>
+<li><a href="#new-exploration" data-sec="new-exploration"><span class="tk">專文</span><span class="tt">新探險</span><span class="ta">班頓．麥凱（Benton MacKaye）</span></a></li>
+<li><a href="#seeing-a-state-whole" data-sec="seeing-a-state-whole"><span class="tk">專文＋圖解</span><span class="tt">整體地看待一個州</span><span class="ta">艾佛瑞德．E．史密斯（Alfred E. Smith），紐約州州長</span></a></li>
+<li><a href="#giant-power" data-sec="giant-power"><span class="tk">專文</span><span class="tt">巨型電力——區域的建造者</span><span class="ta">羅伯．W．布魯爾（Robert W. Bruère）</span></a></li>
+<li><a href="#road-to-good-houses" data-sec="road-to-good-houses"><span class="tk">專文</span><span class="tt">通往好住宅之路</span><span class="ta">亨利．萊特（Henry Wright）</span></a></li>
+<li><a href="#new-towns-for-old" data-sec="new-towns-for-old"><span class="tk">專文（上、下篇）</span><span class="tt">以新城換舊城</span><span class="ta">C. B. 柏登（C. B. Purdom）；亞歷山大．M．賓（Alexander M. Bing）</span></a></li>
+<li><a href="#two-generation" data-sec="two-generation"><span class="tk">專文</span><span class="tt">兩代社區</span><span class="ta">約瑟夫．K．哈特（Joseph K. Hart）</span></a></li>
+<li class="tg">社論與書評</li>
+<li><a href="#editorials" data-sec="editorials"><span class="tk">社論</span><span class="tt">社論</span><span class="ta">編者</span></a></li>
+<li><a href="#letters-and-life" data-sec="letters-and-life"><span class="tk">書評欄</span><span class="tt">書信與生活</span><span class="ta">李昂．惠普（Leon Whipple）主編</span></a></li>
+    </ul>
+  </nav>
+  <main class="main" id="main">
+<article class="sec" id="regional-community" data-sec="regional-community">
+<header class="sec-head">
+  <div class="kicker"><span>卷首語</span><span class="pages">原刊 <button class="pg" type="button" data-page="1" aria-label="檢視原刊第 129 頁">p.129</button></span></div>
+  <h2>區域社群</h2>
+  <div class="en">The Regional Community</div>
+  <div class="byline">編者</div>
+  
+</header>
+<div class="prose">
+<p>這是《Survey Graphic》的「<button type="button" class="term" data-g="0">區域計畫</button>專號」。它的核心構想，得自一位留著長鬍子的蘇格蘭人——他的好奇心讓他不得安寧，直到他從愛丁堡的「瞭望塔」（Outlook Tower）上，穿透文明的紛擾喧囂，看清了那片支撐文明、並且不管人類如何笨手笨腳、終究支配著文明的土地。</p>
+<p>這一期由一群「叛逆者」執筆。他們身為建築師與規劃者、建造者與改造者，曾試圖以傳統方法重塑城市，卻發現那是一場薛西弗斯式的徒勞，於是大膽地把信念押在「區域」（Region）這個新概念上。他們當中，有人住在布魯克林的公寓裡，懷著鄉愁書寫康乃狄克的村莊；有人把最好的時光拿去伐木、開闢山徑；有人是在城市荒野中呼喊的先知，心卻繫在日漸凋敝的鄉間小鎮。參與形塑、編成這一期的人當中，有一位男士緊守著廉價公寓群之間一小塊公共綠地；有一位女士每天兩次在悶熱中穿越曼哈頓全長的地底；還有一位男士每天花三個小時，往返於他的辦公桌與一棵海棠樹之間。總而言之，這期區域計畫專號出自一群人之手——他們不願在城市或鄉村裡過著殘缺不全的生活，也拒絕承認文明必須永遠要求他們，為了讓「謀生的手段」與「生活的方式」兩相調和，而做出今日不得不做的犧牲。成千上萬與他們同樣不適、也懷抱同樣希望的人，將會讀到這一期。</p>
+<p>因為，光是痛斥大城市作為居住之地的明顯缺陷，或是靠著城市規劃者耗費大半心力的修修補補、拉直街道來暫時緩解，是不夠的。在城市的廣告看板上貼滿「擁有自己的家」（Own Your Own Home）的熱切呼籲，也是不夠的。「回歸土地」運動既沒有正視威脅我國農業社區的漸進性癱瘓，也沒有面對郊區的尷尬處境——郊區往往只是沙堆上的城堡，遲早會被城市壅塞的漲潮吞沒。劉易斯．孟福（Lewis Mumford）在《木與石》（Sticks and Stones）一書中，為真正的進步提供了線索：</p>
+<blockquote><p>看見城市與鄉村的相互依存；體認到其中一方的成長與集中，伴隨著另一方的耗竭與貧困；領會到兩者之間存在著一種公正而和諧的平衡——這正是我們所欠缺的能力。在我看來，在我們能夠於任何尺度上好好建設之前，我們必須先發展出一門「區域計畫」的藝術，一門以新的格局來連結城市與鄉野的藝術，有別於產業拓荒者與土地拓荒者盲目造就的舊格局。</p></blockquote>
+<p>在此，《The Survey》將篇幅開放給<button type="button" class="term" data-g="10">美國區域計畫協會</button>（Regional Planning Association of America）。這些先驅規劃者觀察了人口的流向，衡量了其變動潮流中蘊含的前景。（因此，這一期——就像一個區域一樣，自有其計畫——以這些流動路線的速寫開篇。）他們探查了我們如此漫不經心地視為文明頂峰的大城市的表層之下，發現其根基正在崩解。（因此，本期接著刊出一組文章，評估城市的表現、它的心理狀態，以及伴隨而來的交通亂象。）接著，他們以技術上的精確，研究了電力、產業分布、住宅與遊憩，以及自然資源與人類用途之間相互咬合的新格局之可能性。他們從資料中歸納，以本期大部分篇幅，逐面呈現一種新的人類環境——「<button type="button" class="term" data-g="1">區域社群</button>」（the regional community）。他們為它下定義；他們指出，紐約州（設有區域計畫委員會）與賓夕法尼亞州（設有<button type="button" class="term" data-g="4">巨型電力</button>調查委員會）已朝著這個目標前進；他們把它描繪成一個家園更令人滿足的地方，一個今日的孩子與他們明日的孩子都能找到更豐富生活的地方。</p>
+<p>因此，這是第一次以雜誌形式，完整陳述一套「使大量人口與土地建立關聯」的新計畫。這套計畫可上溯至<button type="button" class="term" data-g="9">派翠克．格迪斯</button>（Patrick Geddes）雄健的「地理技術學」（geotechnics）——整個夏天，我們將刊出這位城市先知執筆的一系列精采文章。這套計畫在精神與實踐上，都與英國的<button type="button" class="term" data-g="3">田園城市</button>緊密相連；田園城市的創始人埃比尼澤．霍華德（Ebenezer Howard），正是紐約「城鎮、城市與區域計畫會議」的代表之一。戰後，《美國建築師學會期刊》（Journal of the American Institute of Architects）屢次討論這套計畫；它也凝聚了散布在許多城市的規劃者共同的希望。在此，我們把它的大致輪廓重新寫下，價值幾何，留待讀者評斷——它必然是試探性的，與其說是描述，不如說是預言，卻充滿令人振奮的希望。</p>
+</div>
+</article>
+<article class="sec" id="fourth-migration" data-sec="fourth-migration">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="2" aria-label="檢視原刊第 130 頁">p.130</button><button class="pg" type="button" data-page="3" aria-label="檢視原刊第 131 頁">p.131</button><button class="pg" type="button" data-page="4" aria-label="檢視原刊第 132 頁">p.132</button><button class="pg" type="button" data-page="5" aria-label="檢視原刊第 133 頁">p.133</button></span></div>
+  <h2>第四次遷徙</h2>
+  <div class="en">The Fourth Migration</div>
+  <div class="byline">劉易斯．孟福（Lewis Mumford）</div>
+  
+</header>
+<div class="prose">
+<p>在流動的時代，人們有機會重塑自己與自己的制度。過去席捲歐洲的大遷徙；越過歐洲水域疆界、爬行穿越令人生畏的美洲荒野的遷徙——這些解開一切舊有束縛的人口巨潮，都曾帶來這樣的機會。在我們當中一些人看來，美國正處在另一場這樣的人口潮汐運動之中——為了方便起見，我們稱之為「<button type="button" class="term" data-g="2">第四次遷徙</button>」。</p>
+<p>從歷史上看，有兩個美國：拓殖定居的美國，以及遷徙的美國。第一個美國，由十七、十八世紀在沿海及沿河谷上溯所建立的社區所構成。到了1850年，這些社區已臻於發展的頂峰；它們憑藉水車、磨坊與農場，充分運用區域資源，發展出完備的工業與農業生活；它們也創造了那種精緻的地方文化——其樸素的載體是學校、大學、講習會與教會——這種文化在莫特利（Motley）、普雷斯科特（Prescott）、帕克曼（Parkman）與馬許（Marsh）的學術，以及愛默生、梭羅、梅爾維爾、惠特曼與愛倫．坡的文學中，達到全盛的綻放。</p>
+<p>第二個美國是遷徙的美國：第一次遷徙開墾了阿勒格尼山脈以西的土地、打開了這片大陸，是土地拓荒者的成就；第二次遷徙在這片織物上編出工廠、鐵路與灰暗工業城鎮的新圖案，是產業拓荒者留下的遺產；最後——這就把我們帶到當前——是第三次遷徙的美國，人與物資湧入金融中心，在那些城市裡，建築與利潤以狂亂的金字塔形態向上竄升。這三次遷徙覆蓋了整片大陸，編織出它現今的骨架；而我們為增進社會福祉、為「使彎曲的城市變直」、為有效率地經營產業所做的努力，大多建立在一個觀念之上：認為這副骨架已經完成、令人滿意——而且是最終定局。</p>
+<p>但美國的模子尚未定型：我們再次處於另一個流動時期，就像過去的流動一樣，它由新的工業方法、新的需求與必需品，以及新的生活理想所引發；擺在我們面前的，是一場偉大的冒險——找出一種新的格局，使第四次遷徙能為整片大陸帶來當年從地方拓殖中生長出來的那種穩定、均衡、安居而有教養的生活。我們可以依照近代主導的力量來調整計畫，從而阻礙這場潮汐變遷、白白斷送它潛在的好處；也可以依照一個更理想的未來來重塑計畫、引導行動。這個抉擇深及社會哲學的根本。約翰．杜威（John Dewey）已含蓄地警告過我們第一種態度的謬誤：在處理屬於未來的社會事實時，我們的假設與工作計畫，本身就是決定結果的要素之一。本期刊出的這一組文章，揭示了一組新的事實，並提出一組新的選項——它們並非要創造第四次遷徙（它早已展開），而是要將它導入積極而豐碩的渠道。</p>
+<p>為了以適當的視角看待第四次遷徙，讓我們簡略回顧三次人口大移動——歐洲每個文明在其歷史上某個時期都經歷過這三種移動。在美國，這段經驗被擠壓在短短一百多年之內；而這三次移動具有某些特殊性格，在我們的地景與生活上留下了印記。</p>
+<h3>第一次遷徙</h3>
+<p>第一次遷徙是對大陸的開墾，其象徵是篷車。獨立戰爭之前，美國實際上只是歐洲的邊緣：這裡是一座聖經式的「逃城」，那裡是一處罪犯流放地，另一處則是一個實驗性的社會。戰爭結束後，殖民者發現自己被一股前所未有的衝動所驅使——要佔有整片大陸；拓荒者的歷史，就是一群不安分的人的歷史：他們焚燒莫霍克河谷的森林來開闢農場，遷入俄亥俄鬆軟的冰河沉積土，好讓犁頭劃過那肥沃的土壤；他們搶下麥田、把地力榨乾，搶下城市用地、轉手「炒賣」；他們劃定鐵路路線，有時具有戰略眼光，如理海（Lehigh）鐵路，有時愚蠢至極，如伊利（Erie）鐵路，一場覆蓋大陸的瘋狂爭奪。</p>
+<p>從1790年到1890年——也就是最後一批良好的自由土地幾乎被處分殆盡的那段時期——這個國家的農民、伐木工與礦工，即使實際上不是，至少在象徵意義上是住在篷車裡的。聚集在礦場或火車站周圍的小社區，只是承蒙人口普查員的客氣才被稱為城鎮與村莊：它們缺乏共同生活的傳統資源——它們的遊戲、宗教復興聚會、知識刺激，全都極其粗糙。享樂從不妨礙早期拓荒者的「事業」，因為事業就是他的享樂。在拓荒時期的美國，「工作福音」根本不需要卡萊爾（Carlyle）來傳道。</p>
+<p>可以想像，第一次遷徙本來可以冷靜地進行：可以有一貫的優良地點勘查，試著依新來者所需的土地與社區類型加以引導分流，並努力確保穩定的農業與健全的資源開發。開發大陸的「必要性」大抵是虛構的：它很可能只是渴求土地的歐洲人的合理化說詞。所有這些更好的方法，或許都是可以想像的；但事實上它們並未發生；自1890年以來，我們一直在承受這場無秩序的第一次遷徙的後果：遭到屠戮的森林；荒廢或淪入毀滅性佃租制度的農場；貧瘠到把所有有抱負或敏感的年輕人都逼往大城的村莊。保育運動是一種遲來的努力，試圖修補第一次遷徙的弊害，並以尊重土地及其資源永續生產力的方式來使用它們。它的主要弱點在於，出於對我們濫用殘存資源的抗議，它傾向於消極，直到現在才開始為這些資源的適當社會使用與開發，發展出一套一貫的區域方案。當保育運動走出這種消極狀態，它就會與區域計畫的鄉村面向找到共同目標。不過這是後話。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="3" aria-label="放大原刊第 131 頁"><img src="pages/t03.jpg" alt="原刊第 131 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="3" aria-label="檢視原刊第 131 頁">p.131</button></span>第一次遷徙（1790–1890）：開墾土地，拓殖大陸。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="3" aria-label="放大原刊第 131 頁"><img src="pages/t03.jpg" alt="原刊第 131 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="3" aria-label="檢視原刊第 131 頁">p.131</button></span>第二次遷徙（1840–1910）：掏空自然與人力資源，造就了簡陋而混亂的工業區。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="3" aria-label="放大原刊第 131 頁"><img src="pages/t03.jpg" alt="原刊第 131 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="3" aria-label="檢視原刊第 131 頁">p.131</button></span>第三次遷徙（1870–？）：將人口聚集到紐約及十二座次級大都會。</figcaption></figure>
+<h3>第二次遷徙</h3>
+<p>美國的第二次人口大流動，是從鄉村與外國流向工廠城鎮；篷車讓位給鐵馬。直到1820年，人口主要集中在沿海與河川交匯處的貿易中心。隨著蒸汽動力的引進，工廠被設在動力最易取得之處（如賓夕法尼亞的磨坊鎮），或工人最易取得之處（如各港口）。1820年的克里夫蘭、1830年的哥倫布、1840年的芝加哥，加上南北戰爭期間工業擴張中所有工業城鎮的快速成長，生動地述說著人與製造業向西推進的故事。</p>
+<p>決定這股人口流向的條件，是狹隘的工業條件：城市只被當作工作與商業機會的場所。孩子需要遊戲與成長的機會；家庭需要像樣的住所、隱私與一些生活便利；學問與文化值得為其自身之故而受到鼓勵——這些事，太常被扶植新工業主義的人遺忘與漠視。結果大家都很熟悉，幾乎任何一個人口超過一萬、有勞動人口的城鎮都可以當作例子：住宅被工廠阻擋、擠壓；河川遭到污染；工廠與鐵路調車場搶佔了本應保留作為遊憩用地的地點；簡陋的住宅隨便蓋起、隨便出售、隨便住人。人口普查報告稱這種結果為繁榮，但那只是因為沒有人試著在私人利得與社會損失之間結算平衡。</p>
+<p>為了抵銷第二次遷徙造成的耗竭與破敗，一種特殊的「保育」被建立起來。住宅運動始於紐約，當時一群熱心公益的市民發現，罪惡、犯罪與疾病很大程度上是貧乏而壅塞的環境的副產品。城市計畫則來得更晚。與此同時，在每個工業中心，從施粥所到建築貸款協會，從社會睦鄰會館到就業服務處，各種補救機構一直努力——部分靠私人資金——提供工業城鎮成長擴張過程中被遺漏的生活與享受所需的設施。</p>
+<p>在某些方面，缺口大得驚人：1880年以前建立的大城鎮，幾乎沒有一個嘗試讓整個社區都住在具備最低限度體面的光線、空氣、庭院空間與遊戲場的住宅裡，更別提公園與通往開闊鄉野的途徑了；儘管大部分機械工業都受生產過剩所累——並靠著犧牲工人的週期性停工來恢復——卻要等到彼得．克魯泡特金（Peter Kropotkin）的提議與亨利．福特的技術創新，才真正讓人看到一種環境的前景：在其中，工業停工期可以靠某種維持生計的最低限度農業勞動來度過。簡言之，如果說第一次遷徙剝光了這個國家的自然資源，第二次遷徙就是無情地砍伐、漠視它的人力資源。這也是一段浪費機會的歷史。明明有一切重新開始的機會，美國的工業革命卻——如果忽略少數孤立的村莊——複製了歐洲工業主義的所有惡劣特徵。狄更斯筆下的焦炭鎮（Coketown），在匹茲堡、芝加哥、聖路易、紐華克、布里奇波特，或隨便你說的任何地方，一再複製。</p>
+<h3>第三次遷徙</h3>
+<p>第三次遷徙的磁石是金融中心。隨著美國產業體系的發展，生產努力退居金融指揮之後；在1880年代開始的大規模產業合併中，在1890年代銀行與保險設施的成長中，以及在本世紀起步、為爭取全國市場而發展的廣告業中，銷售與推廣部門直接或間接吸收了大部分人口。</p>
+<p>這些部門最大的集中，當然發生在紐約——它的海外聯繫使它處於特別具戰略性的位置；但在過去一個世代裡，類似的發展也出現在各區域的次級大都會，也就是目前名義人口超過五十萬、若把郊區計入則實際人口多半超過一百萬的那十二座城市。除了在很大程度上掌控全國新聞、銀行、保險與廣告業的紐約，以及在中西部扮演類似角色的芝加哥之外，這些次級大都會——看一眼它們的位置就會明白——其實都是區域中心，其自然成長因為這些特殊的金融機會而得到額外刺激。</p>
+<p>第三次遷徙導致貨物、人口與金錢資源從早期遷徙所形成的工業城鎮與村莊持續流失；伴隨而來的，是新的次級大都會取得了國內其他地方所欠缺、或遲遲才得到的文化資源。美術館、圖書館、大學、研究機構與劇院，起初被沿海的老城市所壟斷；次級大都會以其原本的工業基礎，費了極大的力氣，才開始拉平紐約的金融優勢。就現況而言，在許多領域裡，不去紐約或波士頓、費城或芝加哥，就無法做一流的學術研究；同理，紐約壟斷了劇院，再把巡迴劇團派往全國其他地方，就像財主（Dives）把餐桌上的碎屑撒給旁人一樣。</p>
+<p>談到第三次遷徙的缺點時，重要的是要區分這次遷徙的經濟基礎與它的文化副產品。我們不但不應期待區域文化中心的成長停止，反而或許應該預期，一旦過度集中的社會與經濟弊端被消除，它會更加成長。</p>
+<p>關於前三次遷徙，有兩點值得注意。第一，人口移動並不是從農村到工業城鎮、再到金融大都會這樣的單線進程：遷徙其實是一波接一波的浪潮，當一波退去、下一波翻湧而來時，前一波仍持續存在，並作為底流與後一波交融。目前流向果樹栽培區與旱作農業區的遷徙，或流向排乾沼澤地的新遷徙，標誌著第一次遷徙的延續。每次遷徙都代表一種特定類型的經濟與社會活動：丹尼爾．布恩（Daniel Boone）所追求的生活，與華爾街經紀人或廣告人所嚮往的生活截然不同。第一次遷徙追求土地；第二次追求工業生產；第三次追求金融指揮與文化；但事實上，一個穩定而全面的社區，這每一種活動與職業都不可或缺。我們只是在零星之處、斷斷續續地嘗試過明智地利用土地，使產業與電力、資源與市場相聯繫，並為整個社區提供足夠的「人的設施」（human plant）。實現這種結合，正是第四次遷徙的任務。</p>
+<h3>第四次遷徙的基礎</h3>
+<p>那麼，第四次遷徙的基礎是什麼？它的基礎是過去三十年間發生的技術革命——這場革命使現有的城市佈局與人口分布，與我們的新機會格格不入。第一項變化發生在交通運輸上：鐵路已不再是唯一的快速運輸工具。汽車把貨物與市場連結起來，不是像鐵路那樣線狀地，而是面狀地；於是大片鐵路觸及不到的土地，汽車都到得了。連鎖商店很快就掌握了以這種方式涵蓋地區的好處；巡迴於小村小鎮之間的貨車，收走當期多餘的雞蛋與奶油，運往地方市場以外的地區配銷。</p>
+<p>同樣地，汽車擴大了學校與圖書館服務的半徑，也為一種直銷體系提供了基礎——可惜這種體系目前只存在於避暑社區，但倘若避暑社區能變成常住社區，它就能成為全年供應牛奶、雞蛋、奶油、家禽與園藝蔬果的基礎。在美國許多地方，避暑社區已為農民提供了遙遠的大都會市場未能保證的穩定收入。此外，鐵路傾向於把人口集中在沿線附近；有些以鐵路時代的思維思考的城市規劃者，期待人口沿著這些路線在沿海與湖區完全集中。鐵路公司本身也盡其所能促進這種集中，補貼大量通勤人口，以增加非通勤的運量。</p>
+<p>請注意汽車帶來的截然不同的發展型態。汽車道路的維護並不依賴人口集中；事實上，汽車公路系統與其集中於幹道或主線，不如分散交通負荷與稅負，才能保持最佳狀態——一方面避免過度磨損，另一方面避免實際上閒置不用。換言之，汽車的傾向在一定限度內是分散人口而非集中人口；任何主張把人口集中在「大城市」地區的方案，都是盲目地與汽車所開啟的機會背道而馳。飛機究竟會產生離心作用還是向心作用，目前還很難說：眼下交通量很小，航空傾向於發展空中航線；但如果交通量增加，一個比汽車更不受線性移動拘束的空中網絡，至少是可能出現的。</p>
+<p>影響人口新佈局的第二個因素，是我們新的通訊手段。產業與社會生活向都市集中的趨勢，始於電話出現之前，那時一切個人接觸都必須當面進行。如今，這個「當面」可以是一大片地區內的任何一點——理論上是整個美國，實務上則是十分錢通話區——而接觸仍然可以是有效且個人化的。在某些行業，買賣雙方的議價仍很密切，面對面會晤是必要的；但這比較關乎生產的業務端，而非工廠端；許多目前位於芝加哥、聖路易或費城外圍的工廠，即使產品的最終市場是集中的，設在一個廣大得多的區域內的任何一點，也能同樣成功。電報在象徵意義上跟隨著鐵路；電話，以同樣的象徵意義，跟隨著汽車公路。業務面的通訊就說到這裡。</p>
+<p>在社會面，收音機的普及讓集中變得更加過時。今天，那些過去必須長途跋涉、坐進會堂才能聽到的歌曲、新聞、閒話與演講，愈來愈成為任何擁有一台收音機的人的財產；偏遠的鄉下人，與許多人視為大城市不可或缺之好處的各種活動與娛樂之間的距離，就和布朗克斯的公寓住戶或費城那些「兔籠」住戶一樣近。換言之，收音機潛在地是一種分散、去中心化的媒介。最後，包裹郵遞讓那些請郵差到家門口收件的鄉村居民，比必須走到郵局寄包裹的城市居民，離市場或鄰居更近。事實上，我們的現代運輸方法，已經把許多我們引以為傲的大都會優勢降為零。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="5" aria-label="放大原刊第 133 頁"><img src="pages/t05.jpg" alt="原刊第 133 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="5" aria-label="檢視原刊第 133 頁">p.133</button></span>插畫：弗瑞德．達納．馬許（Fred Dana Marsh）作，克里夫蘭。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="5" aria-label="放大原刊第 133 頁"><img src="pages/t05.jpg" alt="原刊第 133 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="5" aria-label="檢視原刊第 133 頁">p.133</button></span>插畫：承蒙雅登工作室（Arden Studios）提供。</figcaption></figure>
+<p>最後，電力輸送在其最新階段，可以把能源送到廣大地區而不致過度損耗；在這裡，產業同樣不再被拴在鐵路及其運煤之上，它可以離開鐵路地帶，而不必離開電力地帶。在有水力可用的地方，工廠的區位可以與舊技術毫無關係。此外，為了電力的經濟配送，工程師們發現，最好在同一地區內有均衡的負載，也就是同時有白天的（工業）用電與夜間的（家庭）用電；因為當這兩種類型分開時，供應白天城市的設備，到了夜間大多閒置。</p>
+<p>不用說，這一切都意味著：我們的現代電力設施，既受惠於人口的廣泛分布，也有利於人口的廣泛分布。三百英里的輸電帶，加上汽車公路，已使以煤炭和鐵路為核心的中心成了過時的工業地點。在現代技術下，產業選擇區位的範圍比以往任何時候都寬廣得多。如果它不行使這種選擇，它在親密、面對面的營運效率與人員效率上就會有所損失。到目前為止，它幾乎還沒開始行使這種選擇——部分是因為習慣與商業經營的慣性把它綁在舊中心；部分是因為它還沒注意到自己可能獲得的好處；最後則是因為它的任何遷移，都必然牽涉工人的住宅與市政服務的提供。偶爾有個別工廠或鋼鐵廠做過嘗試；但產業整體並沒有。把所有這些因素同時發展起來，作為第四次遷徙的技術之一環，正是區域計畫的任務。</p>
+<p>如今，第三次遷徙並沒有造就良好的環境：它為了追求以利潤最大化為目標的商業經營，犧牲了家庭、健康與幸福。那些最狂熱地專注於商業效率的中心，距離擁有適足的住宅，以及使一個社區發展完備的所有附屬機構，也最遙遠。那些只關心商業經營的力量，從不錯過任何機會強調延續第三次遷徙的必要；而附和它的城市規劃者，則為愈來愈巨大的都市區域的聚集做規劃。這種方法與態度把太多事情視為理所當然；它們固然有循著阻力最小路線前進的巨大優勢，卻太容易忽略那些足以改變這條路線方向的新方法與新程序的意義。</p>
+<p>總而言之，顯而易見的是，每一次人口大移動都帶來新的機會與新的任務，而智慧就在於趁著移動仍在流動之際善加利用。幸運的是，第四次遷徙才剛開始：我們可以任由它結晶成一個與早期遷徙同樣糟糕的形態，也可以把它導入新的渠道，善加利用。指出這些新渠道是什麼，說明我們多麼有必要把它們開掘出來，並指出只要我們準備好掌握命運、重新塑造它，未來可能為我們帶來多少——這正是本期諸文的目的。即使地平線上並沒有第四次遷徙，我們也有必要發明一個。它至少是一個比我們目前盲目追隨的任何假設都更有成果的假設！</p>
+</div>
+</article>
+<article class="sec" id="dinosaur-cities" data-sec="dinosaur-cities">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="6" aria-label="檢視原刊第 134 頁">p.134</button><button class="pg" type="button" data-page="7" aria-label="檢視原刊第 135 頁">p.135</button><button class="pg" type="button" data-page="8" aria-label="檢視原刊第 136 頁">p.136</button><button class="pg" type="button" data-page="9" aria-label="檢視原刊第 137 頁">p.137</button><button class="pg" type="button" data-page="10" aria-label="檢視原刊第 138 頁">p.138</button></span></div>
+  <h2>恐龍城市</h2>
+  <div class="en">Dinosaur Cities</div>
+  <div class="byline">克拉倫斯．史坦（Clarence S. Stein）</div>
+  <p class="deck">我們誇耀那些由三次遷徙所催生的大城市，眼看它們愈長愈大便搓手稱快。然而就在我們誇耀之際，它們正像恐龍一樣走向衰敗；它們太大了，而我們為自己對宏偉的幻覺付出了高昂代價。</p>
+</header>
+<div class="prose">
+<figure class="fig"><button class="thumb" type="button" data-page="6" aria-label="放大原刊第 134 頁"><img src="pages/t06.jpg" alt="原刊第 134 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="6" aria-label="檢視原刊第 134 頁">p.134</button></span>芝加哥。費爾柴爾德航空測量公司（Fairchild Aerial Surveys, Inc.）攝。</figcaption></figure>
+<p>我們大多數人看待大城市，就像在做夢。它是我們一切可能抱負的總和。如畫的天際線、巨大的高塔、浪漫的美！人群在燈火通明的街道上搖曳著追逐歡樂；閃爍的燈光、起舞的腳步，還有帶著羅馬、巴黎、維也納、北京或倫敦風味的美食。這與「地鼠草原鎮」（Gopher Prairie）的婦女聯誼會相去何止千里！珍本藏書的圖書館、浩大的博物館與大學、大歌劇院與音樂廳——文化之城！</p>
+<p>我們的夢並不止於此；它也有實際的一面。我們看見成功的律師、工程師、廣告人，坐在寬大的桃花心木辦公桌後，有秘書護著、墊著，或者疾馳前往高爾夫球場與鄉間莊園——充滿大好機會的城市！芝加哥與紐約，或至少費城、波士頓、聖路易與洛杉磯，就躺在那條蜿蜒通往我們夢土的漫漫長路的盡頭。即使我們留在家鄉，我們的目標也是要讓家鄉長得夠快，好讓我們與這些城市平起平坐。</p>
+<p>把白晝的嚴酷現實擺在這些夢中城市旁邊，是殘忍的。但我們這些住在大城市裡的人，大多遲早會醒來，發現自己一直在追逐一個泡沫，而生活中許多真正的機會已從指縫間溜走。因為我們夢中的城市，迷失在另一座城市裡——一座清醒的頭腦只有在惡夢中才會想到的城市。那些撐大了人口普查數字的廣大群眾，正是在這第二座城市裡生活、工作、結婚與死去。</p>
+<p>整體地看看這座大城市吧：混濁的車流阻塞街道與大道；緩慢移動的人群擠上電車、高架鐵路、地下鐵，雙臂被夾在身側，像牛隻一樣被推擠塞進氣味難聞的車廂，身體交纏混雜——若非窒息與不適像某種反刺激劑般抵銷了一切，這簡直不堪入目。看看東城區、長島市、屠宰場一帶、「駝峰區」（the Hump），或隨你挑哪裡的陰暗貧民窟：曼哈頓下城那些陰暗不衛生的廉價公寓（有些屬於世上最糟之列），與西費城所提供的那種灰撲撲、勉強維持體面的最低標準之間，實在沒什麼好選的。對於在我們的大都市地區日復一日過著例行生活的數百萬男女而言，藝術、文學、文化或金融機會，在他們的生活中扮演什麼角色？夢中之城離他們，就跟離俄亥俄州溫斯堡（Winesburg）的居民一樣遙遠。</p>
+<p>大城市把一切都給了少數人；給數百萬人的，卻一年比一年少。儘管有衛生法規、廉價公寓法以及其他各種都市改革，過去一個世代裡，紐約人過上體面生活的前景已明顯惡化。而不幸的是，紐約正代表著我們所有較大的中心城市竭盡全力追求的目標。因此，我打算更詳細地檢視紐約的困境，並且追問：為什麼要大城市？我們往大城市投入了什麼，又從中得到了什麼？我們還能承受大型壅塞中心所特有的壓力與困難多久？如果所有這些努力終將導致同樣的困難，那麼為其他大型中心的人口增長做規劃，又有什麼特別的前景可言？大城市仍是我們正當慾望的目標嗎？抑或它是一頭怪物，一隻臃腫的蜘蛛，把我們誘入網中，只為了吞噬我們？</p>
+<h3>一連串的崩潰</h3>
+<p>如果我們追隨最大的城市——紐約——看它在成長過程中經歷的一連串崩潰，就能更清楚地理解大城市整體的當前困境。</p>
+<p>從歷史上看，大都會的第一次大崩潰發生在住宅。人口湧入不斷成長的紐約港，早在1835年就造成了住宅短缺與一片貧民窟。那裡的情況悲慘到引起了衛生局長的注意；1842年的《住宅狀況報告》，是後來一長串處理住宅問題的報告中的第一份。可以肯定地說，紐約從未趕上它最初的短缺。如今，曼哈頓一半的人口住在低於1901年廉價公寓法所訂防火與衛生標準的住所裡：這些廉價公寓之所以是非技術工人負擔得起的，正是因為它們沒有自來水、暖氣設備與衛生設施——而這些是今日安全住所的最低標準。那麼新法規下興建的房子呢？新的廉價公寓符合衛生與通風的最低標準；但它們的價格卻是三分之二人口負擔不起的；而它們陰冷的天井、刷白的牆壁、單調的街道、偶爾才見得到的陽光，距離能讓母親與孩子茁壯成長的那種環境，仍然相去甚遠。珍．亞當斯（Jane Addams）早就讓我們看到，當「城市街頭的青春精神」被剝奪了宣洩精力與生命熱情的正常出口時會發生什麼事：但這些陰冷而過度擁擠的家，又能給青春期的少男少女什麼呢？</p>
+<figure class="fig"><button class="thumb" type="button" data-page="7" aria-label="放大原刊第 135 頁"><img src="pages/t07.jpg" alt="原刊第 135 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="7" aria-label="檢視原刊第 135 頁">p.135</button></span>今日：紐約的峽谷街道。安德伍德（Underwood and Underwood）攝。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="7" aria-label="放大原刊第 135 頁"><img src="pages/t07.jpg" alt="原刊第 135 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="7" aria-label="檢視原刊第 135 頁">p.135</button></span>明日：無窗之城？R. C. 魏森伯恩（R. C. Weisenborn）繪。</figcaption></figure>
+<p>在大城市裡，壅塞是如此正常的過程，而體面的住所又需要對投機營建商的利潤加以如此大的限制，以致於即使在城市邊緣、地價仍相對低廉之處，蓋起來的也是四、五層樓的廉價公寓。膚淺的觀察者談起這場住宅崩潰，彷彿那是戰爭的產物。恰恰相反，過去一百年來，每座大城市——倫敦、巴黎、柏林，以及美國的城市——都累積著一種慢性的短缺。在大城市裡，體面的住所不夠分配；而即使是體面的住所，也不夠好。這就是住宅崩潰的全部實質。在住宅危機最尖銳的階段，紐約州的較小中心並不像大城市那樣深切感受到短缺。我們幾乎可以把這件事寫成數學公式：城市越大，解決住宅問題的機會就越渺茫。當然，這並不是無視一個事實：在小城市、甚至村莊裡，壅塞以外的其他原因也相當常造成住宅困難。</p>
+<p>大城市的第二次崩潰發生在它的供水系統與下水道。1842年，紐約被迫向後延伸到克羅頓（Croton）集水區，以取得足夠的清潔用水；到本世紀初，短缺的威脅迫在眉睫，於是規劃了一套新系統，在卡茨基爾山（Catskills）與阿第倫達克山（Adirondacks）設置水庫。就算大城市的乾渴並非無法滿足，它成長的傾向至少絲毫未減：結果，再建更多輸水道的必要性已被認定。這個過程只有在兩種情況下才會終止：要嘛現有地區被抽乾，要嘛每人平均的輸水管成本高到讓水變成奢侈品——以不經濟的價格供應，理由與古羅馬提供麵包、表演與浴場相同，就是為了讓民眾滿足。藉由不斷向更遠處尋找新水源，紐約市實實在在地從其他依賴就近水源的社區，抽走了一項不可或缺的資源。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="8" aria-label="放大原刊第 136 頁"><img src="pages/t08.jpg" alt="原刊第 136 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="8" aria-label="檢視原刊第 136 頁">p.136</button></span>紐約的天際線，雕塑家桃樂絲．萊斯（Dorothy Rice）構想的幻想圖。承蒙 Ehrich Galleries 提供。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="8" aria-label="放大原刊第 136 頁"><img src="pages/t08.jpg" alt="原刊第 136 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="8" aria-label="檢視原刊第 136 頁">p.136</button></span>天際線背後。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="8" aria-label="放大原刊第 136 頁"><img src="pages/t08.jpg" alt="原刊第 136 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="8" aria-label="檢視原刊第 136 頁">p.136</button></span>「喔，總會有辦法過下去的！」承蒙《克里夫蘭誠實商人報》（Cleveland Plain Dealer）提供。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="8" aria-label="放大原刊第 136 頁"><img src="pages/t08.jpg" alt="原刊第 136 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="8" aria-label="檢視原刊第 136 頁">p.136</button></span>黑暗森林。承蒙《紐約世界報》（New York World）提供。</figcaption></figure>
+<p>污水壅塞則造成另一種損失與災難。芝加哥在處理污水上遭遇的困難是出了名的。根據奧爾巴尼聯合立法委員會的最新報告，污水在哈德遜河、東河與港區的擴散，不僅毀掉了游泳的機會、使北河的西鯡（shad）實際上絕跡；它還使這座城市失去了80%的貝類來源，增加了傷寒的危險（去年冬天將近一千個病例可以作證），如今更威脅到康尼島與布萊頓的海水浴場。在這件事上，大城市只能靠建造精密的設施與設備來暫時應付問題，才能避免全面崩潰。但它這麼做時，完全不顧成本。如果城市的荷包是無限的，它的成長或許也可以是無限的；因為只要我們可以不計成本，工程的巧思能解決我們許多困難。問題在於，成本正變得難以承受。城市的「經常開支」不斷增加，終將超過它一切有形與無形的好處。到那時，某件事必然會發生：而那件事不會是更多的成長與更多的開支。</p>
+<p>接下來談到街道系統的崩潰，以及地面與地下通道無力承載交通負荷。我們較老的城市，原本最多是為四層樓的建築而規劃的。上世紀中葉六層樓建築興起時，百老匯下段的購物區就已感受到交通困難，甚至還蓋了一座實驗性的安全天橋。今天，不只是曼哈頓下城，在賓夕法尼亞車站與中央車站之間、沿著公園大道與百老匯往上、甚至遠至布魯克林的大片地區——今天，已有兩座到六座城市層層疊起。即使只考慮行人與公共車輛，這已經夠糟了：汽車更是那根眾所周知的最後一根稻草，因為每輛車連同它的兩三名乘客，所佔的空間至少是步行者的兩倍，有時三、四倍。由於市區已開發地帶的分區管制全都屈從於上漲的地價，我們的分區規定沒有一條觸及這個問題；相反地，即使在仍保留四層樓市鎮面貌的地區，二十層樓的市鎮也被允許——事實上，正在興建中。如果我們的大道寬到足以舒適地承載當前與潛在的交通負荷，那麼在城市的許多地方，就沒有空間容納建築物本身了。</p>
+<p>我們的市府官員與工程師現在暗示，「解決之道」在於興建高架街道。但即使可以想像為全市人口興建一整套空中街道系統，其成本也只能以稅賦的形式回落到土地上——而這又反過來使得蓋更高的樓、更多的街道成為必要！稱之為惡性循環都還不足以形容。事實上，沒有一座大城市——無論其預算多麼失衡——試圖跟上它對暢通流通管道的需求。儘管有交通警察、人行道退縮、單行道、電動交通號誌，壅塞仍與日俱增。即使在洛杉磯——它的成長與汽車同步——汽車增加的速度也快過街道拓寬的速度。這裡的終局已然在望。必然有一天，紐約的每條街道都會像現在金融區的街道一樣受到管制：白天，個別車輛將不得在商業區與工業區內通行。這正是繁榮的商業之都羅馬在壅塞達到類似紐約今日程度時所發生的事；在這裡也無可避免。在匹茲堡的金三角（目前正熱烈討論此事）與芝加哥的環區（Loop），同樣無可避免。與此同時，成本不斷堆高。那些自以為一邊繼續使人口壅塞、抬高地價，一邊還能避開這個結論的務實硬漢，其實活在夢境裡：他們只是沒有勇氣面對自己親手造成的後果。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="9" aria-label="放大原刊第 137 頁"><img src="pages/t09.jpg" alt="原刊第 137 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="9" aria-label="檢視原刊第 137 頁">p.137</button></span>餵養費城——並以典型的大城市作風塞爆交通。安德伍德攝。</figcaption></figure>
+<p>機械運輸工具的崩潰緊跟著街道系統的瓦解而來；作用的是同樣的原因。城市往高處長，也往外擴張；因為必須引進鐵路與地下鐵，把主要的乘客負荷從摩天辦公樓與廠房林立的中心區，運往外圍地區。當外圍的空地被填滿，最終結果就是兩端都壅塞。這又導致對更多運輸工具的需求。大城市在其發展過程中很早就會達到某個臨界點，超過這一點，更多的運輸路線就意味著更多的壅塞。唯一能避免這種情況的方法，是複製現有的運輸路線；但這個方法會分散負荷、降低現有路線的收益，因此除非能保證新路線有同等程度的壅塞，否則根本不予考慮。隨著路線延伸到更遠的地區，所有這些設施的成本都穩定上升，因此必須以某種方式引入補貼，才能以一般通勤者負擔得起的票價維持它們。目前，紐約以五分錢的票價，每年在建造地下鐵所付出的資金上虧損超過一千二百萬美元；而在新路線上會虧得更多——運輸工程師估計新路線的造價將是三倍。</p>
+<p>這是住在大城市的隱藏成本之一：它與其他服務——包括下水道、昂貴的街道鋪面與複雜的公用事業——的隱藏成本相當；而這些成本始終壓在一般市民的經濟福祉上。除了紐約準備在未來花在地下鐵上的五億左右之外，現在還需要增加郊區設施。紐約運輸委員會的工程師 D. L. 透納（D. L. Turner）建議支出約七億五千萬美元，其中他提議一半以稅收支付，部分由市府、部分由郊區負擔：依他的看法，這只能應付十年內（至1934年4月）的交通增長，屆時這座章魚城市若要繼續其臃腫的成長，又將再次面臨另一筆巨額支出。如果進行一種區域性的人口重新分布，使大多數人能步行上班，那麼每年在人力、設備與燃煤上所節省的費用，可能足以支付新社區所需設施與設備的大部分。</p>
+<aside class="box"><h4>壅塞的代價</h4><p>在辛辛那提，曾針對車輛在一整個營業日中，逐時通過中心商業區每條街道的速度進行研究。根據交通量調查，粗略估計若干建議的交通管制變更可為使用這些街道的車輛節省的時間，顯示壅塞的成本約為每天十萬美元。在芝加哥，曾就允許汽車在「環區」內停放對社區造成的成本做過估算；所得數字約為每天二十萬美元。若以這些城市的總交通量與紐約相比來判斷，估計曼哈頓島的壅塞成本為每天五十萬美元，似乎是穩當的。</p></aside>
+<aside class="box"><h4>然後呢？</h4><p>紐約市官員屢次收到若干紓解曼哈頓南北向大道的提案，並已認真考慮，其中部分甚至已獲核准。……假設這些提案全部付諸實行……若與可能的交通增長合併考量，便可看出它們並不足夠。……看來即使實施上述變更，第48街約在1930年、第28街約在1934年，就將達到飽和點。 ——摘自 E. P. 古德里奇（E. P. Goodrich）與 H. M. 路易斯（H. M. Lewis）為「紐約及其周邊區域計畫委員會」所撰之公路交通問題報告，1924年。</p></aside>
+<p>照現在的情況來看，另一方面，任何一個大型中心都無法避免其運輸設施的持續崩潰。只要人口與產業不是被重新分配到經過規劃的社區，而是被盲目地吸入大都會地區，這些設施就是、也必然永遠不足。</p>
+<p>但也許這一切壅塞，可以由「產業在大城市裡經營得更有效率」這個事實來證明其正當性？也許這足以抵銷其他損失而有餘？完全不是；事實上恰恰相反。在大多數產業裡，在壅塞的曼哈頓島上從事製造，實際上比在較小的工業中心花費更多。理由很明顯。貨物經由街道與鐵路的運輸，正是產業的命脈；而在我們所有的大型中心，這些動脈都阻塞了。由於缺乏能與層疊城市同步發展的街道，紐約市的貨車花在實際運送上的時間，比花在無生產力的工作上——困在壅塞的街道上，或在擁擠的裝卸站與倉庫前等候——還要少。貨車每天實際以蝸牛般速度移動的那幾個小時，已經讓汽車變得不經濟；因此大部分貨運仍以馬力進行，以壓低經常開支。貨運站與碼頭的週期性壅塞——伴隨著易腐食品的腐壞——是同一困境的另一面。在碼頭、在鐵路調車場、在工廠，壅塞都妨礙了產業的正常運作。</p>
+<p>最後，城市的擁擠狀況也增加了工廠內部的經常開支。舉例來說，成衣業在紐約製造業中排名第四；它的許多工廠已遷入中心區的大型摩天樓。在這裡，高租金、高稅賦與防火建築的高成本，已把經常開支推高到讓紐約的製造商自己承認，已經難以與成本較低的小城市同業競爭。大都會地區較高的住宅成本，同樣反映在同類工作相應較高的工資上——要不然，就是由工人以貧困的生活條件來承擔。</p>
+<p>某些產業必然與大型海港及交通樞紐（如費城、紐約與芝加哥）相連；但隨著城市人口增加，其他種類製造業所承受的不利條件，往往會抵銷地方市場的優勢。當地方的經常開支無法轉嫁，而較小的中心儘管金融與商業設施較差，卻能讓它們的產業優勢發揮作用時，大城市的產業就將不得不遷移，或宣告破產。我們仍處在拖延的日子裡；但清算之日終將到來；我們應當未雨綢繆。屆時的問題將是：產業要遷入緊鄰大城市周圍的空地，還是——既然遷移勢在必行——不如選在一個大得多的區域中的某一點落腳，那裡地價沒那麼高，更容易提供更好的環境，又沒有最終被吞併的風險——就像普爾曼（Pullman）被芝加哥吞併，以及揚克斯（Yonkers）與芒特弗農（Mt. Vernon）如今正被不斷成長的紐約吞併一樣。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="10" aria-label="放大原刊第 138 頁"><img src="pages/t10.jpg" alt="原刊第 138 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="10" aria-label="檢視原刊第 138 頁">p.138</button></span>高昂的貨運費率用來支付這些：每100個貨車工時中，裝卸費占36小時、生產性工作29.2小時、非生產性工作（壅塞、等候等）34.8小時。貨運業者的收入一美元中：裝卸費26分、非生產性工作（閒置時間）21分、生產性工作25分、薪資與利潤14分。——貨運業者的一美元流向何處：恐龍城市生活成本攀升的原因之一。承蒙紐約港務局提供。</figcaption></figure>
+<p>不足的住宅設施、不足的供水、不足的污水處理、不足的街道與不足的運輸——這些只是源自人口壅塞的較大、較明顯的病症。然而它們已足以顯示：大城市作為生活與工作的場所，崩潰得一塌糊塗；它永遠處於崩潰之中；而只要有限區域內的人口壓力持續存在，它就會繼續崩潰下去。我以紐約為例，只是為了具體說明。紐約1850年的住宅問題，就是芝加哥1890年的問題；紐約1900年的運輸解決方案，就是芝加哥1925年的解決方案——而且前景並不更好；崩潰的其他細節也依此類推。其他城市唯有努力避免紐約的「偉大」，才能避免紐約的崩潰。</p>
+<p>這些崩潰本身代價高昂；不幸的是，為了延緩它們所做的努力，代價更加高昂。結果是，那些本應用來讓城市更宜居的金錢與心力——本應用於兒童教育、維護健康、藝術、教育與文化的金錢——全都被投入到那些頂多只能讓壅塞的物質面勉強可以忍受的支出上。問題不只在於，提供足夠的運輸路線、把街道拓寬到足夠程度的努力注定失敗：更糟的是，即使成功了，那也是愚蠢而浪費的。</p>
+<p>如果我們看到一個家庭，孩子衣衫襤褸、無人照料，住在一間一半不適合居住的破棚屋裡，卻把所有收入與積蓄花在一間貼磁磚的浴室和一輛汽車上，我們會斷定這種支出是失衡的：應該先把房子整理好，讓孩子穿上衣服，讓房間照到陽光、通風、除塵，把廁所設施調整到體面的最低衛生標準。然而大城市的支出，正是同樣地瘋狂而失衡。為了減輕住宅與運輸崩潰所造成的恐怖，城市把所有經費都花在無用的權宜之計上。它活在一種永恆的大災變之中。大城市——如果我可以換個比喻來總結——就像一個罹患動脈硬化的人，他對自己的病況如此在意，又如此專注於執行那些附帶的醫療措施（儘管毫無希望），以致於沒有時間工作、思考、遊戲、創造，或從事任何一件區分病弱狀態與健康狀態的事。</p>
+<p>我們所研究的一切崩潰，都是人口壅塞的結果；壅塞的規模越大，崩潰就越成慢性，也越全面地涵蓋城市的一切活動。大城市已經破產。採取單純擴張計畫的小城市——而哪一座小城市不誇耀它的第一棟摩天樓呢——正朝著同樣的方向前進。</p>
+<p>一旦我們真正面對這個情勢，我相信，我們將會被激發，去做處理它所必需的大刀闊斧的公共努力。權宜之計與成藥的時代正在過去——在城市成長上，就像在對抗疾病上一樣。我們必須盡一切必要之力，從源頭對抗壅塞的力量。因為人們最深切在意的那些根本事物，就在那個方向：美好的環境、孩子的家、享受一日閒暇的機會，以及駕馭產業這輛「賈格納神車」（Juggernaut）、而非被輾倒在它輪下的能力。</p>
+</div>
+</article>
+<article class="sec" id="new-york-today" data-sec="new-york-today">
+<header class="sec-head">
+  <div class="kicker"><span>圖表專頁</span><span class="pages">原刊 <button class="pg" type="button" data-page="11" aria-label="檢視原刊第 139 頁">p.139</button><button class="pg" type="button" data-page="12" aria-label="檢視原刊第 140 頁">p.140</button></span></div>
+  <h2>紐約的今日——與明日？</h2>
+  <div class="en">New York Today—and Tomorrow?</div>
+  <div class="byline">羅素．塞奇基金會研究</div>
+  <p class="deck">來自羅素．塞奇基金會（Russell Sage Foundation）研究的事實與預測</p>
+</header>
+<div class="prose">
+<figure class="fig"><button class="thumb" type="button" data-page="11" aria-label="放大原刊第 139 頁"><img src="pages/t11.jpg" alt="原刊第 139 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="11" aria-label="檢視原刊第 139 頁">p.139</button></span>白天人口：曼哈頓區第59街以南。居民與過客（夜間在場者）；來自布魯克林與皇后區者（每日進出）；來自新澤西者（每日進出）；來自曼哈頓上城與布朗克斯者（每日南下往返）；來自史泰登島者（每日進出）。每個人形代表兩萬人。</figcaption></figure>
+<p>這座大都會今日所面臨、明日可能面臨的駭人壅塞，可從這一小疊圖表中窺見端倪。這些圖表（除一張以外）取自哈洛德．M．路易斯（Harold M. Lewis）所撰、由「紐約及其周邊區域計畫委員會」新近發表的《紐約及其周邊公路交通》報告。該委員會為整個大都會地區調查需求並擬定總體計畫的工作，目前即將有成。《The Survey》曾報導其進展（1922年5月20日；1923年3月15日；1924年5月15日、6月15日）。……在總計2,941,700人的白天人口中，除了982,000人之外，其餘全都必須每天早上被運進曼哈頓下城，每晚再運出去。鑑於目前在運輸路線與紐約街道上所造成的狀況，市內外人口持續膨脹的預測（見右圖）是一幅黯淡的前景。下方地圖生動地呈現：若現有趨勢持續，到1965年市外將出現何等超級壅塞的交通；而在市內，曼哈頓商業區現有大道上的南北向交通，將提早一個世代達到飽和點。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="11" aria-label="放大原刊第 139 頁"><img src="pages/t11.jpg" alt="原刊第 139 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="11" aria-label="檢視原刊第 139 頁">p.139</button></span>紐約及其周邊人口，1850年至1920年，並推估至1965年。各組數字依1920年既有邊界計算。第一組：紐約市、紐華克市、哈德遜郡（365平方英里）；第二組：拿索郡、威徹斯特郡、費爾菲爾德郡（部分）、柏根郡（部分）、帕塞伊克郡（部分）、艾賽克斯郡（紐華克除外）、聯合郡（1,170平方英里）；第三組：其餘地區（3,993平方英里）。總面積5,528平方英里。1924年10月。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="11" aria-label="放大原刊第 139 頁"><img src="pages/t11.jpg" alt="原刊第 139 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="11" aria-label="檢視原刊第 139 頁">p.139</button></span>紐約及其周邊公路交通調查，1922年：以圖示呈現一小時內通過各地點的最大車輛數。中心區內交通分流過於複雜，無法在此比例尺下正確分析。紐約及其周邊區域計畫。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="11" aria-label="放大原刊第 139 頁"><img src="pages/t11.jpg" alt="原刊第 139 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="11" aria-label="檢視原刊第 139 頁">p.139</button></span>紐約及其周邊公路交通推估，1965年：以圖示呈現一小時內通過各地點的最大車輛數。中心區內交通量過大，無法以本圖比例尺顯示。紐約及其周邊區域計畫，工程部。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="12" aria-label="放大原刊第 140 頁"><img src="pages/t12.jpg" alt="原刊第 140 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="12" aria-label="檢視原刊第 140 頁">p.140</button></span>漫畫〈為大城市喝采！〉（BOOST THE BIG CITY!），亞特．楊（Art Young）繪。分格標語：「來來去去」（車站B、溢流道、超級巴士、跟著波浪線走、往各層）；「給覺得需要陽光的人」；「從街道切下一塊，總能紓解壅塞」；「寬闊的空間」；「單純的人體量——應該待在它該待的地方」；「一座旋轉高塔，充當交通大指揮」；「一棟分區大樓，供整座城市使用。何樂而不為？」（由下而上：商業、工業、住宅、娛樂、宗教）；「人類鼴鼠——終極形態」（地鐵、餐廳、商店）。</figcaption></figure>
+</div>
+</article>
+<article class="sec" id="our-stake" data-sec="our-stake">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="13" aria-label="檢視原刊第 141 頁">p.141</button><button class="pg" type="button" data-page="14" aria-label="檢視原刊第 142 頁">p.142</button></span></div>
+  <h2>我們在壅塞中的利害</h2>
+  <div class="en">Our Stake in Congestion</div>
+  <div class="byline">費德里克．L．艾克曼（Frederick L. Ackerman）</div>
+  
+</header>
+<div class="prose">
+<p>現代城市人相信，好東西會作為價值膨脹的副產品，源源不絕地來到他身邊。他對於「加速成長會間接帶來福祉」的信念如此堅定，以致於對他所在城市的那些未來計畫——那些依事物本性必然使他都市生活的每一天都更加複雜的計畫——毫不感到不安。例如，紐約正摸索著籌措資金的方法，要蓋更多地下鐵、公車路線、隧道與橋梁，二層、三層的街道，以及更多房間更少、更小的公寓住宅，好讓最終有三、四千萬人能在這座城市的課稅範圍內生活與工作，同時浪費愈來愈多的時間與精力。面對節節攀升的成本與困難，如果他動念認為最好對成長與集中設個限度，他立刻會遭到自己一大堆成見的圍攻，它們瘋狂地對他大喊：這是自殺。</p>
+<p>若把這種態度歸因於本能行為——即所謂的「群聚本能」——就忽略了今日城市居民祖先的歷史背景。就大部分而言，那個背景是一種受鄉村環境制約、個人在小團體中相互接觸的生活。在這些民族的生活史中，我們找不到任何一樣東西，與現代都市中心的組織有一絲一毫的相似。不久之前，一個社區的規模與成長速度，對居住其中、大多以物質生產勞動謀生的人們而言，還無關緊要。這並不是說，比方說美國早期社區的人們從不思考這類事情；而是說，在短短一段時間內，人們看待城市成長與規模的方式，發生了革命性的轉變。</p>
+<p>如今，人口穩定的社區被稱為「死城」。它不被視為有前景的投資領域，也吸引不了商人。因為投資報酬、價值增值、營業額，以及買賣過程中的「週轉」速度，才是首要關切；前景好壞，就依這幾方面的未來展望來評定。如果社區正在成長，如果集中、壅塞與交通正在增加，前景就好；否則就差。這種觀點，構成了大城市問題的核心。</p>
+<p>轉向這種觀點的責任，就像我們社區性格轉變的責任一樣，可以穩當地歸於兩個因素——機器工業與信用經濟。可以說，這兩個因素差不多同時登場，乃是歷史的偶然。兩者相互放大對方的作用，使總體效果構成了物質環境本質與性格上、以及人們生活與工作所依循之觀點上的一場革命性變化。</p>
+<p>機器引進的直接效果、磨坊城鎮的興起，以及它進一步促成大型工業中心發展的效果，大家已經理解得很透徹，此處無需再提。但信用經濟如何在加速人口流向都市中心上扮演角色，顯然就沒有被理解得那麼清楚了；因為我們輕易地談論人口的「分散」或「去中心化」——談論「田園城市」——彷彿在人們仍受當前觀點驅使的情況下，這些都能實現；彷彿這不過是把個人物品從一處搬到另一處而已。也許，那些在成長與集中所創造的價值增量後頭、亦步亦趨跟上來的不適增量之下，日益焦躁、神經緊張的人，懷著嚮往望向去中心化。但若指望這股力量足以推動改變，就是忽略了——或至少是低估了——不在地所有權的力量，以及對壅塞的胃口。</p>
+<p>因為當我們檢視城市人的處境——他如何生活、依賴什麼維生——就很容易看出，他已把自己編進一張由膨脹的價值與資本化構成的複雜網絡，而這張網絡要求成長與集中。他可能是土地與建物的所有人；他很可能只握有最低限度的權益，是懷著「報酬」與增值的希望買下的。增值的幅度取決於成長與集中的速度。一般而言，在購買都市土地、興建與購買建物時使用信用的目的，就是要攫取價值的增值——而這種增值是成長、集中、甚至壅塞的函數。除非某項事業的周遭前景顯示出成長與集中所帶來的希望，否則沒有任何都市土地與建物的投機者會對它感興趣。對投資者與投機者成立的道理，對於貸款給這類事業的人同樣成立。對有進取心的買家或貸方而言，穩定是不夠的；必須有更多東西的承諾。</p>
+<p>再從最初的交易往外推一步，假設我們這位城市人持有一家地方企業的股票。在多數情況下，這類企業的資本化並不是基於成本或所涉及的物質生產努力，而是基於報酬的前景。在確立資本額時若不能在初始成本之上再加點什麼，通常就不被視為有生意頭腦的事業。而這取決於成長與集中的前景。</p>
+<p>但這張網還要更寬。城市人可能靠薪水、專業酬金，或入不敷出的工資維生，但這種處境並不改變他對「什麼可能增加他收入」的看法。因為他與那些透過所有權直接獲益的人一樣，假定擴張、集中與壅塞可能帶來的任何價值增量，最終也會轉而使他受益。</p>
+<p>因此，若要列舉那些福祉看似繫於都市中心價值膨脹的人，得花很多篇幅：這幾乎沒有必要。總而言之，都市人有一份利害關係——來自財產、土地與建物的收入、利潤、股利、薪資、酬金、工資、年金、保險、退休金，以及各式各樣的收入——這些似乎都直接或間接取決於一個問題：成長、擴張與壅塞的速度，能否跟上把這些前景資本化的速度。</p>
+<p>至於都市人在他的各種利益上，當這些承諾兌現時究竟是真的得利還是受損，這完全不是重點。</p>
+<p>既然已把雞蛋放進「進步」——意思是更大的城市——的籃子裡，那麼他在任何似乎威脅到這些雞蛋的提議面前驚恐止步，也就不足為奇了。因此，只要一提到人口穩定，就足以讓價值暴跌，從而嚇跑那些想藉由任何抑制成長的作為來尋找出路的人。</p>
+<p>但這個問題還有其他根源。在城市之外的每一個社區，年輕的一代正在接受教育。貫穿這個教育過程、並作為其藉口與目標的，是一種地位上的區分：從事物質生產勞動的「工人」，與不從事這類勞動的人之間的區分。發行量龐大的期刊刊載著那些「成功者」的故事：他們離開家鄉及其單純的工作與「侷限」，前往城市，最終成為大公司的總裁。除了少數變化（或許農業教育算是一例）之外，鄉村地區的教育過程大體上就是在說「往前走吧」。因此，在整個鄉村地區與小社區裡，我們文化的力量正引導大批人群湧向都市中心，以支撐那些建立在「這群人一定會來」這個確定性之上的資本化價值。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="14" aria-label="放大原刊第 142 頁"><img src="pages/t14.jpg" alt="原刊第 142 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="14" aria-label="檢視原刊第 142 頁">p.142</button></span>有利可圖——一幅帶有寓意的圖畫（車廂標示：「上城快車」）。承蒙《紐約世界報》提供。</figcaption></figure>
+<aside class="box"><h4>買不動產吧</h4><p>買不動產吧……</p>
+<p>不動產的價值取決於人口。母親們把新生兒帶到世上，給了不動產價值……</p>
+<p>大紐約如今有六百萬人。紐約周邊就有一千萬人。將來大紐約會有兩千萬人，紐約周邊會有五千萬人。</p>
+<p>人口密集之處，不動產價值就不斷上漲。</p>
+<p>注意你的機會，找出人口往哪個方向成長，運用你最好的判斷，買下某樣你確信現在值這個價、而且永遠值今天這個價的東西，祝你在價格上漲中好運。</p>
+<p>總之，買不動產吧。</p>
+<p>——摘自《紐約晚報》（New York Evening Journal）</p></aside>
+<p>舞台既已為這種從鄉村地區持續湧入都市中心的遷徙搭好，都市中心要從這些同樣的鄉村地區汲取可用資金、作為都市企業信用放款的準備金，也就不難了。要讓鄉村投資者就範也不難。那些以日益增長的成長與壅塞前景作為擔保的城市企業股票與債券，很容易就能賣給那些人生目標與這同一前景相合的人。近來以都市不動產抵押作為小額投資基礎的迅速發展，以及各類城市企業股權的更廣泛分布，讓我們意識到：指望城市集中來產生收入的既得利益，已變得何等普遍。</p>
+<p>迄今為止，對於大多數在城市裡生活與工作的人而言，從城市土地的成長與密集使用中可得的好處，是想像的而非真實的。但隨著股票更廣泛地分配給銀行與商店、製造工廠、合作或共同所有事業的員工，原本是想像的東西，正迅速取得真實的性質。由此產生的心態，可以用一家「合作餐廳」裡展示的一塊招牌來說明。那塊招牌邀請人投資這家事業；為了確保它的吸引力，提案是這樣說的：「你吃得越多，你的利潤越大。」</p>
+<p>我們也許完全明白，都市中心不斷加速的壅塞不可能無限期持續下去。但我們已把財富建立在持續且加速的成長、擴張與壅塞的前景之上。紙面證券所載的面額，代表的不過就是這個前景，沒有任何更具體的東西。因此，既然投資收入——現代生活的根本目標——有賴於一場不斷加速的遷徙，那麼終止這場遷徙的提議會招致反對，又有什麼好奇怪的呢？</p>
+<p>當前常識的立足點，在必要性的壓力迫使態度改變之前，不太可能移動。對金錢利得的期望，不太可能被理論上的預言所驅散。於是壅塞走完它的路程。當我們的城市達到飽和點、穩定取代了擴張的狂熱時，隨之而來的價值緊縮所引發的崩潰，我們恐怕難以避免。</p>
+</div>
+</article>
+<article class="sec" id="coals-to-newcastle" data-sec="coals-to-newcastle">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="15" aria-label="檢視原刊第 143 頁">p.143</button><button class="pg" type="button" data-page="16" aria-label="檢視原刊第 144 頁">p.144</button><button class="pg" type="button" data-page="17" aria-label="檢視原刊第 145 頁">p.145</button><button class="pg" type="button" data-page="18" aria-label="檢視原刊第 146 頁">p.146</button></span></div>
+  <h2>運煤到紐卡索</h2>
+  <div class="en">Coals to Newcastle</div>
+  <div class="byline">史都華．蔡斯（Stuart Chase）</div>
+  <p class="deck">為什麼要有鐵路？為了跨越森林與工廠、鑄造廠與礦場、工人與工作場所與農場之間日益擴大的鴻溝。如果我們把工作、原料、勞動者與消費者納入有計畫的關係之中，就能削減我們膨脹的運輸帳單，把資本與能量釋放出來，用於更有生產力的用途。</p>
+</header>
+<div class="prose">
+<figure class="fig"><button class="thumb" type="button" data-page="15" aria-label="放大原刊第 143 頁"><img src="pages/t15.jpg" alt="原刊第 143 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="15" aria-label="檢視原刊第 143 頁">p.143</button></span>這個特定交會點上價值三百萬美元的軌道，把紐約人從他們寧可不住的地方，運到他們寧可不在那裡工作的地方，再運回來——每天27萬人次。西部報業聯盟（Western Newspaper Union）提供。</figcaption></figure>
+<p>（譯註：「運煤到紐卡索」為英語成語，紐卡索是英國產煤重鎮，比喻多此一舉、徒勞無功。）</p>
+<p>若從「以最少的人力，提供最多經濟財貨」而規劃設計的社區的立場來看，美國目前人員與貨物的流動中，有多少可以被當作損失、滲漏與浪費而一筆勾銷？以有利可圖的投資、「運量能承受多少就收多少」的哲學，以及目前的技術運作為基準，運輸業的浪費就已經夠多了——胡佛先生（Mr. Hoover）本人就會這麼告訴你。然而，一旦以「計畫價值」取代「現行價值」，效率工程師的數字就會在一道像鱷魚大嘴般張開的滲漏缺口前落荒而逃。從後一種立場出發，我們冒昧斷言——這個論斷想必會激怒全美二十五萬英里鐵路上所有公認辛勤工作的運務經理——運輸中有很大一部分在經濟上並不必要。</p>
+<p>一位擁有天神般眼力的飛機觀察員，巡航於北美大陸上空，會看到某些實體的事物——自然資源、轉換與配送這些資源的設施，以及從事生產與消費的人們。這些人大致上——除了四處流浪的失業人潮，以及零星幾個那對心理上的雙胞胎：俱樂部窗邊的紳士與路上的紳士（流浪漢）之外——都忙著處理他們的資源與設施。他們以人類史上前所未有的速度，從山裡炸出煤與鐵，從地底抽出石油，砍伐原始林。木材砍伐的速度是生長速度的四倍半；1913年以來開採的石油，比之前全部歷史加起來還多。這些原料當中，未在礦坑、油井、森林與農場中浪費掉的——約佔從地殼上鬆動出來的總量的一半——他們便以極大的速度與效率，這裡、那裡、到處運送，有時又運回來，在工廠裡錘打、塑形、敲擊；在採購代理人的眼淚與勸誡之中，從一道工序搬到另一道工序——牛變成生皮，生皮變成皮革，皮革變成靴子——改道、再改道，託運又退回，裝貨、卸貨、再裝貨；在一團愈聚愈多的廣告商、推銷員與鑽營者之中移動——他們就像圍著一頭狂奔大象的趕象人一樣，又是央求又是禱告。就這樣一路經過中盤商、批發商與佣金經紀人，進出倉庫，上下電梯，沿著鐵軌運到零售商——在那裡廣告商再次喊破喉嚨——裝上貨車又卸下，擺上貨架又取下；最後——那些沒在運送途中被顛落、壓碎、腐壞的部分——終於到了消費者的手中與胃裡。</p>
+<p>這是無與倫比的能量與匆忙的展演，是一種完全值得稱讚的、不顧性命與肢體的精神——把一塊塊加工過的大地碎片，從緬因州拋到加州，又從加州拋回緬因州。吉爾伯特與波格（Gilbert and Pogue）估計，單是這個過程所釋放的機械能（一億五千萬馬力），就相當於三十億奴隸的勞動——也就是全國每個男人、女人與小孩各有三十名奴隸！他們並未具體說明有多少奴隸在製造、多少在搬運，但可以放心地假定，運輸佔了總數相當大的一部分。</p>
+<p>三十個僕人！希臘全盛時期，每個家庭平均也只有五個奴隸。身為好美國人，這個消息讓我們挺起胸膛；但身為消費者，我們卻發現要讓我們的奴隸去做我們想做的具體事情，有點困難。我們用得上他們——如果找得到他們的話。但他們實在太忙了：忙著興建工業廠房——而現有廠房的閒置產能已超過40%；或把木材從奧勒岡運到新英格蘭，把蘋果從華盛頓州運到紐約，或把一列列軟煤調進調出芝加哥，或在地下鐵裡把人——非常不快樂的人——來回抽送，或在技術上每英畝只需要一口油井的地方鑽了十口，或用熊熊火焰般的字母向全世界宣告（克里夫蘭信用公司大樓上單單一塊電子招牌的耗電量，就超過伊利里亞（Illyria）全市）：這個國家需要的是更多的口香糖。</p>
+<aside class="box"><h4>削減運輸浪費</h4><p>以下是一套全國計畫的骨架，它可能藉由消除無用的貨物與人員運輸，徹底改變我們的經濟生活：</p>
+<ol><li>以自然地理單元為基礎劃定區域。</li><li>糧食、紡織品與住宅材料，盡可能在本區域內生長與製造。</li><li>區域間的交換減到最少，只限於本區域無法經濟生產的產品。</li><li>為本區域訂定完整的電力計畫，必要時連結區域間的高壓輸電線。</li><li>以短程貨車進行地方配送，依循「兩點之間直線最短」的原則。</li><li>人口分散分布。</li></ol></aside>
+<p>飛機駕駛員觀察著消費者——他同時也是生產者，同時也是智人（homo sapiens），而他的需求想必就是這一切車輪轉動、產品調度與機械奴隸奔忙的理由。他不是被擠在城市裡，擠到只有水壓機才能把他壓得更緊；就是散居在富饒卻未被利用的大地上的孤零零農舍裡。如果識字，他也許會讀到各種統計：開採的煤炭總噸數、砍伐的木材板英尺數、廣告看板的平方英尺數、貨運列車總里程、汽車的總產量——若把它們首尾相接……他這個共和國那些不知疲倦的印刷機每年印出的四千兆字、《星期日時報－觀察家報》用掉的十二英畝森林——他頭暈目眩、胸懷激盪，但房東照樣不斷漲房租，吃飯也一點都沒有便宜。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="16" aria-label="放大原刊第 144 頁"><img src="pages/t16.jpg" alt="原刊第 144 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="16" aria-label="檢視原刊第 144 頁">p.144</button></span>無計畫的牛奶運輸：巴爾的摩伸手進入芝加哥、克里夫蘭、費城與紐約的牛奶供應區，但來自其南方緊鄰地區的運輸卻明顯不足。取自《巴爾的摩衛生新聞》（Baltimore Health News）。</figcaption></figure>
+<p>那麼，具體來說，問題出在哪裡？能量——特別是運輸能量——浪費在哪裡？有計畫的社區又將如何減少這種浪費，使行路之人不再落後、不再為了停留原地而付出聞所未聞的努力，而能開始在生活成本面前扳回一城？如開頭所說，這涉及兩個基本面向：第一，在人口聚落與產業廠址不變的假設下，源自當前運輸方法的浪費；第二，因社區未經區域計畫而產生的浪費。前者可以布蘭迪斯（Brandeis）那著名的指控——鐵路每天浪費一百萬美元——為例；後者則可以紐約市令人難以忍受的壅塞，或東部產業未能設在更接近西部原料之處為例。我們主要從第二種觀點來回答這個問題，但以下許多事實與數字，來自針對現行機制的調查。</p>
+<p>麻薩諸塞州農業局長最近報告波士頓市場上「有來自中國的雞蛋、來自非洲的桃子、來自阿根廷的各種水果與蔬菜，以及從加州帝國谷橫越大陸運送三千英里而來的結球萵苣」。他並指出，這些產品幾乎全都是新英格蘭有種、或可以種的。</p>
+<p>地質調查所在1921年對煤炭的交叉運輸做過研究。它發現肯塔基的塊煤被運進印第安納、伊利諾與俄亥俄，途經這幾州生產同等品質煤炭的礦場。它發現西維吉尼亞的煤靠著特殊的運費差價補貼，運到五大湖去與只需運一半距離的俄亥俄煤競爭。結果是西維吉尼亞礦場嚴重過度開發，去爭取——或試圖爭取——一種它在經濟上根本不適合的運量。同等級的煤，被一本正經地從伊利諾的礦場運到俄亥俄去賣，又從俄亥俄的礦場運到伊利諾去賣。在現貨市場投機的指揮下，運煤車「進出芝加哥，又回到芝加哥，就像賭局裡的骰子」。戰時，燃料管理局藉由將煤炭「分區」——也就是採用區域原則，由最近的礦場供應消費者——節省了一億六千萬車英里。隨著「回歸常態」，這些節省也隨之瓦解。</p>
+<p>紙漿木材從挪威進口，再運往內陸一千英里。木材的生產中心——依照公認的「撇取精華」法則——已逐步從新英格蘭轉移到太平洋沿岸。西部木材運往工廠集中的東部的數量與日俱增。通常的路線是經巴拿馬運河到紐約，再由鐵路運往內陸。於是我們在東部有了沒有森林的工廠，在西部有了沒有工廠的森林。與此同時，東部與五大湖各州可及的六千萬英畝潛在林地閒置不產——唯一的產物只是偶爾一場毀滅性的大火。</p>
+<p>全國製造業有50%在東北沿海地區進行，35%在中西部，9%在南方，6%在太平洋沿岸。如果我們在地圖上標出工廠的位置，再疊上一張原料來源——煤、棉花、羊毛、鐵、礦石、皮革、木材、穀物——的地圖，就會發現兩者之間毫無關聯的程度令人吃驚。為了供應東部沿海的工廠，笨重的原料必須從西部與南部的產地長程運來——棉花從德州運到新貝德福，生皮從堪薩斯市運到麻薩諸塞——在那裡製成成品，再大量地拋回去，最終在接近它們出發地之處被消費。最登峰造極的例子——雖然不是本地的——或許是袋鼠皮從澳洲運到林恩（Lynn），在那裡做成鞋，再全數運回一萬英里之外——因為只有澳洲人會穿袋鼠皮靴！</p>
+<p>根據國內外商務局，散裝棉花如今被長途運去壓縮，再循同一路線把打好包的棉花運回來。兩車打包棉花可以裝下相當於四車散裝棉花的量。E. G. 布茲（E. G. Booz）在《美國政治與社會科學院年刊》中寫道，一般零售商只賣出其本身合理商圈內所用咖啡的10%，其他90%都受到來自不合理商圈的交叉運輸影響。農業調查聯合委員會報告了芝加哥批發食品市場的狀況——雖然目前正在進行地方性的改組——這個狀況足以代表城市的行銷問題。它位於壅塞的環區裡一條狹窄的街道上。水果與蔬菜從距離兩個街區到兩英里不等的貨運站，穿過街頭的混亂被運到這裡。抵達後，食品被卸下、賣出、再裝上車，然後一本正經地運回去，往往就運回它們開始這趟大都會之旅的同一個貨運站。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="17" aria-label="放大原刊第 145 頁"><img src="pages/t17.jpg" alt="原刊第 145 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="17" aria-label="檢視原刊第 145 頁">p.145</button></span>無計畫的馬鈴薯運輸：1917年在紐約、芝加哥與明尼亞波利斯卸貨的白馬鈴薯整車交叉運輸。（本圖顯示各州之間的運量，不顯示州內運輸。）依市場局提供之資料繪製。</figcaption></figure>
+<p>吉爾伯特與波格在《美國的動力資源》（America's Power Resources）一書中指出，大自然以驚人的仁慈，為美國那些缺乏煤礦的地區提供了豐沛的水力。大自然已經平衡了動力負載。我們有沒有善加利用？沒有。我們把煤運進水力州，又在煤炭州開發水力。已故的查爾斯．P．斯坦梅茲（Charles P. Steinmetz）曾為紐約州擬過一套電力計畫。紐約州沒有煤，但有四百二十萬馬力未開發、可輕易從落水中取得的水力，目前只利用了一百三十萬。斯坦梅茲的結論是，如果全部加以利用，將可取代目前運進紐約州的約四千萬噸煤，使所有鐵路電氣化，省下五百輛機車、一萬五千輛運煤車的勞動，節省四億美元的鐵路設備，並給我們無煙的城市。簡言之，巨型電力區域計畫在運輸成本上可帶來的節省幾乎是無限的：今天，鐵路貨運有三分之一是煤。巨型電力藉由水力發電與礦口中央電廠，以均衡負載的方式提供能源，可以消除這部分運量的一大部分，連帶消除煙害所造成的難以估計的成本（見1924年3月號《Survey Graphic》巨型電力專號）。</p>
+<p>更糟的是，福特發現貨車車廂重得荒謬。他說，重量應該在貨物上，而不是在車廂上。以三分之一重量的更堅固鋼製車廂，將大幅提升效率，因為沉重的車廂「把路基撞壞，也把自己撞壞」。福特又說，在蒸汽機車中燃燒的煤，我們只取得其潛在動力的6%。「如果鐵路的主要目的是買煤，這倒無妨；但如果目的是盡可能經濟地運送貨物，我們就不能繼續浪費這些動力。」電氣化將大幅降低每單位運量的運輸成本。</p>
+<p>根據 E. J. 克拉普（E. J. Clapp）的說法，鐵路全部費用的三分之二是終點站費用，而其中三分之二浪費在終點站設施無計畫、相互競爭的混亂之中。他估計，現行的競爭政策所動用的人力、設備與物料，是統一終點站計畫所需的二到三倍。終點市場持續處於窒息與堵塞之中。在聯邦貿易委員會針對紐約港所取得的證詞中，一位水果批發商表示，紐約因裝卸設施不足而損失的水果，足以供應像匹茲堡那麼大的一座城市的人口。這種浪費，即使不考慮去中心化的因素，也可以藉由鐵路合併大幅減少——戰時鐵路管理局的表現已證明了這一點。</p>
+<p>由於缺乏區域計畫，緬因州與紐約州的農民爭奪馬鈴薯市場，必然導致嚴重的生產過剩。有些年份，緬因州馬鈴薯收成的40%會被留在田裡腐爛。而這種笨拙的過程，又為投機性行銷的進一步愚行留下了空間。1924年6月15日的《紐約世界報》說：「今天，數千箱黃瓜與其他新鮮蔬菜被傾倒在紐約的垃圾碼頭上。」1920年秋天，筆者划著獨木舟，費力地穿過一車車好端端的西瓜——它們被從華盛頓的碼頭倒進波多馬克河，好讓市價不跌破二十五分錢。紐約市場局長最近指出，兩百車感恩節火雞被扣在側線上，好讓經銷商能面對每磅二十五分錢的節日價格。同一位先生還引述了一個案例：十車運往紐約的德州洋蔥，以當時市價值一萬美元，卻被倒在新澤西的草地上，以免衝垮市場。農民所得到的，只是一張運費帳單！</p>
+<aside class="poem"><h4>城市十四行詩</h4><div class="by">哈里森．道德（Harrison Dowd）</div><p>你是強大的，你一向強大，<br>挾著這一切雷鳴、這一切黃金與鋼鐵；<br>但我曾見你沉睡，我曾看見<br>某種死亡的預兆；我感到<br>你那宏偉光亮的街衢，注定<br>在遙遠的某一天，只剩塵封的石頭；<br>你的光芒消逝，你此刻的驕傲，我看見<br>有一天，脫了節、空無一人、潰散瓦解。<br>我看見來自豐饒鄉野的人們<br>察看你傾頹的長廊，去認識<br>一個年輕的時代——那時金銀的潮水<br>把他們拋擲到這裡。但終究他們轉身<br>回到自己的家園，留下你獨自佇立，<br>杳無人跡，荒涼如沙漠之沙。</p></aside>
+<p>但比消除這類浪費更重要的，是人口去中心化所能帶來的節省。亨利．福特發現，高度標準化、高度細分的產業，已不必再集中在大型工廠裡，承受妨礙這類社區安排的種種交通與住宅不便。一座工廠有一千或五百人應該就夠了；這樣就不會有運送他們上下班的問題，也不會有貧民窟，或其他因工人必須住在超大型工廠合理距離內而必然發生的過度擁擠所帶來的不自然生活方式。……「認為工業國家必須集中其產業的信念，並沒有充分的根據。」</p>
+<p>福特——不是以哲學家的身分，而是以一位具有非凡遠見的商人——不僅在從礦坑到成品福特小車（flivver）的整個生產流程中消除了大量浪費，也被營運成本的邏輯驅使走向去中心化，如今正在鄉間興建閥門工廠與其他小型單位，讓工人可以舒舒服服地走路去上工，喜歡的話還能兼著種田。（見1924年3月號與4月號《Survey Graphic》。）</p>
+<p>想想大城市的擁擠與壅塞讓我們增加了多少運輸負擔。地下鐵與地下隧道以龐大的花費興建與營運，然而從規劃區域的觀點——以及從福特新的產業觀點——來看，卻是完全不必要的。紐約快速運輸系統迄今的總投資為五億四千一百萬美元，另有一億多美元的新建工程已經發包。每年的營運成本是七千三百萬美元，支付總計二十三億人次的乘車。地下鐵、高架與地面軌道總長超過一千一百英里。而州與市政當局如今正為了再支出二億七千五百萬美元而僵持不下。</p>
+<p>最後，國會農業調查聯合委員會在調查配銷浪費之後，宣布了一項結論——我只能把它看作是對共和國賴以建立的一切自古以來堅毅自助信條的叛逆。根據其研究結果，它發現美國的希望與光榮——全國性廣告主——在試圖打破「銷售阻力」、把貨物從東岸賣到西岸的過程中，<em>讓消費者在不經濟的配銷上所付出的代價，超過了大規模單位生產所能節省的</em>。全國市場傾向於使貨物在工廠門口的成本降低，但這份節省卻被交叉運輸與高壓推銷的負擔吃掉而有餘。聯合委員會說：「一家又一家製造商重複這種強迫推銷的過程，直到大眾與零售商面對一股令人困惑的催促：要購買種類不斷增加的更多產品。購買習慣被打亂，消費者不再光顧個別商家，不僅在社區內分散購買，還到社區外購物。」委員會發現，零售商因此不再是以社區所需服務其在地社區的經濟要素。</p>
+<p>我們能怎麼辦？</p>
+<p>我們已經開始拿「照常營業」雜亂無章之下的自己與人口分布，去對照另一種狀態下的自己——重新組合、重新安置於為了充分享受生活而規劃的社區之中。在人口與現在相同的情況下，想想看：如果人們被組織成專門為「最大程度的在地自給」與「最少的交叉運輸」——包括區域間與地方性的——而規劃的社區與區域，以自然的經濟與地理考量為基礎，運輸負擔將會有多大的不同。一個阿帕拉契區域、一個太平洋沿岸區域，諸如此類。</p>
+<p>社區的區域計畫將掃除不經濟的全國性行銷，掃除城市壅塞與終點站浪費，平衡動力負載，把大量的煤從鐵路上卸下，消除牛奶與其他地方配送的重複，藉由鼓勵在地果園來短路「把太平洋岸的蘋果運給紐約消費者」這類不經濟的做法，發展在地林區、遏止西部木材運往東部工廠，把棉紡廠設在棉田附近、鞋廠設在生皮產區附近、鋼廠設在礦床可及之處，把食品製造廠以小型巨型電力單位設在農業帶附近。摩天樓、地下鐵與孤寂鄉野的必要性，從此消失！</p>
+<p>假定以這種聞所未聞的常識來規劃與經營社區，在心理上是可能的——而這可不是小小的假定——我們再次、也是最後一次報告：運輸中有很大一部分是不必要的。</p>
+</div>
+</article>
+<article class="sec" id="elements" data-sec="elements">
+<header class="sec-head">
+  <div class="kicker"><span>圖版</span><span class="pages">原刊 <button class="pg" type="button" data-page="19" aria-label="檢視原刊第 147 頁">p.147</button><button class="pg" type="button" data-page="20" aria-label="檢視原刊第 148 頁">p.148</button><button class="pg" type="button" data-page="21" aria-label="檢視原刊第 149 頁">p.149</button><button class="pg" type="button" data-page="22" aria-label="檢視原刊第 150 頁">p.150</button></span></div>
+  <h2>區域的元素</h2>
+  <div class="en">Elements of the Region</div>
+  <div class="byline">勞夫．M．皮爾森（Ralph M. Pearson）原版蝕刻</div>
+  
+</header>
+<div class="prose">
+<p>也許一隻飛向太陽的老鷹，眼中的大地就是這樣簡化的景象。外行人、甚至藝術家，都很少能自由而超然地觀看自己的世界，進而理解其中蘊含的根本設計元素。我們初見勞夫．M．皮爾森的新作時，感覺是：「這正是區域計畫的本質所在」——換句話說，他獨立地、以自己的方式，掌握並詮釋了《Survey Graphic》這期專號背後的概念。</p>
+<p>皮爾森先生較早的幾幅版畫——《城市的勞動者》（Toilers of the City）——曾刊於1922年11月號《Survey Graphic》。此後，他的作品發展出更加雄健的風格。經過多年的調適，他已能把所謂「現代」運動內在的活力，轉化為自己的創作目的。這裡所展示的版畫，大概是他晚近作品中最有力的，呈現出一種古典的完整性——這是英美兩地較老派蝕刻流派的追隨者身上不一定看得到的。</p>
+<p>他的著作《如何觀看現代繪畫》（How to See Modern Pictures）剛由日晷出版社（The Dial Press）出版，是寫給一般讀者的，試圖喚起人們意識到現代作品的基本原理——這些原理使現代作品與過去偉大的藝術一脈相連。書中有著與這些蝕刻作品同樣雄健的誠實，以及對設計元素的尊重。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="19" aria-label="放大原刊第 147 頁"><img src="pages/t19.jpg" alt="原刊第 147 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="19" aria-label="檢視原刊第 147 頁">p.147</button></span>〈埃爾塞里托〉（El Cerrito），原版蝕刻，承蒙 F. Denks 藝廊提供。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="20" aria-label="放大原刊第 148 頁"><img src="pages/t20.jpg" alt="原刊第 148 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="20" aria-label="檢視原刊第 148 頁">p.148</button></span>樹木——〈柏樹林〉（Cypress grove），勞夫．M．皮爾森原版蝕刻，承蒙韋赫藝廊（Weyhe Gallery）提供。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="21" aria-label="放大原刊第 149 頁"><img src="pages/t21.jpg" alt="原刊第 149 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="21" aria-label="檢視原刊第 149 頁">p.149</button></span>山岳——〈利亞諾的群山〉（Mountains at Llano），勞夫．M．皮爾森原版蝕刻，承蒙韋赫藝廊提供。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="22" aria-label="放大原刊第 150 頁"><img src="pages/t22.jpg" alt="原刊第 150 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="22" aria-label="檢視原刊第 150 頁">p.150</button></span>一個成形中的區域。費爾柴爾德航空測量公司版權所有。</figcaption></figure>
+</div>
+</article>
+<article class="sec" id="regions-to-live-in" data-sec="regions-to-live-in">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="23" aria-label="檢視原刊第 151 頁">p.151</button><button class="pg" type="button" data-page="24" aria-label="檢視原刊第 152 頁">p.152</button></span></div>
+  <h2>區域——為了安居</h2>
+  <div class="en">Regions—To Live In</div>
+  <div class="byline">劉易斯．孟福（Lewis Mumford）</div>
+  
+</header>
+<div class="prose">
+<figure class="fig"><button class="thumb" type="button" data-page="23" aria-label="放大原刊第 151 頁"><img src="pages/t23.jpg" alt="原刊第 151 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="23" aria-label="檢視原刊第 151 頁">p.151</button></span>標題插圖：放大鏡下的城市與縮小鏡下的區域。</figcaption></figure>
+<p>城市的希望在城市之外。把注意力集中在城市——我們有一半以上的人住在其中——未來是黯淡的。但若放下那片放大鏡（例如它讓你看到百老匯與四十二街的無可救藥），改拿起一片縮小鏡，看看紐約所在的整個區域，城市就落入了正確的焦距。丘陵郡縣的森林、州中部河谷的水力、康乃狄克的農地、新澤西的蔓越莓沼澤，都進入了畫面。若把這一切土地僅僅視為紐約的附庸，去追溯、去強化那張蜘蛛城市穩坐其中、無人挑戰的網的絲線，那又會錯失關鍵。但若把區域視為一個整體，把城市僅僅視為其中的一部分——那或許就有希望。</p>
+<p>不只是對更好環境的渴望，而是純粹的必要性，迫使我們如此改變處理問題的方式。因為正如前面幾篇文章所示，城市正變得太大；它們在成長的同時，連住宅最起碼的體面都落後了；它們的營運變得更昂貴，治安更難維持，在其中工作更辛苦，即使在我們爭取到的閒暇時刻，也愈來愈無法從中逃脫。創造了大城市的那些力量，使得在城市內部做永久性的改善變得無望；我們為城市做規劃的努力，可悲地落後於需求——如果它們不是反而助長了那正變得難以承受的成長的話。用格迪斯教授那句尖刻的話來說，我們正在提供「愈來愈多、愈來愈糟的東西」。</p>
+<p>區域計畫則不然。區域計畫問的不是能把多大的範圍納入大都會的羽翼之下，而是如何分配人口與公民設施，以在整個區域內促進、激發一種鮮活而有創造力的生活——所謂區域，是指任何在氣候、土壤、植被、產業與文化上具有某種一致性的地理範圍。區域主義者試圖規劃這樣一個地區，使其所有的地點與資源——從森林到城市，從高地到水平面——都能健全地發展，並使人口的分布得以利用、而非抵銷或摧毀它的自然優勢。它把人、產業與土地視為一個單一的整體。它不是用一個又一個絕望的權宜之計，試圖讓壅塞中心裡的生活稍微可以忍受一點，而是試圖確定新的中心將需要什麼樣的設施。它的目標不是自動地把所有可用的鄉野都城市化；它同樣要把我們城市裡的石頭荒漠鄉村化。讀者繼續讀本期後面的文章時就會明白，在某種意義上，區域計畫運動的公民目標，可以極其精確地以「田園城市」這個概念來概括。</p>
+<p>區域計畫有上百種進路；事實上，它把過去二、三十年來逐漸匯聚動能的許多運動與方法推向了高潮。但每一種進路都有一個共同點：它試圖在區域內的每一處，促成一種更豐富的生活。凡是把生活的樂趣奪走的產業形式與城市類型，都是無法容忍的。在一些社區裡，求愛是偷偷摸摸的，嬰兒是不受歡迎的負擔，教育因缺乏與自然及真實職業的接觸而僵化為空洞的例行公事，人們只有在車輪上才能冒險，只有把心思從日常生活中「抽離」才能快樂——這樣的社區，不足以證明我們現代科學與發明進步的價值。</p>
+<p>如今，那股驅使富裕的少數人興建鄉間莊園、使小康的專業人士搬到郊區的衝動，那股驅使小家庭開上公路、不顧不適與健康危險去搭建簡陋平房的衝動，在我們看來是相當普遍的。這些人是一場「讓生活重拾一點樂趣」的普遍努力的先鋒。目前，這場出走是盲目進行的；正如萊特先生（Mr. Wright）所指出的，它的一切承諾都是虛幻的，因為像我們大城市周邊鄉野正在進行的那種雜亂無章的開發，只會破壞地景，卻無法永久地滿足飢渴的都市人。美國的社區計畫運動與英國的田園城市運動，都是建立一種更令人振奮的環境的明確嘗試——不是作為臨時的避難所，而是作為生活與文化的永久居所，享有都市的優點，而所處位置永遠是鄉村的。這場邁向田園城市的運動，是一場邁向比造就我們當前壅塞中心的文明更高類型文明的運動。它既涉及地點的改變，也涉及目標的改變。我們當前的壅塞地區，是把機械與數學科學粗糙地應用於社會發展的結果；我們的田園城市，則代表著更具人文性的藝術與科學——生物學、醫學、精神醫學、教育與建築——的更充分發展。正如現代工程使芝加哥或紐約在物質上優於雅典，而地下鐵與高樓構成的迷宮，在完整生活上卻比石器時代的洞穴更有欠缺；我們同樣可以期待，明日的城市不僅將體現我們現代機械發展中一切美好的事物，也將體現在這種片面存在中被遺漏的一切——那些五世紀的雅典或十三世紀的佛羅倫斯儘管物質上粗陋，卻擁有的一切。</p>
+<p>在經濟面上，這場邁向更完整人類環境的運動，與所謂的「工業反革命」攜手並進——這個說法十分貼切。一百年來，美國的商業一直在集中金融資源、集中工廠與都市地區，試圖藉由生產可以快速「週轉」的商品來創造物質繁榮。即使在1900年到1920年這短短期間，帳面價值也大幅增加；但大多數統計學家似乎都同意，大多數勞工的實質工資幾乎停滯不前。新的工業革命，是一種藉由產業去中心化、藉由卸除部分商業經常開支與銷售推廣、壅塞地區的地租等等負擔，來分散產業實質所得的嘗試。像丹尼森（Dennison）與福特這樣有遠見的實業家已在規劃這一步；而像愛德華．費林（Edward Filene）這樣的商人則認為，除非把去中心化當作「出路」來遵循，否則商業已陷入僵局。區域計畫，就是試圖把產業去中心化——讓產業機制運作得更好的努力——轉化為永久的社會用途。它試圖把現代產業的收益，實現在永久的住宅、花園、公園、遊戲場與社區機構上。</p>
+<p>最後，區域計畫是「新保育」——人的價值與自然資源攜手並進的保育。區域計畫看到，人口外流的鄉村與壅塞的城市密切相關；它看到，我們因忽視一個區域的潛在資源——也就是因為遺忘了我們大鐵路的終點站與交會點之間的一切——而浪費了大量的時間與精力。以永續農業取代剝削地力，以永續林業取代採礦式伐木，以獻身於生命、自由與追求幸福的永久人類社區取代營地與棚戶聚落，以穩固的建築取代我們那些「勇往直前」的社區裡的薄木條與臨時支架——這一切都體現在區域計畫之中。</p>
+<p>從這段概述可以相當清楚地看出，區域計畫不同於城市計畫，它不只是一個專業的事務：它是一種思考方式、一種行事方法，而區域計畫圖本身，只是實現其目標的一件次要的技術工具。安大略電力計畫的規劃者是真正的區域規劃者；福特先生在他的產業去中心化方案中，是一位區域規劃者；正如布魯爾先生（Mr. Bruère）所闡明的，賓夕法尼亞州電力委員會正在處理區域計畫的一個基本要素。強調大範圍交通、電力與產業發展的芝加哥區域計畫委員會，以及把三個州的部分地區都納入其「周邊」的紐約塞奇基金會研究，都標誌著與舊方法——把城市當作自成一體的單元來處理——的決裂。紐約州住宅與區域計畫委員會已完成一系列重要的初步研究，徹底擺脫了舊傳統，以整個州而非大城市作為其基礎。</p>
+<p>此外，區域計畫的目標並不僅限於那些關心產業與資源發展的人。那些已開始挑戰大城市支配地位的文化力量，顯然正朝著同一方向努力。因此，小劇場運動藉由建立地方文化中心，而非耐心等待大都會餐桌上掉下的碎屑，對區域主義至關重要；同樣地，我們新的實驗學校——它們已展示了探索與運用整個生活環境、而非死守蒼白的書本例行公事所帶來的豐富教育機會——在現有的中心裡處處受限，而要求一個依人的尺度塑造的新環境，讓學校能與家庭、產業以及周遭的自然世界密切接觸地運作。</p>
+<p>總而言之，區域計畫並不意味著把大城市規劃到其現有範圍之外；它意味著讓整個區域重新振作、恢復生機，使文化與文明的成果不再侷限於壅塞中心裡的富裕少數，而能提供給區域內每一處、凡能奠定有教養生活之物質基礎的地方的每一個人。實現這種電力與文化新分配的技術手段已經具備。擺在我們面前的問題是：物質與金融力量的自動運作，是否將扼殺我們對一種更有活力、更快樂的生存方式日益高漲的要求；抑或，藉由協調我們的努力、以想像力掌握我們的機會，我們能夠重塑我們的制度，以促進一種區域發展——一種將消除我們巨大的經濟浪費、賦予穩定農業新生命、建立依人的尺度規劃的新社區，而最重要的是，在那些幸福與自由幾乎已被擰乾的地方，恢復一點點幸福與自由的發展。這個問題與我們當前大部分的政治與社會問題正面交叉；其中有些，它使之呈現新的面貌；有些，它使之變得毫無意義。</p>
+<p>區域主義，還是超級壅塞？在美國，人會學會駕馭並安排其環境、以促進自己更完整的目的的藝術嗎？抑或他將被環境所駕馭，不久便像山繆．巴特勒（Samuel Butler）在《烏有之鄉》（Erewhon）或薩米爾欽（Zamiatin）在《我們》（We）中所描繪的那樣，發現自己除了機器的目的之外，別無其他目的？</p>
+</div>
+</article>
+<article class="sec" id="new-exploration" data-sec="new-exploration">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="25" aria-label="檢視原刊第 153 頁">p.153</button><button class="pg" type="button" data-page="26" aria-label="檢視原刊第 154 頁">p.154</button><button class="pg" type="button" data-page="27" aria-label="檢視原刊第 155 頁">p.155</button><button class="pg" type="button" data-page="28" aria-label="檢視原刊第 156 頁">p.156</button><button class="pg" type="button" data-page="29" aria-label="檢視原刊第 157 頁">p.157</button><button class="pg" type="button" data-page="64" aria-label="檢視原刊第 192 頁">p.192</button><button class="pg" type="button" data-page="66" aria-label="檢視原刊第 194 頁">p.194</button></span></div>
+  <h2>新探險</h2>
+  <div class="en">The New Exploration</div>
+  <div class="byline">班頓．麥凱（Benton MacKaye）</div>
+  <p class="deck">為工業荒野繪製地圖</p><p class="deck">我們能創造一個區域嗎？我們能擬出一套計畫嗎？毋寧說，我們必須「發現」區域、「找到」計畫。麥凱先生沿著那股衝擊城市石頭與鋼鐵的洪流，一路回溯到它最終的源頭，抵達了區域計畫的源泉。</p>
+</header>
+<div class="prose">
+<p>「最後一個偉大的地球故事已經說完了。」皮瑞（Peary）發現北極歸來時這麼說。阿蒙森與史考特隨後不久便確認了南極的位置。這些前往地球最遠盡頭的探險合起來，的確構成了最後一個偉大的地球故事；它們為始於馬可．波羅與哥倫布的那齣「我們星球展開」的大戲落下了帷幕。人征服了荒野，傳播了他的文明。但在驅散一片荒野的同時，他也創造了另一片荒野。因為文明錯綜複雜的設施，本身就是一片荒野。他解開了河流與海岸線的迷宮，卻紡出了產業的迷宮。而解開這張鋼鐵之網，正是我們這個時代的問題。</p>
+<p>這種荒野交替的故事，就是人類在地表上漫遊的故事；我們最好從地球的四個角落開始研究這場新探險——雖然我們將會發現，它也聚焦在伯克夏（Berkshire）的一處小河谷裡。J. F. 霍拉賓（J. F. Horrabin）在他那本出色的小書《經濟地理》（Economic Geography）中，列舉了人類漫遊史的四大章節：</p>
+<ol><li>河谷時期：文明（在「於特定地區定居生活」的意義上）在此發端：埃及，「尼羅河的贈禮」；美索不達米亞，「兩河之間」；印度河與黃河的河谷。</li><li>地中海時期，長達三十五個世紀。人們冒險下水，但戰戰兢兢。他們航行於內海，而非開闊的大洋。</li><li>世界海岸線的展開，由達伽馬、哥倫布與麥哲倫開始。這歷時約三個世紀，當時歐洲文明（在歐洲本土以外）侷限於一連串由海洋航線連接的沿海聚落。</li><li>大陸內部河流與河谷的解開——在西伯利亞、非洲、阿根廷，以及我們自己的遠西：篷車與「鐵馬」的時期。</li></ol>
+<p>那麼，「帝國的前進」並不只朝著夕陽的方向：它面向羅盤上的每一個方位。但它有明確的目的。帝國建造者有意或無意的努力，是要發展出一個自給自足的文明單元——以及產業單元。對現代政治家而言，這是一個刻意的目標：盡可能不依賴其他列強。這裡所用的「帝國」一詞是物質上的，而非政治上的；它指的是物質與地理上的流動，並不意味著為帝國主義辯護。正是透過物質帝國的建立（與崩解），自然的荒野縮小了，產業的荒野則擴散了。如果我們要揭開產業的隱匿面目，就像我們的先祖揭開海岸與大陸的隱匿面目那樣，我們就必須探究帝國的建造——以及帝國的製圖——這件事。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="25" aria-label="放大原刊第 153 頁"><img src="pages/t25.jpg" alt="原刊第 153 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="25" aria-label="檢視原刊第 153 頁">p.153</button></span>篷車的路徑。圖例：主要路徑、次要路徑；邊疆線（每平方英里人口少於與多於兩人的分界），各年份邊疆位置。</figcaption></figure>
+<p>產業帝國有一種「生理學」。因為帝國不只是領土。它是一個運作中的東西；它是一個粗略成形的有機體——一個系統。它的「生理學」在某些方面類似河川水系。它是從源頭到河口的流動。</p>
+<p>以英國為例：它的「源頭」在印度、非洲、蘇門答臘、澳洲——印度洋周邊的土地（以及其他地方）。這些土地蘊藏著*原料*：小麥、牛肉、棉花、羊毛、木材。這些原料大部分「流」向英國。它們先沿著各條匯聚的支流航線橫越印度洋，流到亞丁灣；再從那裡匯成一條主流，經過蘇伊士與直布羅陀，流到「河口」（也就是大不列顛）。</p>
+<p>但這只是畫面的一半。英國消費，但她也生產。她既是源頭，也是河口。她有鐵與煤。她用這些把原料轉化為*成品*。而這些成品再（經直布羅陀、蘇伊士與亞丁）流回印度洋周邊的土地。所以這些土地既是「源頭」，也是「河口」。</p>
+<p>這就是帝國的精髓：(1) 原料的*源頭*；(2) 成品的「河口」或*市場*；(3) 通往母國的*航線*，母國藉此控制「流動」。</p>
+<p>帝國就是產業：它是一股從許多源頭、經由一個控制港口、流向許多河口的流動。當然，並不是所有的流動都經過這樣一個港口。或許只有一小部分。但它受到那裡的控制。母港是頭腦；它是整合者。帝國就是整合。它是一種摸索的、無意識的努力，想從世界的混亂中取得世界的秩序。但它也帶來自己的混亂。因為帝國不只一個。而它們的流動路線會交錯。1904年在旅順港發生的就是這件事；十年後在君士坦丁堡與巴格達也是如此。帝國是整合者。但它們必須被進一步整合。產業流動必須被整合。而首先，它必須被繪成地圖，而且是以全世界的尺度。</p>
+<p>但讓我們一次處理一個大陸。讓我們聚焦在美洲。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="26" aria-label="放大原刊第 154 頁"><img src="pages/t26.jpg" alt="原刊第 154 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="26" aria-label="檢視原刊第 154 頁">p.154</button></span>產業流動的主要路線。</figcaption></figure>
+<h3>美國這個「鐵路帝國」</h3>
+<p>美國歷史上最重要的一年是1776年。它標誌著美國獨立的誕生，也標誌著美國擴張的誕生。因為正是在76年，丹尼爾．布恩越過了阿帕拉契山脈。在那之前，美國（在政治上與產業上）一直是一個日益壯大的世界性海權國家的遙遠海濱附屬地。那一年之後，她成為一個獨立的大陸強權——並及時成為第一個大型的「鐵路帝國」。西伯利亞、非洲與阿根廷都是後來的事。</p>
+<p>但她並沒有等待鐵路。因為馬與牛比火車頭早一個世代就踏上了西進之路。篷車的路徑循著那些阻力最小的路線前進，而這些路線注定成為我們今日的產業流動路線。聖塔菲小徑變成了聖塔菲鐵路。奧勒岡小徑變成了聯合太平洋鐵路。篷車——以及隨後的火車頭——驅散了自然的荒野，建立了產業的荒野。</p>
+<p>美國的領土構成一個幾乎自給自足的世界級產業單元。它擁有食物、衣著、燃料、建築與家具的來源。小麥、牛隻與棉花來自內陸大草原，鐵來自梅薩比山脈（Mesaba Range），煤來自阿勒格尼高原，軟木來自墨西哥灣地區與太平洋沿岸，硬木來自阿帕拉契山區。亞熱帶產物來自佛羅里達與南加州。</p>
+<p>這些原料大體上經由芝加哥、聖路易與蘇聖瑪麗船閘（Soo Locks），向東「流」到匹茲堡與紐約這些「河口」。在這裡以及其他大型動力中心，它們被轉化為成品。然後（就像在利物浦與曼徹斯特一樣）「河口」轉為「源頭」。流動重新開始。成品（食品、紡織品、家具）一部分流往歐洲及其他海外地區；其餘則向西流回那些如今已轉為「河口」的源頭。</p>
+<p>這種「流動」是經由鐵路，而非水路。大致說來，它是東西向的，而非南北向的。日後這可能會改變。因為密西西比河谷有兩條通往公海的天然水路出口。一條經由五大湖與聖羅倫斯河。這條路（就像俄國經波羅的海的出口一樣）多少有冰封之虞。另一條是順密西西比河而下到墨西哥灣。這既是一條大西洋航線，也是一條太平洋航線。因為紐奧良經巴拿馬到瓦爾帕萊索與溫哥華的距離，與它到利物浦的距離差不多。這個至今仍有待開發的內陸水道帝國，正是拉薩爾（La Salle）當年為法國所懷抱的夢想。</p>
+<h3>隱藏的潛在架構</h3>
+<p>對世界與美洲的總體圖像就說到這裡。對橫越一個大陸以及某些大陸之間的流動路線就說到這裡。這些路線是否盡可能地直接？它們是否匯聚在位置最好的港口？是否應該有更多港口來處理這股流動？是否有交叉流動與重複的路線？源頭本身——食品、紡織品與家具的源頭——是否在每個區域內都發展出足夠的多樣性？製造中心能否設在更好的位置？這些是關於我們現代產業之網、需要回答的幾個問題。</p>
+<p>在這張表層之網——就其現狀而言——之下，還有另一個架構：這是一個潛在的架構。這是地理因素所容許的最有效率的架構。它是能讓從源頭到河口的「流動」盡可能順暢的架構；是能以最少的噸英里數（以及最少的勞動）達成這股流動的架構。找出並定位這個「最有效率架構」的問題，是土木工程師問題的延伸：也就是在A點與B點之間重新定線一條鐵路的問題。在這兩點之間，存在一條最有效率的路線——就距離、坡度、彎道與整體實用性而言。工程師的工作就是找到那條路線。也許他永遠找不到。但他很可能找到任何人所能找到的最接近的那一條。</p>
+<p>工作不是去「造」出最有效率的路線。它已經被造好了——由大自然。它就躺在那裡，是一種隱藏的潛能。工作是去「發現」它。為此，工程師必須搜尋它：他必須探險。所以，他的首要工作不是建造，而是探險。</p>
+<p>而這正是我們在「達成產業流動的最有效率架構」這件事上所面臨的工作。我們的工作不是去造出這個架構。它已經被造好了——由大自然；它就擺在我們面前，是一種隱藏的潛能。我們的工作是去發現它。這很可能是我們永遠做不到的事。但只要知道我們追求的是什麼，我們就能找到最接近的東西。為此，我們必須探險。而這——發現引導產業流動的最有效率架構——就是新探險的工作。</p>
+<h3>從伯克夏到波士頓</h3>
+<p>我們有什麼線索來進行這項發現？在解開目前這張糾結的鋼鐵之網的過程中，我們該從何處著手？讓我們看看它的一個樣本。讓我們取新英格蘭從山脊到海港的一個橫剖面：從伯克夏到波士頓港，沿著波士頓與緬因鐵路的胡薩克隧道（Hoosac Tunnel）路線。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="27" aria-label="放大原刊第 155 頁"><img src="pages/t27.jpg" alt="原刊第 155 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="27" aria-label="檢視原刊第 155 頁">p.155</button></span>新英格蘭橫剖面：「大西洋邊境帝國」的一部分。（由紐約州的哈德遜河〔海平面〕、胡西克河、北亞當斯、斯特拉頓山、佛蒙特、格林菲爾德、康乃狄克河，經新罕布夏、麻薩諸塞的格林維爾，到波士頓港〔海平面〕。）</figcaption></figure>
+<p>這個橫剖面上出現三種地形：</p>
+<p><strong>阿帕拉契屏障</strong>：以麻薩諸塞西部與佛蒙特的伯克夏—綠山山脈為代表。胡薩克隧道在麻州北亞當斯附近貫穿這條山脈。</p>
+<p><strong>門檻平原</strong>：以新英格蘭高原為代表，佔總面積的四分之三。（這片高原被康乃狄克河的沖積平原所橫越。）</p>
+<p><strong>沿海地帶</strong>：以波士頓盆地為代表，這是一片緊鄰港口的平坦低地，被構成大波士頓的各城市所佔據。</p>
+<p>這三種地形各自被一種有些不同的產業之網所佔據。阿帕拉契屏障主要是一個「源頭區域」，主要提供水力與森林。可耕土壤僅限於狹窄的谷底，但許多山坡可供放牧牛隻。在新英格蘭，這個區域是水力與硬木木材的主要來源，也附帶是牛奶的供應來源。這裡的產業之網以最簡單的形式出現，主要由電力設備、伐木設備與小型工廠構成。</p>
+<p>另一方面，沿海地帶大體上是一個「河口區域」。這裡的產業之網以最複雜的形式出現。它實際上包括每一種製造工廠、穀倉與倉儲設施、商店、辦公大樓、碼頭、鐵路調車場，以及千百種產業結構的組合。此外還有運輸路線與機動車輛，供上班族每日往返郊區。</p>
+<p>沿海地帶只是大都會區域類型的一個例子。當然，這種類型散布全國各地，大小不一，從佔據整個郡的大紐約與芝加哥，到只佔幾個街區的「一匹馬」小工廠鎮都有。我們把這樣的地區稱為「河口區域」。對原料而言它是河口；對成品而言，它就成了「源頭區域」。因此，地圖上沿波士頓與緬因鐵路的城鎮（菲奇堡、格林菲爾德、北亞當斯）可以歸類為「小波士頓」。城市無論大小，都呈現出產業之網最複雜的形式：它是產業叢林中最多節瘤、最濃密的部分。</p>
+<p>在這兩種極端類型——城市與山脈——之間，是構成全國大部分面積的平原與高原區域（在我們的地圖上以新英格蘭高原為代表）。這是一個農業區域——在新英格蘭是牛奶、蘋果與柴薪的來源。這是一片田野與林地交錯的鄉野。這裡的產業之網比沿海地帶簡單，但比阿帕拉契山區複雜：主要由穀倉與農具、乳品廠與各種工廠，以及把它們與附近城市連接起來的道路構成。</p>
+<p>在這些「地理經濟」類型中，我們最好從哪一個開始我們的探險——搜尋那個作為我們目標的隱藏潛在架構？我們應該從波士頓開始，還是從伯克夏開始？</p>
+<p>我們的先祖——舊探險的拓荒者——是從哪裡開始的？他們從波士頓開始。而且有充分的理由。波士頓的荒野不如後來被稱為伯克夏的那片丘陵的荒野錯綜複雜。我們的先祖循著演化的路線，從簡單走向複雜。他們從波士頓走向伯克夏。</p>
+<p>我們——新探險的我們——應該從哪裡開始，波士頓還是伯克夏？如果我們也要遵循演化，我們就應該效法先祖：從簡單走向複雜。但這兩者在地圖上已經互換了位置。「簡單」已經移到伯克夏，「複雜」已經移到波士頓。因為在伯克夏，產業之網最稀薄；在這裡的「源頭」，產業迎向大自然；產業在這裡開始；它在這裡把最初的幾股線繫在大地母親身上，「流動」便沿著這些線開始。但在波士頓，網最濃密；在那裡的「河口」，產業迎向人；產業在那裡停歇；它在那裡把無數最終的線連結到最終消費者身上，「流動」就經由這些線結束。所以我們要從伯克夏開始，而不是從波士頓。</p>
+<p>事實上，伯克夏代表一個領域，波士頓則代表另一個完全不同的領域。伯克夏代表可以稱為「<button type="button" class="term" data-g="6">起源領域</button>」（sphere of origin）的東西；波士頓則是「<button type="button" class="term" data-g="7">配銷領域</button>」（sphere of distribution）。這是一個至關重要的差別！起源領域內的產業流動路線可以明確地分開處理；但在配銷領域內，它們必須被整合。源頭區域是「單一產業」區域（或「少數產業」區域），而河口區域則是許多（或全部）產業的區域。在伯克夏森林裡把一棵樹變成木板，可以單獨規劃；但在波士頓交付一把木椅，就牽涉到整個木材業：甚至更多——它牽涉到鋼鐵，以及整個製造與配銷的宇宙。</p>
+<p>當然，總有一天我們必須進入波士頓。但同一天我們也必須進入紐約、芝加哥與舊金山（甚至也許還有利物浦與香港）。因為這些全都在配銷領域之內。它們是一股連續流動的神經中樞，而這股流動的浩大是全大陸（跨大陸）的。</p>
+<p>你會說：「但是，如果源頭區域構成產業之線的一端，河口區域構成另一端，為什麼不同時從波士頓與伯克夏開始，從兩端向中間推進？」</p>
+<p>好主意。讓我們務必要有城市計畫。但不要忘了它扎根於廣大的腹地。讓我們明白，州街（State Street）上的交通壅塞與「公園街地下站」的地鐵壅塞，是發生在達科他與德州、紐約與查爾斯頓、以及薩默維爾的種種活動的結果。拓寬街道、興建新地鐵是相當簡單的事；而當洪水已經來到我們面前時，這種緊急的挖溝工程或許看似非常必要。但這並沒有觸及根本。</p>
+<p>當匹茲堡終於開始以男子漢的方式對付阿勒格尼河與莫農加希拉河的洪水時，它做了什麼？城市計畫中的一項緊急部分，是處理這些過剩的水。匹茲堡防洪委員會便著手進行。他們離開了匹茲堡。他們追溯河水到它們的源頭。而匹茲堡「城市計畫」的這一部分，涵蓋了橫跨四個州相當大範圍的河川流域。為了控制匹茲堡的洪水，發現需要至少十七座散布在方圓數百英里內的水庫。在這份「城市計畫」的地圖上，城市本身只是一個小點。</p>
+<p>水的流動如此，其他東西的「流動」亦然。人口的流動也是如此，因為它取決於產業產品的流動。從密西西比盆地經北大西洋港口流出的產業流動，比流經密西西比三角洲的水流還要驚人。最驚人的「峽谷」是紐約港：美國約五分之一的海外貿易噸數從這裡擠過。紐約是最大的「尼加拉瀑布」。而波士頓、費城與巴爾的摩只是較小的瀑布。這股來自我們大陸內陸的流動，能否以更高明的工程技術加以「分洪」？</p>
+<p>那我們製造業的「水池」呢？為什麼它們要壅塞在大都會裡？幹線上的城市（菲奇堡或北亞當斯）對其中許多製造業而言，不是跟波士頓一樣好嗎？而（對某些東西來說）支線上的城鎮（新罕布夏的格林維爾或佛蒙特的威明頓）不是跟菲奇堡或北亞當斯一樣好嗎？何不把我們的工廠匯集到更後方——更接近源頭的地方？煤與鐵在密西西比河以東的任何地方都能會合。北有梅薩比山脈，南有阿拉巴馬的伯明罕。電力可以直接透過電線，從煤田或瀑布送達這片領土的幾乎任何地方。卡羅萊納高地的硬木，以及五大湖各州與墨西哥灣（未來）的軟木，都（或將）近在咫尺。而四周生長著棉花與玉米、綿羊與牛隻，供我們衣食。</p>
+<p>當波士頓（以及其他城市）把它們真正的城市計畫當作一個產業集水區的一部分來擬定時，它們就會把眼光放到挖溝工程（拓寬街道與地鐵）之外，像匹茲堡處理洪水那樣去做。它們會研究造成洪水的溪流與泉源。它們會尋求從源頭向外控制，而不是從河口向後控制。</p>
+<h3>一個樣本區域：索美塞特河谷</h3>
+<p>現在讓我們開始探險：不在波士頓，而在伯克夏。我們將探勘「起源領域」中的一個樣本區域。我們取迪爾菲爾德河（Deerfield River）上游盆地，也就是麻州胡薩克隧道大彎以上，這條河及其支流所流經的地區。這片地區一部分在麻州伯克夏郡，一部分在佛蒙特州境內。它由沿著伯克夏—綠山山脈主稜線的一系列山谷構成。我們將把主要注意力集中在其中一個：索美塞特河谷（Somerset Valley），位於佛蒙特州威明頓以北的最上游源頭。</p>
+<p>索美塞特河谷是一個迷你帝國。它長17英里，寬4到8英里，面積49,000英畝。它是一個典型的稜線河谷，幾乎完美地體現了「起源領域」。它被這段山脈中三座最大的山與外界隔絕——西邊是格拉斯頓伯里山，北邊是斯特拉頓山，東邊是海斯塔克山。它的出口在東南角，就在威明頓鎮上方。</p>
+<p>這個小區域有它自己的歷史；它呈現出「定居生活」明確的興衰。第一位定居者丹尼爾．萊斯（Daniel Rice）進入河谷的那一年（1776年），正是丹尼爾．布恩越過南阿帕拉契山的那一年。他和他的追隨者效法埃及人，在一處肥沃的河谷底地（如今為索美塞特水庫所淹沒）建立聚落。1780年，萊斯在這裡蓋了第一座鋸木廠與磨坊。下一棟社區建築是一座教堂——五年後以原木搭建。他們稱這個社區為「大草地」（Big Meadows），那裡的定居生活持續了約一百年，從1776年的丹尼爾．萊斯開始，到1882年據報最後一戶人家為止。</p>
+<p>索美塞特河谷這一個世紀的歷史，是木材業某一階段的興衰史——牛車與放流原木的階段。索美塞特帝國唯一的主要出口品是木材。沿著主流不時設立（又廢棄）一些小型鋸木廠（以水力驅動）。此外，至少建了一座木材加工廠——1846年的一座曬衣夾工廠。直到本世紀中葉，大草地及其周邊顯然是河谷生活的中心，人口從1790年的111人增加到1850年的321人。此後，中心似乎往下游移到西爾斯堡（Searsburg）的聚落。但就在這時，整個河谷的生活開始衰退：歷史記載的是鋸木廠的廢棄而非興建；兩個聚落的合計人口從1860年的340人降到1910年的169人。</p>
+<p>1907年，「舊帝國」被一個新帝國取代：伐木鐵路來了。一個新的伐木階段進入了河谷——鐵路階段。但它的強大反而使它短命。河谷裡遍布臨時伐木營地，原木經由鐵路運往威明頓及更下游的大型鋸木廠。1920年以前，剩下的較大樹木就這樣被運走，最後一列火車開走後，鐵軌也被拆除。於是「第二帝國」走完了它的路程，而索美塞特河谷的定居生活，如今正等待著復原。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="29" aria-label="放大原刊第 157 頁"><img src="pages/t29.jpg" alt="原刊第 157 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="29" aria-label="檢視原刊第 157 頁">p.157</button></span>索美塞特河谷森林計畫，迪爾菲爾德河上游。圖例：①②等——指每十年輪伐一區的各區塊；(P) 保護林，位於陡坡，用以調節溪流流量；陰影區＝可能的農地。（另標示：斯特拉頓山、索美塞特水庫、索美塞特橋、依「新英格蘭街道」型態規劃的村莊。）</figcaption></figure>
+<p>這個故事，是東部各州一般林木茂密的稜線河谷的故事。它是某一特定初始產業之線——即伐木業——的歷史。這個產業，就像在索美塞特河谷一樣，張開了它的網，又把網收了回去。因此，我們自己的問題反而變得更簡單了。我們要找的「架構」埋得沒那麼深。我們可以在一塊相當乾淨的石板上建設。事實上，網的「廢墟」本身就為我們的架構提供了堅實的基礎。索美塞特的舊鐵路路基，可以成為通往河谷未來森林各部分的絕佳道路。一些舊伐木營地可以改造成伐木社區。剛好索美塞特河谷並未遭受重大破壞。因此，有管理的森林生長可以很容易地開始。</p>
+<p>因此，作為我們新探險的一個樣本——作為我們所追尋的隱藏架構中某一特定線索的製圖——我們擬出了一份粗略的計畫，用以逐年引導索美塞特河谷能供應的原料之一——木材——的潛在流出量。這份計畫的要旨，以附圖圖示呈現。</p>
+<p>這裡所呈現的森林計畫，是針對前述迪爾菲爾德河上游盆地的那一部分——索美塞特河谷。它需要採用所謂的「林業」（forestry）。林業將發展一個地區最大的潛在木材生長量，就像水力產業將發展一個地區最大的潛在馬力一樣。每年的伐採量於是限制在每年的生長量之內。也就是說，林業每年只砍伐森林的年度「利息」，而不是一次把森林的「本金」全部鏟光。這是森林的耕作，相對於森林的採礦。</p>
+<p>只有林業，才能讓索美塞特河谷的定居生活維持在真正安定的狀態。因為任何社區要永續，都必須建立在永續的產業之上。只要森林產業以「採礦」的方式經營，它就只能支撐「營地」式的人口；它必須成為森林的耕作，才能支撐定居的生活。</p>
+<p>一棵用材樹要長到財務上的成熟，需要50到150年。這個事實使得投資的回收必須等待超過一個人的一生。這又進而需要某種形式的長期所有權與一貫的長期政策。因此，某種公共機構才是合乎邏輯（也合乎實際）的所有者——例如州、聯邦或市政府。本計畫即以這種所有權形式為前提。</p>
+<p>我們在這份計畫中的目標，是發現並繪製出調節索美塞特河谷木材流出的「最有效率架構」。</p>
+<p>這個架構（就我們所能看到的而言）已繪於此。它由一套道路系統與定期的伐採組成，匯聚於一座中央鋸木廠與木材加工社區。（依規劃，這個社區分為兩部分，一部分靠近鋸木廠，另一部分靠近索美塞特水庫。）</p>
+<p>這裡呈現的計畫只是一份草圖。它僅供說明之用，為了保持清晰，草圖刻意畫得非常粗略而僵硬。實際運作時必須加以修改。</p>
+<p>起源領域要供應的另一項重要「原料」是水力。作為引導某項資源從一個區域流出的潛在架構的另一個例證，這裡呈現一份電力計畫。我們省了自己擬這份計畫的麻煩。因為它已經由新英格蘭電力公司的工程師擬好了（而且大部分已付諸實行）。這些工程師實際上就是新探險中的探險家。他們著手工作時就明白，在迪爾菲爾德河上游盆地內，大自然早已鋪設了某一個最有效率的電力開發架構（某種水庫、電廠廠址與坡度的組合，用以引導河流的流動，能比任何其他組合每年產生更多、更穩定的電力）。他們的工作就是找到那個架構。他們是否真的找到了，他們和我們或許永遠無法確知。也許他們現在就能看出某種更好的配置。但他們已經找到了一個取得並控制河流電力的架構，看起來確實很像我們所追尋的那個「最有效率架構」。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="64" aria-label="放大原刊第 192 頁"><img src="pages/t64.jpg" alt="原刊第 192 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="64" aria-label="檢視原刊第 192 頁">p.192</button></span>迪爾菲爾德河谷上游水力計畫。（標示：斯特拉頓山、索美塞特水庫、威明頓、戴維斯橋水庫、戴維斯橋電廠、佛蒙特／麻州界、迪爾菲爾德河。）</figcaption></figure>
+<p>我們不打算深入這個架構的細節。它的主要路線，就像森林計畫一樣，以圖示呈現比用文字描述更好。這份計畫規劃開發胡薩克隧道以上整個迪爾菲爾德河上游河谷的電力。計畫僅限於「起源領域」。它是一個把河流流動的潛在機械力（以電力的形式）供人使用的架構。這些電力（一旦可用）應該用在什麼地方，那是另一回事。那是另一個領域的問題，也就是「配銷領域」。而這是我們在本文中不打算進入的。電力流動的配銷問題，是產業流動整體配銷問題的一部分；而電力流動，是那一條產業大河的一部分，這條大河最終必須被當作一個偉大的整體來處理。</p>
+<p>在起源領域之內，還可以舉出其他產業之線的例證：例如引導西維吉尼亞山區煤炭動力流動的「最有效率架構」；新澤西稜線河谷牧場的牛奶與奶油的流動；沿阿帕拉契山脈各放牧區的羊毛流動。這裡所舉的兩個例子（木材與水力），只是我們產業製圖的一些提示。</p>
+<p>事實上，產業只佔一個區域「定居生活」故事的一半。另一半——它作為一個社區單元的社會發展——本身就是一整個主題。那裡的問題，是為一個社區繪製架構，使它成為適合人類生活的環境。因此，迪爾菲爾德河谷的一個森林社區，不必是原始或粗陋的。相反地，它在自己樸實的規模上，很容易就能享有文明所能提供的一切——不僅在物質需求上，也在社會生活與一般文化上。為真正的生活、而非僅僅是生存，繪製架構，是新探險的另一個根本要務。</p>
+<p>「最後一個偉大的地球故事已經說完了。」舊探險已經完成了它的工作。「定居生活」從它在埃及與美索不達米亞氾濫平原上的早期家園出發，把自然的荒野推到一旁，把它的網張遍全世界：首先在地中海沿岸，接著在大西洋彼岸的海岸，最後在各大陸的心臟地帶。在美國，篷車的路徑凝固成鋼鐵的道路，大體上定下了我們產業文明的模子。</p>
+<p>但結局尚未到來。「定居生活」仍未完全安定。我們清除了一片荒野，卻造出了另一片。我們造出了一張威脅要勒死我們的產業鐵網。在這張網之下，潛藏著一個架構，也就是那個「最有效率的架構」，生活物資必須經由它流動，我們才能從無用的勞苦與紛爭中解脫。</p>
+<p>我們的工作就是找到那個架構。而首先要去尋找的地方，似乎是它開始之處，也是它的線最少、最簡單之處。這些地方構成了「起源領域」——源頭所在的區域，在那裡每一條線（每一種產業）都可以分開、作為獨立的實體來繪製。引導索美塞特河谷木材流動的架構，說明了這樣一條分開的線；引導迪爾菲爾德河上游水力流動的架構，說明了另一條。山脈稜線，連同毗鄰的側谷，是起源領域的脊樑。</p>
+<p>但到了下面的城市裡（在沿海或在鐵路沿線）——到了「配銷領域」——問題就變得複雜了。這裡的線是以大陸的尺度編織的。當我們在這裡尋找架構時，我們必須立刻處理來自各大陸、而非各河谷的流動。</p>
+<p>所以，今天的我們有我們的大搜尋，就像我們的先祖有他們的一樣。他們尋求為自然的荒野繪製地圖；我們尋求為人的荒野繪製地圖。就目的而言，他們的路徑與我們的路徑方向相同——從簡單到複雜。但在地圖上，它們走的方向不同。他們的路徑——篷車的路徑（舊探險的路徑）——循著河谷之路；我們的路徑（新探險的路徑）循著稜線之路。他們的行動基地是河谷的底部（河川線），從那裡沿著支流往上，走向它們在山丘中的源頭。我們的行動基地是河谷的頂部（山脈稜線），從那裡順流而下，走向河口。</p>
+<p>從源頭到河口（河川的與產業的）；從稜線到海港；從「起源」領域到「配銷」領域；從簡單到複雜；這就是新探險的演進。我們的路徑沿著稜線（內華達山脈的、洛磯山脈的、阿帕拉契山脈的），而新探險可以用<button type="button" class="term" data-g="11">阿帕拉契山徑</button>（Appalachian Trail）來象徵——它已經開始沿著我們東部各州的脊樑蜿蜒而下。因為稜線就是新的邊疆。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="64" aria-label="放大原刊第 192 頁"><img src="pages/t64.jpg" alt="原刊第 192 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="64" aria-label="檢視原刊第 192 頁">p.192</button></span>舊路徑與新路徑。圖例：河谷之路，或篷車的路徑；稜線之路，或新探險的路徑。</figcaption></figure>
+</div>
+</article>
+<article class="sec" id="seeing-a-state-whole" data-sec="seeing-a-state-whole">
+<header class="sec-head">
+  <div class="kicker"><span>專文＋圖解</span><span class="pages">原刊 <button class="pg" type="button" data-page="30" aria-label="檢視原刊第 158 頁">p.158</button><button class="pg" type="button" data-page="31" aria-label="檢視原刊第 159 頁">p.159</button><button class="pg" type="button" data-page="32" aria-label="檢視原刊第 160 頁">p.160</button></span></div>
+  <h2>整體地看待一個州</h2>
+  <div class="en">Seeing a State Whole</div>
+  <div class="byline">艾佛瑞德．E．史密斯（Alfred E. Smith），紐約州州長</div>
+  
+</header>
+<div class="prose">
+<p>我們太習慣把紐約州的地圖看成定局了。只要回顧過去一個世紀本州的成長，就能看出人的努力如何重塑了我們這個偉大的帝國。這已是一個與最初移民所見截然不同的州。它也與鐵路時代以前的州截然不同。未來，它還將是一個截然不同的州。</p>
+<p>我們再也承擔不起讓本州未來的成長聽任偶然。它必須經過規劃，以服務每一個男人、女人與孩子的利益，為更豐富、更美好的生活提供機會，而不是為了特權團體的利益。社區的規劃與全州的規劃，或許是擺在我們面前最偉大的事業。</p>
+<p>本州自然資源的開發，與紓解大城市壅塞地區之間，有著直接的關係。在大城市——特別是紐約市——土地的價值與最侷促空間的相對高租金，使舒適的住宅成為大多數人可望而不可及的東西，除非是像「城市住宅公司」（City Housing Corporation）這類<button type="button" class="term" data-g="8">限制股利公司</button>所進行的不尋常事業。到目前為止，我們一直只是試圖防止某些地區過度擁擠，但需要的是比限制性立法更根本的東西。如果我們能在離大城市較遠的州內各地，提供更好的生活條件與謀生機會，我們無疑會發現，有許多人——他們的群聚本能已因廉價公寓生活的種種困難而多少被克服——會把握這些機會。自從我在1920年向紐約州議會提交重建委員會的住宅報告以來，一套建設性的政策已逐漸成形。1923年州議會授權我任命一個委員會來處理住宅問題時，它成立時不只是一個住宅委員會，而是一個「住宅與區域計畫委員會」。</p>
+<p>過去一年來，這個委員會已投入一些時間，為全州第一次全面性區域調查進行初步研究。假以時日，如果計畫是以全州為基礎擬定的，它可以協助重新分配本州的人口，使廣大群眾更加舒適、更能發揮所長。</p>
+<p>到目前為止，對於那些缺乏紐約市與水牛城那種卓越貿易優勢的中心，我們非但沒有加以培育，反而忽視了它們。紐約州五百多個小城市與自治村中，過去二十年來有明顯成長的不到七分之一，許多更是倒退了。但距離水牛城不到七十英里處，有一個五百人的小鎮，十年前製造業還停滯不前，最近州公路委員會以一條出色的道路把它與外界連接起來。不久之後，一家電器工業便在附近落腳，以利用流經鎮上河流的水力。這家新工業不必設在壅塞的中心；藉由汽車與電力，一個因缺乏工作、缺乏與其他社區聯繫而受苦的城鎮得以重振生機。隨之而來的，是足以興建住宅的活力與資源；以及擴大所承擔工作的範圍，更充分地確保相關居民的幸福與福祉。這其中，就蘊含著一套區域計畫政策的萌芽。</p>
+<p>我們的農業地區，是本州在區域計畫上已經起步的一個例子。農業專家已讓某些地區的農民明白——那些農民原本試圖在只長得出牧草的土地上靠混合作物維生——他們如何能藉由經營酪農業自救；在這行不通的地方，專家則幫助那些眼前只有毫無希望的貧困生活的農民，取得更好的土地，或改行從事其他工作。智慧為改善這些農民的處境所做的，智慧也能為其他產業與其他勞動者做到。</p>
+<p>本州行動的最大機會，或許在於它龐大的水力蘊藏。其中一些水力——特別是在薩斯奎哈納河與德拉瓦河上游源頭的較小溪流上——曾經驅動鋸木廠，後來驅動穀物與紙漿磨坊，進而為健康的村莊帶來生命。如今，這些水力在舊水壩上白白流過。在本州倉促而盲目的產業發展中，這些地方被與世隔絕，一切都漂向了有市場與煤炭可用的中心。當我們能就一種誠實而公平的水力利用方式達成共識——既能幫助產業，又能維護本州作為所有者的權利——水力發電就將取代煤炭。</p>
+<p>住宅與區域計畫委員會正在研究這個情勢，希望協助產業找到合適的地點，並在功能完備的社區中，創造營建真正家園的新機會，讓遊憩、工作與教育對每一個人開放。需要一場大規模的教育與宣傳運動，讓每一位市民與每一個產業組織都認識到這些機會的價值。當壅塞地區的居民、需要工作的人、或需要新天地的產業，學會從更廣的面向看待這個問題，並看出較新的交通設施與自然資源之間的關係時，我們就可以期待，藉由各自的最佳發展，州與城市的計畫問題將獲得明智的解決。</p>
+<h3>三個產業時期</h3>
+<figure class="fig"><button class="thumb" type="button" data-page="31" aria-label="放大原刊第 159 頁"><img src="pages/t31.jpg" alt="原刊第 159 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="31" aria-label="檢視原刊第 159 頁">p.159</button></span>三個產業時期（Three Industrial Epochs）。第一期，1840–1880：全州性的活動與往來——九百英里運河、五千座水車、四百個繁榮的小工業城鎮。第二期，1880–1920：沿幹線運輸集中——大幹線鐵路與煤炭動力把人口壅塞在二十幾座擁擠的城市。第三期：未來可能的州，其中每一部分都發揮其合乎邏輯的功能，支持健全的活動與美好的生活——公路發展讓孤立的村莊重獲生機；機動貨車擴大了商業範圍，而來自賓夕法尼亞大煤田的巨型電力也接上了線；與紐約州北部的水力一起，編織出一張新的產業之網。確保這場復興被導向本州一切資源最有利的發展，正是區域計畫的職責。——地圖與圖表由亨利．萊特（Henry Wright）為紐約州住宅與區域計畫委員會繪製。</figcaption></figure>
+<p>紐約州區域計畫的第一份報告，即將由住宅與區域計畫委員會發表。報告追溯了本州的產業史——本州已經歷了兩個重要的週期，據信正接近第三個週期。</p>
+<p>1850年以前，本州的活動主要分布在約四百個繁榮的小工業城鎮，散布全州，並由一套非常完備的運河運輸系統服務。五千座水車與兩倍於此的工廠點綴著整張地圖；直到1870年，使用中的水力仍是煤與蒸汽所產生動力的兩倍以上。</p>
+<p>第二個時期，緊隨第一批大幹線鐵路的興建而來，這些鐵路填補了五大湖與紐約港之間的缺口。隨著鐵路的發展，紐約成為來自西部最有利的通道，便把注意力主要轉向這項業務，而這項業務自然也帶動了產業沿著運輸幹線分布。橫向運輸被忽視，支線運河甚至在1875年左右就被廢棄了。於是本州失去了幹線以外各城鎮之間的往來量；而隨著產業轉向以煤為動力，它自然侷限於那些由東西向主要幹道提供最佳運輸服務的地區。小鎮的產業消失了，居民也不得不漂向幹線上的城市。因此，從1850年到1920年的七十年間，紐約州整體的成長實際上停滯不前，農村人口先移往附近的大型中心，再從這些中心移往十個主要城市——到1920年，這十個城市都已各自達到五萬居民。本州的成長愈來愈慢；到1910年，在這少數幾個得天獨厚的城市之外，總人口開始出現淨減少。</p>
+<p>報告假定，本州不會——也不需要——再回到可與第一個產業時期相比的那種全面分散（或全州性）發展的狀態。然而，向小城市的回流已經顯而易見；而且有一些範圍雖有限、卻條件優越的大片地區，最能同時支持農業與工業活動，其餘的高地地區則形成一片供再造林、水源供應與遊憩之用的腹地。</p>
+<p>委員會期待，隨著機動貨車與公路把產業從鐵路運輸幹線上解放出來，適合農業與工業的地區能得到更明智、更普遍的利用。它提出，整個伊利湖與安大略湖的集水區，構成了一個完整產業生活的理想剖面：從湖濱以及溫帶氣候中適合種植果樹的肥沃地帶開始。農業平原以小城鎮為界、兩側有兩條貨運公路，圍繞並連接著串在平原中央的鐵路、公路與運河複合路線上的製造中心。它的外側是下一個地帶：專門經營酪農與飼料作物的高地農場；最後，在更遠的高地上，是森林保護區與蓄水盆地，為工業平原提供供水與電力。這將恢復本州最偉大的自然資源——也就是它的森林。</p>
+<p>本州於是成為一系列完整的生活剖面，適合新產業時期的理想發展。把這場演進導向生活最充分的出口，就成了區域計畫的任務。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="32" aria-label="放大原刊第 160 頁"><img src="pages/t32.jpg" alt="原刊第 160 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="32" aria-label="檢視原刊第 160 頁">p.160</button></span>一個「理想剖面」，以穿越奧爾良郡與傑納西郡的一條線為基礎繪製，但呈現的是紐約州北部邊境大部分地區健全的區域發展。（由左至右：森林高地、蓄水水庫、酪農場、起伏高地、發電廠、汽車公路、公路、鐵路、運河、工業城市、肥沃平原、汽車公路、果園、湖。）</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="32" aria-label="放大原刊第 160 頁"><img src="pages/t32.jpg" alt="原刊第 160 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="32" aria-label="檢視原刊第 160 頁">p.160</button></span>擬定一份州計畫：前四張地圖（地形、土壤、雨量、土地利用）疊合之後，產生第五張——指出地形、土壤、礦產資源與氣候在何處共同使耕作與製造業成為有利的。剩下的——白色區域——便被指為最適合生產木材與作為公園保留地的土地。第六到第十張地圖（氣候、集水區、農地價值等）則反過來講同一個故事：它們顯示，在第十張綜合圖中顏色最深的地區造林，對現有土地利用與價值的干擾最小，並能保育本州生命所不可或缺的水源。</figcaption></figure>
+</div>
+</article>
+<article class="sec" id="giant-power" data-sec="giant-power">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="33" aria-label="檢視原刊第 161 頁">p.161</button><button class="pg" type="button" data-page="34" aria-label="檢視原刊第 162 頁">p.162</button><button class="pg" type="button" data-page="35" aria-label="檢視原刊第 163 頁">p.163</button><button class="pg" type="button" data-page="36" aria-label="檢視原刊第 164 頁">p.164</button><button class="pg" type="button" data-page="60" aria-label="檢視原刊第 188 頁">p.188</button></span></div>
+  <h2>巨型電力——區域的建造者</h2>
+  <div class="en">Giant Power—Region-Builder</div>
+  <div class="byline">羅伯．W．布魯爾（Robert W. Bruère）</div>
+  <p class="deck">巨型電力已在鍛造一副可以建造區域的骨架——這副骨架支撐農民留在他的土地上，把工廠與土壤連結起來，使均衡的社區成為生氣勃勃的現實。在賓夕法尼亞，巨型電力調查委員會剛發表的報告，為區域建造者的創造性任務提供了估算與工作規格。</p>
+</header>
+<div class="prose">
+<p>區域計畫的誕生，是源於我們那些臃腫、壅塞、難以駕馭的商業城市所帶來的壓力。但它只是次要地是一個大都會問題。它首要是一個問題：如何遏止鄉村與小鎮社區的衰退、使其生活重新振作。它假定，通常以「你比較喜歡住在城市還是鄉下？」這個問題來表達的二選一，是一個錯誤的二選一；健康、有活力、熱愛生活的男人、女人與孩子，想要的是一個能同時享受兩者好處的環境。</p>
+<p>儘管人口迅速從農場移往城市，美國仍是一個農業國家；而如果我們要維持國內的繁榮與我們在世界上的經濟優勢，就必須繼續如此。幸運的是，我們面對的並不只是一項道德上的命令；在傳統上，我們是一個熱愛土地的民族。把我們數以百萬計勇於冒險的人從歐洲家園吸引過來的磁石，正是土地，以及其中蘊含的機會與自由。隨著我們與自由土地時代之間相隔的數十年愈來愈長，隨著我們一次又一次十年一度的人口普查，看著人口的重心從農場移向城鎮，我們往往忘了那種對土地的飢渴有多麼強烈。但我們把症狀與原因混為一談了。就在二十五年多一點之前，奧克拉荷馬開放拓墾時，成千上萬的人加入了我國歷史上最貪婪的「搶先者」（sooner）大搶灘。而那是在當地發現石油之前。許多人只是想不勞而獲；但也有許多人是為了在土地上扎根。如果還有另一塊印第安保留地可以開放，土地代理人的槍聲一響，那個場面就會重演。如果我們的人民能夠克服美國農場生活嚴酷的孤立，如果耕作能在經濟上有利可圖，他們就不會成百萬地放棄農場。</p>
+<p>歸根究柢，區域計畫與人口的去中心化，取決於農業的穩定與日益繁榮；而這又不僅取決於更充足、更便宜的肥料，也取決於把現代機械設備與能源推廣到小鎮與鄉村的家庭。巨型電力（giant power）若受到明智的控制，就能同時帶來這兩者。</p>
+<p>一年前，在《The Survey》的巨型電力專號（1924年3月）中，我曾說，透過電力產業的發展，機械工程師正開始重建美國生活的技術與社會骨架。當時有些讀者傾向於認為這句話浪漫多於事實，但其間的幾個月，已經公開證實了這句話所依據的資料。電力公用事業公司一家接一家宣布合併，作為興建從賓夕法尼亞與西維吉尼亞的煤礦通往五大湖與大西洋沿岸的巨型輸電線的前奏。國會中關於馬索肖爾斯（Muscle Shoals）的辯論，已讓每一位清醒的外行人意識到：全國的能源資源將被聚集到少數幾個電力池中，而產業、運輸與社區生活的未來將愈來愈依賴它們。機械工程師們正不聲不響地啟動的這場技術革命，其真實性已無庸置疑。</p>
+<p>同時，我也曾惋惜：人的工程師——社會工作者與教育工作者、衛生、公民與勞工領袖——似乎幾乎沒有意識到一場新的工業革命正在進行；他們面對電力發明的進展，幾乎就像十八世紀的慈善家面對蒸汽的革命性進展一樣天真。可能性依然存在：除非有遠見的男男女女奮起防範這樣的悲劇，否則黎明中的電氣時代的社會史，可能會重演工業革命的社會史。</p>
+<p>賓夕法尼亞巨型電力委員會今年春天發表的報告，以及這期區域計畫專號本身，可以被視為社會工程師群體最初的兩次協同嘗試，試圖對這場根本性的技術變遷運用預見與規劃，以有助於避免其可以預防的弊害，並把它巨大的力量導入對社會有益的渠道。</p>
+<p>這種開路的工作，不可避免地帶有一切拓荒工作的試探性質。但鑑於大規模電力發展已經伴隨出現的種種不祥徵兆，它具有最適時的重要性。家庭代工——血汗工廠的那位後母——在我們的大城市裡又在增加。南方部分地區對水力缺乏社會想像力的開發，正以婦女與兒童配合馬達節奏的勞動，建造新的棉紡廠城鎮。把廉價電力從中央電廠延伸到西維吉尼亞與賓夕法尼亞西南部的煤礦，正為非工會礦區的礦主帶來一個強大的盟友，從而加劇了工人與礦主之間的鬥爭。雖然健康與體面標準的普遍提升正發揮著保護作用，新的技術革命在其社會面向上，仍傾向於循著舊革命那條熟悉的路線前進。</p>
+<p>之所以會如此，很大程度上是社會工作者與人的工程師、公職人員與公民領袖的過錯：他們未能跟上機械工程師的腳步，未能行使他們作為社區廣大群眾的前哨、教育者與社會嚮導的職權。</p>
+<h3>安大略的例子</h3>
+<p>在北美大陸上，有兩個地方——安大略與加州——由於大自然的安排，巨型電力被導離了傳統的渠道，建立起區域的骨架。安大略南部的可耕地區，具備了本期所使用的「區域」一詞的基本要素。巨型電力為這個加拿大省分所做的，正是區域規劃者（如第159頁的計畫圖所示）希望它為紐約州所做的。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="34" aria-label="放大原刊第 162 頁"><img src="pages/t34.jpg" alt="原刊第 162 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="34" aria-label="檢視原刊第 162 頁">p.162</button></span>安大略透過其水力電力委員會的工作，從尼加拉向外鋪展巨型輸電線，已取得本期《The Survey》所使用的「區域」一詞的基本要素。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="34" aria-label="放大原刊第 162 頁"><img src="pages/t34.jpg" alt="原刊第 162 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="34" aria-label="檢視原刊第 162 頁">p.162</button></span>賓夕法尼亞的電力連結：圖中實心黑線為已申請興建的22萬伏特輸電線；點線為已宣布的增建線；虛線為可能的進一步延伸。</figcaption></figure>
+<p>當尼加拉瀑布首次興建水力發電廠時，其推動者心中所想的，是在尼加拉與多倫多之間發展一個集中的工業區。他們夢想著一座電氣化的匹茲堡。安大略之所以躲過了一般類型的工業化，是因為它沒有煤，而從賓夕法尼亞、俄亥俄或英國進口的煤又太貴，無法支撐一個工業化的省分。結果，它保留了許多殖民地時代的特色，仍是一個由農場與小鎮構成的社區，有幾分殖民時期新英格蘭的魅力。從工業角度看，這個省分的落後本身，竟成了一個意義重大的社會事實；它幫助這個省分跳過了把大部分都市美國牢牢鉗住的那個發展階段。</p>
+<p>當工程師開始駕馭瀑布時，安大略各小鎮的商人、製造業者與工匠，連同在社會上與他們相互依存的農業鄰居，起而反抗一個念頭：在尼加拉裝一台巨大的抽吸泵，把他們社區的生命吸乾，只留下閒話叮噹作響的「大街」空殼，或淪為單純的郊區衛星。因此，他們為成立安大略水力電力委員會而奮鬥，目的是把尼加拉產生的能源去中心化，將它平均分配到全省各地，好讓他們的小鎮與鄉村社區能各依其性繁榮發展。他們贏了。如今，他們的農場正迅速電氣化；與紐約州相比，安大略的小鎮正欣欣向榮。* 以伍德斯托克（Woodstock）為例，它有二十八種不同的產業，全都使用電力——而電力就像自來水一樣，是公有並公營配送的——它正以根扎在自己土地上的方式成長：不是單一產業的暴發繁榮城鎮，而是周圍鄉野的一種莊園城鎮。就像水力電力區域內其他數十個城鎮一樣，它在自身及其緊鄰的鄉村環境中，結合了均衡的城鄉生活、多樣化產業與本土文化的機會。</p>
+<p>*見1924年3月號《Survey Graphic》巨型電力專號中亞當．貝克爵士（Sir Adam Beck）與瑪莎．班斯利．布魯爾（Martha Bensley Bruère）的文章。</p>
+<h3>我們的處境</h3>
+<p>現在，把安大略廉價電力的廣泛普及及其城鄉的均衡發展，與我們大西洋中部各州、以及我們工業州的一般情況相比。在我們這裡，工業大都會主宰了大規模的電力發展。我們最大的發電廠，都蓋在已經過度擁擠的製造業中心。這種政策的影響甚至延伸到尼加拉的美國這一側：在瀑布產生的水力電力，不是像在安大略那樣以二百五十英里為半徑鋪展到全州，而是主要在聚集於電源附近的幾座城市與工廠中消耗掉。這種做法的主要原因——除了我們的沿海城市是我們農業與製造業剩餘產品流向歐洲的漏斗之外——在於：在高壓、長距離輸電甚至還沒出現在工程師的夢中之前，蒸汽機就已經用鐵路從礦場運來的煤，造就了我們的製造業巨獸。我們沒有像安大略那樣（出於必要而把電廠設在其主要水力來源處）把發電廠設在礦場，而是把它們蓋在可以給蒸汽機當配角的地方。世界上最大的幾座電廠就在紐約、克里夫蘭與芝加哥；這些大都會電廠所產生的電力，實際上全都在其市界內使用。除非這種安排被扭轉過來，除非我們的主要電廠既設在瀑布、也設在礦場，並且把電流平均分配到廣大地區，否則區域計畫將始終缺乏其必要的經濟基礎與技術骨架。因為我們必須永遠記住，除了太平洋沿岸之外，我們主要的電能來源不是水，而是煤；賓夕法尼亞、西維吉尼亞、俄亥俄、肯塔基、印第安納與伊利諾的煙煤礦脈，就是我們的尼加拉。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="35" aria-label="放大原刊第 163 頁"><img src="pages/t35.jpg" alt="原刊第 163 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="35" aria-label="檢視原刊第 163 頁">p.163</button></span>賓夕法尼亞的煤田與電廠位置。單斜線區顯示煙煤田的相對位置與大小；雙斜線區為無煙煤田。圓圈表示主要的蒸汽發電地點，實心黑方塊為現有水力發電廠；空心方塊為預定的水力開發。巨型電力將把這些電力來源整合成一副區域骨架。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="35" aria-label="放大原刊第 163 頁"><img src="pages/t35.jpg" alt="原刊第 163 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="35" aria-label="檢視原刊第 163 頁">p.163</button></span>賓夕法尼亞配電線所及、可提供電力服務的地區：黑色區域佔總面積的20%。這是假定在已知存在的配電線兩側一到一英里半範圍內的地點，可以用中等成本延伸線路到達。這片黑色區域的一半，即總面積的11%，被計為目前實際有供電。與安大略的情況相反，賓夕法尼亞的電力大多集中在已經壅塞的中心。——取自1925年2月發表之賓夕法尼亞巨型電力報告。</figcaption></figure>
+<p>這是一個有趣的時代徵兆——社會工作者與社會改革者普遍應該謙卑地注意到——最清楚地看出巨型電力與區域計畫之間根本的相互依存、以及兩者深遠社會意涵的，竟是一位機械工程師。賓夕法尼亞巨型電力調查的主任莫里斯．L．庫克（Morris L. Cooke），發明了「巨型電力」這個詞，特別是為了讓大眾注意到大規模電力事業中潛藏的社會機會與危險。早先的「<button type="button" class="term" data-g="5">超級電力</button>」（superpower）構想，依其主要倡導者的詮釋，主要目標是在已經壅塞的中心，把電力堆疊在既有的電力之上。今年3月，把巨型電力調查委員會的報告提交賓夕法尼亞州議會時，向大眾闡釋巨型電力的平肖州長（Governor Pinchot）說：</p>
+<blockquote><p>超級電力是在各系統配電線末端交換剩餘電力。它的主要目的是公司的利潤——而非公眾的利益——而它正以一種令人難以理解的速度實現中。……巨型電力與超級電力的差別，就像一頭馴象與一頭野象。一頭是人的朋友與工作夥伴——另一頭若放任不受控制，可能是危險的敵人。公眾的位置應該在大象的脖子上，引導牠的行動，而不是在地上，無助地被壓在牠的膝下。</p></blockquote>
+<p>有了設在礦場而非大城市中心的巨型發電廠，有了一套整合的、而不僅是互聯的輸電系統，我們將能夠追隨安大略的榜樣，並以我們更豐厚的資源加以改進。</p>
+<p>但所期望的社會成果，並不會隨著礦口電廠的興建而自動到來。它們的實現需要持續而明智的規劃。大眾不僅需要坐在大象的脖子上，還需要磨利自己的頭腦，讓這頭巨獸做它想要的事。如果巨型電力要成為區域的建造者，而不是像蒸汽動力那樣成為我們人力與經濟資源的揮霍者，區域計畫就必須走在巨型電力之前。</p>
+<p>區域計畫與城市計畫的區別，和巨型電力與超級電力的區別頗為相似。正如超級電力會把機械能堆疊在既有的機械能之上，而非將它廣泛分配；狹義的城市計畫也傾向於擴大大城市的腰圍，使它們得以更肥、更大。區域計畫處理大城市本身的問題，不是從內部，而是從外部，透過小鎮與農場。區域計畫與巨型電力兩者的邏輯，都指向農場、小鎮與鄉野，作為首要的著力點。</p>
+<h3>農村電氣化</h3>
+<p>這說明了為什麼賓夕法尼亞的巨型電力調查在確立了在煤田進行大規模發電的經濟與技術優勢之後，便深入探討農村電氣化的問題。在美國的645萬座農場中，從中央電廠取得電力的不到3%。只有在加州——那裡的電力主要來自遠離大都會中心的水力——農村電氣化的進展速度才可與安大略相比；那裡有27%的農場由中央發電廠供電。就美國整體而言，我們從未認真努力把現代電力發明的成果帶到農場，儘管我們農民所使用的原動力是我們所有工廠合計的兩倍。但其中大部分是名副其實的「馬力」或「騾力」——也就是說，是相對沒有效率的動力，因為照顧牲畜本身就要耗費勞力。此外，牠們的維持費用高，而牠們的關欄與餵食大多不會遷就人的方便。馬和騾在家裡也不怎麼派得上用場。牠們會拉犁、拉車，但不擅長煮飯、撢地板與家具的灰塵、洗衣燙衣。牠們頂多是男人的僕人，而不是女人的。特別是婦女，被農場生活的孤立與艱辛逼往城市，或逼瘋，或兩者皆是。</p>
+<p>與城市中流行的看法相反，在我國人口中，沒有一個群體比耕種土地的男男女女更執著地依戀他們的家園與職業。但由於農業技術落後，對最好的農場的需求很殷切。地價很高，而沒有現代機械設施，要靠勞動獲利、贏得合理閒暇的掙扎就愈來愈艱難。由於對土地的執著熱愛，人們不惜一切代價取得這些設施。在賓州蘭開斯特郡，一群群農民集結他們微薄的資源，興建水壩、駕馭當地溪流，好為他們的住宅、田地與穀倉取得電力。他們用這種高成本電力最先做的事之一，就是抽足夠的水，好安裝現代化的衛浴設備。美國農業生活的技術設備仍然多麼原始，可以從以下事實看出：在高度工業化的賓夕法尼亞，二十多萬座農場中，只有46,402座把水管接到農舍；而住家中有近乎現代化污水處理設施的比例幾乎同樣微小。美國有數以萬計的農民，為了取得最起碼的電力服務，自行安裝了個別的電燈系統或以汽油引擎驅動的馬達。但以這種方式產生的電，成本幾乎貴得令人卻步。只有格外富裕的農民負擔得起。賓州的202,250座農場中，178,666座沒有任何電力設備，只有12,452座有公用事業供電。即使以寬鬆的方式計算，全州也只有20%的土地面積可以取得電力——儘管世界上最大的燃料蘊藏就在州界之內。賓州使用的電力幾乎有一半是在費城與匹茲堡大都會區產生並主要在那裡消耗的。在巨型電力體制下，五年內把電送到全州一半的農場、十年內送到75%的農場，在經濟上是可行的——而在做到這一點之前，區域規劃者夢想中的城鄉生活平衡，將主要仍是一場夢。</p>
+<p>五年與十年的時程估計，不僅依據賓夕法尼亞巨型電力調查的發現，也依據某些歐洲國家的實際成就。區域計畫想要化解的困境——一方面是被遺棄的農場與衰退的小鎮，另一方面是過度擁擠的城市——並非美國所獨有；歐洲較古老的農業與工業國家早已見識過它、與它角力過，至今仍面對著它。但其中有些國家，就像大西洋這一側的安大略一樣，在解決它的路上走得比我們遠得多。而它們發現，大規模電力服務的廣泛分配與社會控制，是解決它的最大單一助力。以巴伐利亞為例，* 它的面積約為賓夕法尼亞的三分之二；但它有一百萬英畝以上的耕地。巴伐利亞的農民、他們的妻兒，在務農的經濟與身體艱辛下日益不安。戀家的老一代憂心忡忡，政府也很關切。發電廠得到公共援助，農民合作社得到協助去興建並經營配電系統。到1921年，在那個古老習俗與民情的堡壘裡，略多於一半的農村住家有了電；計畫在五年內把電流送到每一座農場。丹麥的面積略多於新澤西的兩倍，或紐約州的三分之一。五分之三的人口住在鄉間，十分之三從事農業。1918年以前，電在那裡就像在我們這裡一樣，是城市的奢侈品。但正如全世界都知道的，這個小王國的農業復興精神很強。今天，一半的農場已有電力設備，並計畫在十年內把每座農場都納入電氣化範圍。瑞典面積173,000平方英里——約等於新英格蘭加上大西洋中部各州——其中60%是森林，只有9%是可耕地。然而她的已改良農地與賓夕法尼亞一樣多，約一千二百萬英畝。十年前，農村電氣化在瑞典幾乎聞所未聞。她的農家子女把目光投向城市，投向大海彼岸的威斯康辛、明尼蘇達與達科他。今天，九百五十萬英畝耕地中有40%可以取得電力，而且服務正在擴展。在這些國家，發明、工藝與經濟事業的浪漫，正準備再次在農場與鄉間城鎮綻放。</p>
+<p>*本段的社會事實與統計數字，承蒙賓夕法尼亞農業組織理事會農村電力委員會法律顧問哈洛德．伊凡斯（Harold Evans）發表於《美國政治與社會科學院年刊》1925年3月號之〈世界農村電氣化經驗〉一文提供。</p>
+<p>當電力能從中央電廠以合理的價格大量取得時，它能為農場做什麼，可以從賓州州立學院 R. U. 布拉辛蓋姆教授（Professor R. U. Blasingame）所報告的一座賓州農場的紀錄中看出。李維．H．布魯貝克（Levi H. Brubaker）在蘭開斯特郡擁有一座133英畝的農場。隨著工廠來到鄰近的城鎮，他面臨了田間與家務幫手的一般性競爭。沒有電力設備，他既無法提供穩定的僱用，也付不出熟練勞工所要求的工資。為了因應這個情勢，他把農場電氣化，並以工廠的方式組織它。他把農場分成兩區，每一區再細分成三塊田。每一區以三年輪作經營——第一區：馬鈴薯、小麥與苜蓿；第二區：菸草、小麥與玉米。藉由用電來噴灑農藥、為馬鈴薯分級、脫小麥粒、切青貯飼料，以及一般地以機器取代手工，他能全年穩定僱用三個人，付給他們高工資，並且不需要額外的季節性勞工。如果電再便宜一點，他也許會採用德國部分地區使用、愛荷華州立學院也在實驗的無人電犁。事實上，他也許會考慮用電來烘乾他的乾草與苜蓿——這是在巴伐利亞與其他歐洲國家發展出來的做法——從而大幅提高他飼料地的產量。就目前而言，電力不但徹底改變了他的農業作業，而且不同於那些漸被遺忘的馬與騾，它進入了屋內，煮飯、撢地板與家具的灰塵、洗衣燙衣、抽取充足的水，並以其他二十種方式，讓他的妻子覺得生活值得一過。</p>
+<p>一座農場就說到這裡。當區域計畫與巨型電力完成了它們的工作，它們將塑造出什麼樣的世界？任何超出安大略、加州與歐洲實際成就範圍的預言嘗試，都不免落入像摩爾的《烏托邦》那樣做作而人為的模式。再多的專家規劃或機械設備，所能做的也不過是創造一個環境，讓人的精神有最大的自由去發展其潛能。我們知道，無論是我們滋生貧民窟的城市那種畸形的產業生活，還是孤立的農場與小鎮那種艱苦、貧瘠、文化萎縮的生活，都使全面的教育與精神發展成為不可能。有效的區域建造，藉由在農場、小鎮與金融大都會之間建立一種有生命力的、有機的、功能性的整合，應能矯正當前的畸形，並把各自的優點擴散出去。藉由把產業帶到離農場更近之處，把農場拉到離工業中心更近之處，藉由為城市打開窗戶、迎進鄉野的新鮮空氣，並把我們這些配合機器運轉的城市過剩的神經能量注入農場與小鎮，它應能為我們機械化的文明，恢復早期家戶與鄰里經濟中多樣化的職業與文化機會。它應能穩定並豐富社區生活，從而為新的民俗與本土習俗、為社區關於美好生活的新願景之綻放——這正是宗教的本質——預備好土壤。</p>
+<p>這一切都在我們的能力範圍之內。但誰能說，作為一個民族，我們是否有能力掌握它們？</p>
+</div>
+</article>
+<article class="sec" id="road-to-good-houses" data-sec="road-to-good-houses">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="37" aria-label="檢視原刊第 165 頁">p.165</button><button class="pg" type="button" data-page="38" aria-label="檢視原刊第 166 頁">p.166</button><button class="pg" type="button" data-page="39" aria-label="檢視原刊第 167 頁">p.167</button><button class="pg" type="button" data-page="40" aria-label="檢視原刊第 168 頁">p.168</button><button class="pg" type="button" data-page="61" aria-label="檢視原刊第 189 頁">p.189</button></span></div>
+  <h2>通往好住宅之路</h2>
+  <div class="en">The Road to Good Houses</div>
+  <div class="byline">亨利．萊特（Henry Wright）</div>
+  <p class="deck">我們為我們的哨子付出了太高的代價——為了隨心所欲地蓋房子、不顧社區的特權。如果我們學會一起規劃，就能削減住宅的隱藏成本，把省下來的錢投入如今遙不可及的美觀與舒適。</p>
+</header>
+<div class="prose">
+<p>在我們心中，住宅問題仍與大城市的貧民窟連在一起。我們問：窮人的廉價公寓如何才能變得衛生、合理地安全？——上一代人為了制定限制性法規而奮鬥，以防止過度擁擠與骯髒生活的最惡劣弊端出現在我們城市的新街區裡。</p>
+<p>但住宅問題無法被關在貧民窟裡；它已變得普遍。我們仍緊抱著「一戶一宅」的理想，但統計顯示，美國每一棟獨立住宅住著1.8個家庭；而我們大多數人如今必須接受的住所，除了少數例外，既不理想也不令人滿意。我們城市的新街區幾乎還沒建好，就開始「衰敗」了。我們對這個發現感到惱怒，把責任推給「戰後」材料與勞工的高成本，或住宅融資的高成本；但這些因素雖然真實存在，卻不是我們困難的根本來源。</p>
+<p>讓我們停下來看看自己的處境。在住宅上，我們被撕裂在一個無法忍受的現實與一個不可能的理想之間。現實是，我們正穩定地被擠進愈來愈小的住所；而「進步」中心的人們所住的廉價公寓與多戶住宅，在我們看來並不是永久的家。噪音、隱私的欠缺、對鄰居無休止的意識、窗外陰鬱的景觀——這些是我們之所以忍受，只因為我們寧可如此，也不願接受目前的另一種選擇：匆促的早餐、沉悶的通勤時間、被迫提早離席而錯過的戲劇第三幕，以及其他那些我們為逃往郊區（Suburbia）所付出的小小不適。</p>
+<aside class="poem"><h4>郊區病（Suburbanitis）</h4><div class="by">佚名配圖詩</div><p>我們的小屋獨自佇立，<br>如此勇敢、大膽而自由；<br>我們的小屋有一片景觀，<br>越過山谷、丘陵與海洋。<br>我們的小小地塊足足五十英尺，<br>以單純的永久產權持有。</p><p>我們的小屋面向道路，<br>那原本只是一條踩出來的小徑。<br>我們也有浴室和蓄水池——<br>排水溝順著屋後流下。<br>我們的小小家務彌補了<br>許許多多我們欠缺的舒適。</p><p>我們的小屋依然還在，<br>但已不復從前；<br>我們的排水溝堵了，我們的景觀沒了，<br>我們的心安也沒了，因為<br>擠進來那麼多鄰居，<br>還有成打成打的孩子。</p><p>我們的景觀沒了，我們的安靜也沒了，<br>但我們有了別的東西；<br>一條水泥步道、一條自來水幹管，<br>還有電——力。<br>但說來奇怪，我們的稅一直漲，<br>帳單更是慘不忍睹！</p></aside>
+<p>與此同時，我們被一個幻想哄著：總有一天我們能實現夢想中的家。我們在住宅與園藝期刊裡、在週日報紙的雜誌版上看到它的圖畫；我們在「更好的家」週與「擁有自己的家」運動中聽到它被讚揚、被吹捧。那是一個如畫的住宅的夢，自由而獨立地矗立在自己的土地上——運氣好的話是一整座鄉間莊園，至少也是一塊獨立而隔絕的地。儘管我們已學會適應公寓那些最起碼的實用設施，儘管我們或許還對可收折的廚房與可收折的床有點小小的自豪，只等著哪位天才把「可收折的嬰兒」也完善起來，但誰也不准碰我們的理想之家！</p>
+<p>二、三十年前，我們大多數的郊區還能誇耀綠蔭蔽天的街道與寧靜的草坪；在短暫的一段時間裡，這個夢並不全然無望。如今情況變了。為了追求理想的家，人們用汽車逃到城市邊界之外、逃到其限制性建築法規之外——接受種種不便，並常常冒著衛生不良與供水不足的危險。隨著我們較大城市的住宅短缺，小住宅再度成為可用住宅量中一個可觀的因素，但就品質與合意程度而言，這個趨勢的價值大可懷疑。在紐約市界內，新蓋的小木屋排成長長的單調行列，不少於五十英里，一律重複同一種設計，緊密地擠在劣質的土地上，通常沒有適當的公共設施或消防保護，衛生與健康的設施也往往簡陋至極。這些地區實際上沒有預留任何遊憩用地。房子是最單薄的構造，維修費用將會極高，而且會在購屋者最沒有準備的時候落到他們頭上。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="38" aria-label="放大原刊第 166 頁"><img src="pages/t38.jpg" alt="原刊第 166 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="38" aria-label="檢視原刊第 166 頁">p.166</button></span>住宅成本中結構與基地、設備及器具所占比例；以及大城市新建住宅中獨戶住宅相對於其他住宅形式的比例。承蒙《美國建築師學會期刊》提供。——今天，一棟房子實際結構的成本，幾乎不比基地、設備與器具的成本高多少，而結構相對於基地與公用設施的比例正穩定下降。萊特先生的圖表顯示，在新的城市建築中，獨戶住宅相對於多戶住宅的比例也以差不多同樣的速度下降，因此再過五十年，附帶成本將使獨戶住宅在大城市中絕跡。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="38" aria-label="放大原刊第 166 頁"><img src="pages/t38.jpg" alt="原刊第 166 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="38" aria-label="檢視原刊第 166 頁">p.166</button></span>成長中的城市如何散開脫線。紐約州中部一座較大城市中，單一街道上兩個相鄰的路段。左邊的房子是十或十五年前依市府規定興建的。右邊的房子就在市界外，隨便蓋起，缺乏城市生活所必需的便利設施。唯有健全而全面的規劃，才能防止這些浪費財產與人的價值的、參差不齊的城市邊緣地帶。</figcaption></figure>
+<p>在費城，那種相對低等級、低成本的連棟住宅類型——它常被引為該市的一項獨特優勢——住宅設施仍與其他地方一樣遠遠落後於需求。在聖路易，劃定並限制供受保護的獨戶住宅使用的地區，相對而言仍乏人入住，而供多戶住宅使用的地區則迅速被填滿。即使在湧入外來財富的洛杉磯，昔日的「平房」在許多新建築中也正被拋棄，取而代之的是效率公寓與公寓旅館。</p>
+<p>對大多數尋找住所的人而言，被告知他們的理想是不可能的，而且正是這個理想阻礙了我們住宅前景的任何改善，無疑會是一大打擊。但由於我們堅持像孤獨的魯賓遜那樣在城市邊緣蓋房子，我們失去了城市生活與公民合作的真正好處，而在不知不覺中，我們也失去了我們所追求的那份孤寂。事實是，我們的理想之家，可以追溯到一個房子的成本全都在地面之上的時代。我們並沒有讓這個理想適應當前的情況：如今一棟房子的成本有25%來自社區——而非個人——所提供的東西。除此之外，還有另外15%到20%埋藏在實際建築本身以外的成本與服務之中。我們再也不能個別地、零碎地解決我們的問題；因為決定性的因素不在我們手中。</p>
+<p>目前我們整個個人化的造屋過程，是浪費而奢侈的。首先，土地被從農業用途中取出，加以開闢、分割、出售——通常遠在實際使用之前。總得有人承擔這些浪費與持有成本；在社區計畫之下，這兩者都可以減到最低。接著，新街道、下水道與管線的開發被分散進行，而不是與實際的造屋同步開闢，於是整個社區的市政服務費用與住宅基地成本都增加了。由於一開始並未考慮這個鄰里的最終用途——即使在所謂的分區計畫中亦然——街道習慣上都依最終可供商業使用的規模來興建——這又是一種浪費，因為永久的住宅區可以用比商業區更窄、鋪面更輕的街道來服務。個別造屋佔用了奢侈的土地面積；然而它既不提供足夠的庭園空間，也不提供隱私。事實上，獨棟或雙併住宅之間通常多出許多步道、通道與車道，帶來持續的噪音、混亂與髒污，剩下的有用空間微乎其微，特別是當加蓋一間私人車庫，把最後一塊可能供孩子遊戲的空地也佔去之後。</p>
+<p>這一切浪費與奢侈的綜合結果，反映在鄰里上。許多理想的東西因成本增加而被忽略或忽視；例如，遊戲場與公園很少被預留，即使事後補上，也因費用節節上升而被縮減。電話、瓦斯與電力等設施同樣可能長期不足；而當這一切都完成時，社區對一般家庭而言已經貴到負擔不起。結果就發生了變化：要嘛較窮的家庭被趕走，要嘛鄰里「衰敗」；也許還會引進房客與小商店來幫忙分擔負荷。城市確實可能試圖替那些付不起自己那一份的外圍鄰里，承擔昂貴市政服務的成本；但這個過程不可能無限期地維持下去。</p>
+<p>這種奢侈的鄰里，最終的命運就是加入那些佔據我們擴張中城市中間地帶的、管理不善的衰敗地區。在城鎮從中心向外擴張的過程中，平凡人被擁有個人住宅的前景吸引到邊緣；他醒來時卻發現自己身處貧民窟之中。於是城市的發展變成一場永無止境的跳背遊戲，城市接二連三地摧毀它的邊緣開發，留下一連串骯髒、衰敗的地區，它們被重稅逼離原本的用途，正處於被改建成令人無法忍受的高層公寓或同樣擁擠的廉價公寓的邊緣！</p>
+<p>與此同時，我們務實的營建商繼續生產替代性的住所，它們合乎我們的荷包，卻不合乎我們的心願。由於我們還沒學會明智地合作，以取得隱私、庭園、陽光與讓孩子茁壯成長的空間，公寓的營建者就讓我們在單一一棟建築裡「合作」——它剝奪了大部分這些東西，但大到足以支撐市政公用設施的沉重稅負。在這裡，合作生活與整體建築設計的好處被減到最低；這不是因為多戶住宅必然劣於獨戶住宅，而是因為這類建築的設計大體上都屈從於單一動機——最密集的土地使用，以獲取最大的利潤。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="39" aria-label="放大原刊第 167 頁"><img src="pages/t39.jpg" alt="原刊第 167 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="39" aria-label="檢視原刊第 167 頁">p.167</button></span>左：典型的美國大城市現代開發——一排排單調、廉價、單薄的房子。為重型交通而鋪設的過寬街道與不必要地昂貴的公用設施，把本應用來改善住宅與庭園的錢拿走了。右：英國威爾溫田園城市（Welwyn Garden City）的一排工人住宅。街道與公用設施依其用途調整；沒有忽略任何改善，費用卻被明智地分攤了。</figcaption></figure>
+<aside class="box"><h4>住宅政綱六大要點</h4><ol><li>簡單但全面地規劃。不要在個別產權線上就停止規劃。依所處理物業的特定需要——而非依慣例的模式——來調整鋪面、人行道、下水道等。安排建築與庭園，讓即使最小、最便宜的房子也能得到陽光、空氣與過得去的景觀。</li></ol>
+<ol><li>在正確的地點為社區用途預留充足的基地——遊戲場、學校菜園、醫院、學校、劇院、教堂、公共建築、商店。</li></ol>
+<ol><li>把工廠與其他產業建築設在不必浪費地運送貨物或人員就能使用的地方。</li></ol>
+<ol><li>汽車必須停放與存放，貨物必須配送，垃圾必須收集——以最低限度的危險、噪音與混亂來規劃這些服務。</li></ol>
+<ol><li>使私有土地與公有土地建立關係，並把建築與建築群相互關聯地加以規劃；集體地發展那些能以低於個別經營的成本，增加個人便利與舒適的服務。</li></ol>
+<ol><li>以公平的成本與服務為基礎，安排住宅的居住，包括組織、興建與維護社區所需工作的成本。所有權的感覺是可貴的；家庭擴大與縮小的機會也是。兩者可以兼得。</li></ol>
+<p>所有這些原則都完全可行。在過去三十年間，它們各自都曾在不同的時間與地點試行過，已不再只是願望或臆測。合在一起，它們不僅是可能的，而且構成任何永久而理想地解決我們住宅困境的基礎。</p></aside>
+<p>那麼，替代方案是什麼？真正的選擇並不在德國人所謂的「租屋兵營」（rent-barracks，即廉價公寓）與孤立的「夢想之家」之間。對我們大多數人而言，隨著我們的需求愈來愈複雜、社區成本不斷上升，真正的替代方案是在租屋兵營與社區計畫之間。</p>
+<p>我們營建與工作，彷彿我們是孤獨的「所見一切的君王」——結果卻得到單調的千篇一律。另一方面，社區計畫是一種藉由學習共同工作來達成個體性的方法。剛才圖示的美國式個別住宅行列，與英國田園城市寬敞而規劃良好的住宅群之間的對比，本質上不是兩個國家之間的對比，而是兩種不同規劃類型之間的對比。美國少數幾個這類社區開發的例子，雖然或許少了一點較為熟練的英國傳統的魅力，但與英國的計畫一樣，都遠勝於個人主義的混亂。</p>
+<p>在這種團隊合作中，有許多明智節約的機會。首先，在小型獨棟住宅中，外部連接的成本往往高達屋內管線與設備成本的一半。對照英國在興建低成本工人住宅上的進步：藉由合併排水系統，這些附帶成本已降低到個別服務成本的25%。這是整個社區計畫過程的典型。因此，在當前英國受政府管制的社區計畫實務中，土地與公共服務的成本已降低到住宅成本的不到10%，而在我們這裡約為25%。當前英國實務的最終結果，是以比我國常見的單薄木造房屋相對更有利的條件，生產出這些永久性的磚造住宅。事實上，英國的工人住宅在平面與服務的經濟上已被研究得如此透徹、如此完善，以致於它已成為所有階層造屋的標準。</p>
+<aside class="box"><h4>群組規劃・社區規劃・城鎮規劃</h4><p><strong>群組規劃</strong>：兩棟房子合併建在相鄰的地塊上，每一棟都有更多可用的空地。六棟房子成群興建，全都在景觀、隱私與開放空間上得到提升。</p>
+<p><strong>社區規劃</strong>：四十個營建商把兩個城市街廓填滿了雜亂、醜陋而擁擠的廉價公寓。社區規劃者省去一條昂貴的街道，把更有效率、更開放的住宅圍繞著一座美麗的中央花園成群配置。</p>
+<p><strong>城鎮規劃</strong>：一座城鎮為了分割與出售的便利而規劃，10%到40%的土地被不加區別的街道佔去。另一座城鎮為了效率與更好的生活而規劃：公用設施集中在主要幹道沿線，住宅區使用安靜而經濟的街道，內部位置則得到大片的開放空間。</p></aside>
+<p>重要的是要了解，這些收益並非僅僅來自更好的融資或大規模生產，雖然這些都是重要因素，而生活標準也沒有在任何一點上被削減。使得結果與一般大量生產如此不同的，是對整個規劃過程——包括住宅與鄰里——的協調，以充分利用社區方法的好處。結果是，每一片土地一開始就配有它的地方公園與遊戲場；街道依用途調整比例，並依服務需要定位，而不是為了單純地生產可供出售的臨街英尺數。</p>
+<p>我們已在美國各地零星的實驗中檢驗過這些收益，但進展慢得令人沮喪，也很有限。這裡那裡，有一些小型住宅群依基地調整，並在道路、車庫與次要社區設施上取得群體的節約，例如巴爾的摩的羅蘭公園（Roland Park）與費城的聖馬丁（St. Martin's）。在戰前與戰時興建的一些大型住宅開發中，關聯良好的規劃所帶來的好處得到了證明。不幸的是，沒有機會對結果做充分的檢驗。這些開發在利用與管理上最好的例子，大概是布里奇波特住宅公司（Bridgeport Housing Company）。在那裡，各式各樣的獨戶、雙戶與多戶住宅以租賃方式使用，就其所鼓勵的社區關懷程度而言，近似於自有住宅，同時又在依家庭需求與抱負調整居住空間上，提供了理想程度的彈性。一旦把「租賃」的觀念，與太常自動伴隨它的東西——規劃拙劣的居住空間——分開，我們或許會發現，我們對自有住宅的強調，只看到了那種方案的優點，而沒有計算它的缺點。我們必須努力讓家本身穩定而安全，使住宅區不會總是受到租金上漲、稅負增加與更密集使用的威脅；但我們不必把正常的所有權形式，視為必然是由個別家庭持有。法人形式的所有權，例如英國「合夥租戶有限公司」（Copartnership Tenants Ltd.）所設計的那種，同樣穩定；而且它更接近我們在其他產業部門——涉及龐大初始資本支出的產業，無論以個人或合作方式經營——所發現必要的形式。</p>
+<p>在長島市的<button type="button" class="term" data-g="12">陽光花園</button>（Sunnyside）開發案中，城市住宅公司已在典型的美國條件下，實踐了社區計畫住宅的若干節約特徵，為家庭年收入2,400到3,000美元的人們興建住宅（見1924年11月15日號《The Survey》）。</p>
+<p>第一項節約在於取得一塊夠大的土地，作為一個整體來處理，並且不在使用之前開闢。不幸的是，在陽光花園，這項節約只做到一部分；我們無法避開市府早已鋪設好的浪費的街道系統。下一項節約來自住宅與公寓的群組配置。藉由這種方式，許多類型的住所與建造方式被編織進這個實驗：個人擁有的住宅、合作公寓與出租公寓；而這些功能上的差異，又成為設計上差異的基礎。這種經過規劃的住宅，能夠達成一種誠實的個體性——它來自在一個更大的整體中恰如其分地扮演自己的角色；每一棟房子可以說都是一位好的私人公民，有自己的入口、自己的門廊、自己的晾衣草坪、完整的隱私感，同時又履行它的公民義務——它支持一座公園、一處遊戲場、一座網球場、鞦韆、溜滑梯、戲水池。最重要的是，沒有一棟房子試圖以特別的大小或風格壓倒它的鄰居。</p>
+<p>在這類實驗中，我們在因應住宅的隱藏成本上已經走了相當遠；我們之所以能在庭園與遊戲場、以及更堅固的構造上投入更多，是因為我們在鋪面、圍籬與無法使用的土地上浪費得更少；因為我們得以避開在更擁擠的地區勢必採用的特殊防火構造的高成本；也因為我們消除了那種一心想以最少付出換取最多回報的營建商的投機利潤。在十二個月內，陽光花園已有128棟住宅完工並入住；第二期即將就緒；第三期正在進行中。</p>
+<p>我認為，這些零星實驗所取得的成功程度，顯示了社區計畫並不違反美國人民的一切本能與願望。如果我們用那個如鬼火般虛幻的「理想之家」，去換取設計並建造完整社區的真正自由，我們也許能共同達成我們大多數人永遠無法各自達成的目標。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="61" aria-label="放大原刊第 189 頁"><img src="pages/t61.jpg" alt="原刊第 189 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="61" aria-label="檢視原刊第 189 頁">p.189</button></span>漫畫〈「擁有自己的家」運動〉——難怪它動不了！（左右兩邊的人各往相反方向拉：）「名流當演說家：每個家庭都應該投資一棟房子」對「名流當銀行家：我們只能貸房價的50%」；「房地產商當營建商：快快蓋房子，蓋得便宜」對「房地產商當土地分割商：多買些空地，增加成本與浪費」；「市府工程師當公務員：我們必須在公共建設上厲行節約」對「市府工程師當城市規劃者：我們必須有更寬的街道與更大的住宅地塊」。</figcaption></figure>
+</div>
+</article>
+<article class="sec" id="new-towns-for-old" data-sec="new-towns-for-old">
+<header class="sec-head">
+  <div class="kicker"><span>專文（上、下篇）</span><span class="pages">原刊 <button class="pg" type="button" data-page="41" aria-label="檢視原刊第 169 頁">p.169</button><button class="pg" type="button" data-page="42" aria-label="檢視原刊第 170 頁">p.170</button><button class="pg" type="button" data-page="43" aria-label="檢視原刊第 171 頁">p.171</button><button class="pg" type="button" data-page="44" aria-label="檢視原刊第 172 頁">p.172</button><button class="pg" type="button" data-page="45" aria-label="檢視原刊第 173 頁">p.173</button><button class="pg" type="button" data-page="62" aria-label="檢視原刊第 190 頁">p.190</button></span></div>
+  <h2>以新城換舊城</h2>
+  <div class="en">New Towns for Old</div>
+  <div class="byline">C. B. 柏登（C. B. Purdom）；亞歷山大．M．賓（Alexander M. Bing）</div>
+  
+</header>
+<div class="prose">
+<figure class="fig"><button class="thumb" type="button" data-page="41" aria-label="放大原刊第 169 頁"><img src="pages/t41.jpg" alt="原刊第 169 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="41" aria-label="檢視原刊第 169 頁">p.169</button></span>從空中俯瞰的威爾溫街道。</figcaption></figure>
+<h3>一、田園城市——它們是什麼，如何運作（C. B. 柏登）</h3>
+<p>英國有兩座田園城市。它們是城市營建中獨一無二的例子，因為它們以一種新的方式處理城市的實體結構，並為其計畫提供了實際的經濟基礎。它們值得重視，不只是從理想主義的角度，更是作為一門平實而合乎常識的生意。第一座田園城市萊奇沃思（Letchworth），如今已確立了財務上的成功，田園城市公司距離能以其盈餘收入挹注鎮上的經費已不遠了；而威爾溫田園城市（Welwyn Garden City）雖然在創立之初就遭遇1920至21年的金融崩潰，卻已站穩了腳跟，可望很快進入完全獲利的階段。這些都是意義重大的事實，值得所有從任何角度關心城市營建的人認真注意。這兩項計畫的成功，可以追溯到使它們有別於其他一切工業住宅與地產開發計畫的那些特徵，而我在此想提請注意的，正是這些特徵。</p>
+<p>在美國、英國以及世界上大多數國家，有許多計畫被稱為田園城市，其中許多也具備田園城市的某些特徵；但沒有一個具備它的獨特特徵。說來奇妙，長島上那個名叫「田園城市」（Garden City）的城鎮，與我們所謂的田園城市運動毫無關係；它早於那場運動，有自己的特色，與如今舉世所知的田園城市只有附帶的關聯。許多所謂的田園城市只是住宅或郊區開發，就其本身而言不錯，有些甚至非常好，但除了在基地規劃等方面受惠於田園城市之外，與田園城市並無直接關聯。埃比尼澤．霍華德的田園城市方案，首次描述於他1898年在倫敦出版的那本著名小書《明日》（Tomorrow），是一座有三萬居民、自成一體的新城鎮，周圍環繞著寬廣的農業帶；他建議興建這樣的城鎮，以示範未來的城市應如何佈局與發展。霍華德先生的構想是，城市的重建不從壅塞的中心與貧民窟地區開始，而是遠遠地從開闊的鄉間開始，使產業與其勞工、以及一般大眾，在留在城市、甚至住在郊區之外，有另一種選擇。他認為，如果能實現一個這類城市營建的良好實例，人們就會看到它的優點，城市計畫與開發也會有新的方向。霍華德先生心中有兩個主要構想：一是城鄉的利益將在這種相對小型的工業城鎮中心體系中結合起來；二是改良所帶來的價值，為這個方案提供了某種財務基礎。</p>
+<p>1903年創立的萊奇沃思田園城市，是霍華德先生及與他合作的人（其中有許多工商界與政界的領袖人物）實現完整田園城市構想的嘗試。他們在距倫敦三十二英里處購買了一塊六平方英里的地產，中央部分規劃為一座三萬二千居民的城鎮，其餘土地則保留為環繞城鎮的農地。城鎮計畫劃定了有道路與鐵路通達的工業區、勞工階級住宅與其他住宅區、商業與市民中心等等。這個地區原本完全是鄉村，為執行這個方案而成立的公司必須興建自來水、瓦斯與電力設施，鋪設污水系統，修築道路，並以宣傳等手段吸引人口前來。這家公司名為「第一田園城市有限公司」（First Garden City, Ltd.）。它除了任何普通公司都有的權力之外，沒有任何法定權力。初始資本主要由董事及其友人認購，不到九萬英鎊，比土地的購價還少，因此公司必須以地產抵押來取得資金，好讓開發得以進行。</p>
+<p>開發於1904年初開始，二十一年後的今天，這座城鎮已有一萬三千人口、八十多家大小工廠，是一大片地區欣欣向榮的商業與社交中心。戰前，鎮上的勞工階級住宅是在經濟基礎上興建的，而鎮上對村舍規劃的用心，立即為全英國乃至全世界更好的工業住宅提供了動力與方向。戰後，那裡的勞工階級住宅受到與全國一般情況相同的經濟條件所支配，但依《住宅法》興建的住宅比例，高於任何同等規模的城鎮。</p>
+<p>有趣的一點是，萊奇沃思對一大片鄉村地區產生了深遠的影響。鄰近的小鎮與村莊在規模與人口上都有所增加，許多勞工每天從村莊進城到工廠工作。城鎮方圓六、七英里內的大量家庭，由於得到額外的就業機會，經濟狀況大為改善；毫無疑問，萊奇沃思讓許多原本會漂向倫敦或其他大城市的年輕人得以留在土地上。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="42" aria-label="放大原刊第 170 頁"><img src="pages/t42.jpg" alt="原刊第 170 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="42" aria-label="檢視原刊第 170 頁">p.170</button></span>威爾溫的學校提供些什麼——一個「兩代社區」。</figcaption></figure>
+<p>公司以各種形式募集的資本，已從九萬英鎊增加到1924年的573,259英鎊。直到最近，一般的看法都認為萊奇沃思不賺錢；但這個看法一向是不正確的。公司資本的大部分是借來的錢——抵押貸款、借款與公司債——而這些資本的利息一向全額按時支付。的確，普通股股東直到1913年——方案開始十年後——才領到股利，直到1923年才領到全額股利；但公司所擁有的資本價值無疑顯示出非常大的盈餘——足以把普通股累積的股利支付好幾倍。公司無疑很快就會找到某種方法，把那筆累積股利轉為長期債務，或以其他方式解決。</p>
+<p>萊奇沃思是一座從無到有（de novo）的田園城市的例子。第二座田園城市創立於1920年，是倫敦衛星城鎮的例子。距倫敦二十一英里的威爾溫田園城市，是為了證明：在離大城市足夠遠之處創建田園城市，才是因應城市人口擴張的正確方法。這片地產面積四平方英里，位於完全的鄉村地區，城鎮計畫規劃了四萬人口。這個方案同樣歸功於埃比尼澤．霍華德的活力，他設法讓一批新的人圍繞在他身邊，承擔起興建新城的任務。時機特別有利，因為倫敦地區非常需要住宅，霍華德先生及其同仁相信，藉由把住宅基地與工廠基地一起規劃，從而創造新的人口與產業中心，會比在內郊或外郊開發住宅區找到更好的營建經濟基礎。所選的基地特別合適，位於從倫敦北上的主要幹道與鐵路上，鐵路旁有平坦的土地可作工廠基地，而且位在非常如畫的鄉間。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="42" aria-label="放大原刊第 170 頁"><img src="pages/t42.jpg" alt="原刊第 170 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="42" aria-label="檢視原刊第 170 頁">p.170</button></span>住宅成群配置，以取得陽光、空間與景觀。</figcaption></figure>
+<p>幾乎就在公司成立的同時，金融衰退來臨，信用緊縮，物價開始下跌，戰爭後期及戰後的通貨膨脹與繁榮期之後，接著是一場普遍的恐慌。這給這項事業帶來了非比尋常的困難，許多人或許會因此放棄；但發起人——以西奧多．錢伯斯爵士（Sir Theodore Chambers）為首（順帶一提，他是英國反對土地稅的主要人物之一）——相信這個方案，並確信它對國家的重要性，堅持努力把它完成，結果它挺過了風暴。這座年輕的城鎮如今有三千人口，預計在未來十八個月內加倍；隨著一家重要的機械工廠以及「碎麥公司」（Shredded Wheat Company）第一座歐洲工廠的設立，產業發展已經開始。威爾溫以其建築特色吸引了極大的注意，但更是因為它與倫敦日益嚴重的擴張問題之間的關係。這個方案已經顯示出，藉由在周圍鄉間建立新的中心，來處理大都會人口壅塞的根本原因是可行的。在倫敦周圍十五到五十英里內的大片空曠地區，有容納許多田園城市的基地，同時仍能在它們與城市之間保留大片農地。</p>
+<p>這兩座田園城市是拓荒努力的例子。這些方案的發起人必須克服與早期殖民者所面對的頗為類似的困難。政治與金融上的懷疑與惰性——這些困難中最大的——需要最大的個人努力才能打破。田園城市構想的原創性，也就是它旨在終結目前的城市擴張體系、代之以更科學的城市計畫方法這一事實，說明了它所遭遇的種種阻礙。既得利益者反對它，就像他們一向反對任何新事物一樣。但大城市的貧民窟、交通壅塞、高昂的地方稅以及其他許多難以克服的困難，使得必須找到某種補救之道成為必然；而較小的城市看到不當擴張把大城市逼到何等困境，也必須尋求某種避免之道。分區管制與城市計畫正變得流行，但需要的是更具建設性的東西，是觸及城市根本結構的東西。這就在田園城市構想中找到了。它可以概括如下：</p>
+<p><strong>田園城市是一座城鎮</strong>，也就是說，是一個獨立的公民單元，具有當今城鎮的政治與經濟特徵。田園城市不是村莊，甚至不是大村莊，不是住宅計畫，也不是郊區。村莊本質上是一個鄉野的社群，而城鎮的本質是都市性；它是文化與禮儀的中心，這意味著多樣的人口，為教育、娛樂與社交生活提供機會。住宅計畫是為某一個階級而設，而城鎮是為所有階級而設。郊區是城鎮的附屬物，是一個不完整的東西，必然缺乏城鎮必須具有的統一性。</p>
+<p><strong>田園城市是一座為產業與健康生活而規劃的城鎮。</strong>不只是一座城鎮，而是一座為履行其功能而設計的城鎮。如果城鎮要成為產業與商業的中心——這是它的主要功能之一——它的實體結構就必須經過設計。城鎮應該為它最適合的產業而設計，工業區應該設在最能服務產業、並與整個城鎮的方案相配合之處。城鎮不只是為了工作，也是為了生活；必須提供健康的生活條件，包括生活上的實體便利設施。因此，田園城市被構想為一座作為整體而運作的城鎮。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="43" aria-label="放大原刊第 171 頁"><img src="pages/t43.jpg" alt="原刊第 171 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="43" aria-label="檢視原刊第 171 頁">p.171</button></span>威爾溫的道路與鋪面成本保持在合理比例之內。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="43" aria-label="放大原刊第 171 頁"><img src="pages/t43.jpg" alt="原刊第 171 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="43" aria-label="檢視原刊第 171 頁">p.171</button></span>威爾溫田園城市（赫特福德郡）城鎮計畫示意圖。圖例：住宅區、工廠、開放空間與林地、公共建築、商店等；外圍為農業帶。</figcaption></figure>
+<figure class="fig"><button class="thumb" type="button" data-page="43" aria-label="放大原刊第 171 頁"><img src="pages/t43.jpg" alt="原刊第 171 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="43" aria-label="檢視原刊第 171 頁">p.171</button></span>萊奇沃思的工場：像住宅一樣具有人性。</figcaption></figure>
+<p><strong>田園城市是一座為產業與健康生活而規劃、其規模足以使社會生活得到充分發展、但不更大的城鎮。</strong>這正是田園城市構想直接衝擊當前城鎮成長方式之處。一般人認為城鎮的成長沒有限度。然而，若沒有某種規模的概念、沒有成長的限度，設計就不可能，規劃也就無從談起。大多數城市計畫的荒謬之處，在於它只是城鎮的實體延伸，既沒有任何城鎮生活的理想，也沒有任何真正的城鎮建設科學。在城市規劃者能回答（或有人替他們回答）「一座城鎮的適當規模是多少？」這個問題之前，他們注定只能憑經驗規劃，而沒有科學依據。於是城鎮營建中的一切都受害，並將繼續受害；因為在城鎮的界限確定之前，無論是公共建築、道路、任何種類的公共服務、商業區或工業基地，都無法妥善規劃。為了實際的目的，人們總是假定某種限度；但所採用的限度在事實上毫無根據，而且可能因目的與人而異。這是所有城市計畫問題中最重要的一個，值得經濟學家注意。</p>
+<p>就田園城市的公式而言，城鎮的規模被認為是社會生活充分發展所需的規模。這不應以狹義理解，因為社會生活指的是一個社區的一切活動，包括教育、娛樂與產業。這些活動之間必須保持適當的平衡；而且應該記住，城鎮不應被視為孤立的單元，而應被視為相互聯合、以達成單一城鎮所無法達成的更大目標。因此，田園城市的城鎮發展構想，是一系列相互關聯而又各自獨立的社區，以取代今日巨型城市的概念。</p>
+<p><strong>田園城市是一座為產業與健康生活而規劃、其規模足以使社會生活得到充分發展、但不更大，並由永久的鄉村帶所環繞的城鎮。</strong>換言之，城與鄉合而為一；城鎮包括一個中央建成區以及環繞它的鄉村地區。農業帶是限制城鎮規模的實際手段。它保護城鎮免受其他城鎮侵入，它使農業與都市生活及產業接觸，並使農業成為城鎮經濟中的一個要素。在所有國家，鄉村問題與城市問題同樣緊迫。廣大人口脫離農業工作，以及人口過度集中於城鎮而削弱了鄉村地區，在各地都被視為重大的弊害。解決之道在於把城鎮的組織、財務機會與社會生活，擴展到比目前更廣大的範圍。</p>
+<p>最後：<strong>田園城市是一座為產業與健康生活而規劃、其規模足以使社會生活得到充分發展、但不更大，由永久的鄉村帶所環繞，且全部土地為公有、或為社區信託持有的城鎮。</strong>城鎮所在的土地應為公共利益而持有，使地價由社會共享。這就是田園城市的經濟基礎。地價隨人口上升，這是眾所周知的事實；建立在農地上的田園城市，在地價被創造出來的同時，就把它保留給社區。這個構想影響廣泛，運作簡單，負擔公平合理，而且不觸動任何既得利益。在兩座田園城市，擁有並開發土地的公司都是私人企業；但資本所支付的股利與利息在金額上受到限制，其餘收入必須用於城鎮。這件事無法在此詳論，但它顯然是田園城市構想中最重要的要素。因為田園城市大可被定義為：以有系統、有意識地創造地價作為經濟基礎來開發一座城鎮，而其利潤構成城鎮收入的一部分。</p>
+<p>以上所說，已足以顯示田園城市構想的廣泛意義。它可以被視為一種最有效的務實理想主義，一種具有經過驗證之經濟基礎的城市生活理想概念。</p>
+<h3>二、美國能有田園城市嗎？（亞歷山大．M．賓）</h3>
+<p>創建新城鎮——無論其動機是半慈善性的（如限制股利公司），或純商業性的（如由大型工業公司或房地產業者興建）——都不是小事。必須有組織能力、雄厚的財力與商業判斷；也應該有追求美學與社會成就的願望。在美國，我們錯過了一些為更好的事物開路的絕佳機會。例如，印第安納州蓋瑞市（Gary）興建時，組織能力與財力都很充裕。但對美學或社會成就都沒有有效的追求。在美國的其他案例中，藝術理想實現得很出色，但商業判斷似乎不夠敏銳。不幸的是，當必要的要素之一具備時，其他一個或多個要素卻付之闕如。</p>
+<p>國際田園城市與城鎮計畫協會首度在美國出現，尖銳地提出了這個問題——美國的條件適合進行田園城市實驗嗎？如果適合，那麼擁有能做成這麼多了不起事情的精力與能力的我們，是否也擁有使它成功所必須結合的理想主義與組織力量？</p>
+<p>讓我簡要列舉建設一座成功的田園城市必須結合的幾項因素。首先是適當基地的條件。這包括足夠面積的未開發廉價土地——兩千到一萬英畝。為了妥善處理貨運，這片土地應位於鐵路幹線上，並有良好的汽車道路通往幾個方向。它也應合理地靠近某座大城市。還需要有益健康、良好的水源，以及一定程度的自然美景。地形的性質應使大面積的土地開發容易而廉價。中央是一片平地，遠處有環繞的丘陵，一些林地，再加上一條溪流和一座湖，就會是理想的組合。這些條件在美國無疑可以滿足，雖然在像紐約這樣的城市附近要滿足它們，比在倫敦附近更困難。然而可以放心地說，我們之所以未能發起田園城市實驗，並不是因為缺乏合適的土地。</p>
+<p>談到美國田園城市的財務條件，答案就沒那麼簡單了。一般商業事業顯然不缺資本。但如果擬議中的田園城市只為了營利而興建，那麼它在指出——即使不是實現——更好的社區規劃與組織方法上的社會效用，就無法實現。這樣的事業毋寧應由限制股利公司來承擔。必須承認，我們在組織這類公司上一向落後。在美國，規模之大舉世無雙的慈善基金會蓬勃發展。但那種為了達成社會目的而自願限制投資者報酬的商業事業，過去在美國並不像在歐洲那樣具有強大的號召力。然而，沒有理由相信美國大眾不會響應這類號召。也有理由希望，有一天——但願是在不遠的將來——這些慈善基金的存在，將成為經營得當的限制股利公司的一股力量。看來相當確定的是，以這個國家所擁有的一切財富，可以籌得財力，使依限制股利路線興建一座田園城市成為可能。</p>
+<p>然而應該指出，在美國所需的資本將比在英國多得多。萊奇沃思起步時的資金不到五十萬美元。它的發展因這種財力不足而大受阻礙；若不是英國那套在租借地上建屋的制度，以及多年來英國政府以這種或那種方式補貼住宅事業，在如此微薄的資源上成長是不可想像的。在美國，短暫的稅賦減免是我們唯一的政府住宅援助形式。如果要規劃一座田園城市，就必須手頭有足夠的資本，來完成大部分住宅、工廠與公用事業的興建。想在新社區設廠的工業公司或許會提供一定的財務協助，但除非田園城市公司擁有完全的財務獨立，否則成功可能會受到危害。</p>
+<p>此外，在美國，土地開發事業的成功或許比在英國更取決於工程推進的合理速度。空地與公用設施成本的稅金與利息累積得很快。即使開發過程中產生了大量的增值，除非開發能迅速進行，否則這些增值將被持有成本吸收掉。萊奇沃思在其最初成長的年代，受惠於當時英國較低的利率。在這方面，較新的英國實驗威爾溫就沒那麼幸運了。然而兩者都以低利率從政府那裡獲得了大筆資金；這種援助在美國是不能期待的。財務問題似乎並非無法克服，但它是一大難題。</p>
+<p>使這樣一個實驗成功所需的確切資本額，會因地而異，也取決於所要創建的城市規模。大概需要一千萬到二千五百萬美元。</p>
+<p>成功的第三個必要條件，是技術與組織能力。後者美國擁有得非常充裕。至於技術能力，英國在城鎮與社區規劃上的經驗或許比美國多。但戰時住宅以及一些大型私人事業已經顯示，我們在這項重要的專業服務上並非缺乏技能，我們的技術人員能否適應新實驗所呈現的問題，也毋庸置疑。</p>
+<p>現在談到城鎮本身的內部安排。事先與準備在新社區佔用基地的工業公司做出至少是暫定的安排，即使不是必要的，也是可取的。鑑於我們許多產業的迅速擴張，找到這樣的公司似乎並不困難。在一般城鎮中，工業公司會面臨為員工尋找住所的困難；而在田園城市裡，這些住所將會被提供。工業公司不僅會被解除其主要問題之一，而且可得的住宅將是非常優良的那一種，位於理想的環境中，並以適中的價格提供。只要交通、通往大城市的便利、氣候等其他必要條件得到滿足，就沒有理由懷疑能與工業公司就土地的租賃或購買做出非常有利的安排。但為了消除可能的延誤，不僅應事先與若干產業做好安排，而且如果可能，應在興建住宅與學校的同時開始興建工廠。</p>
+<p>這裡出現了一個非常實際的困難——為普通勞工提供廉價的住宅。在較老的社區裡，慣常的做法是讓收入最低的人住在剩下的建築裡，也就是那些收入較好的工人認為不理想的建築。新房子的成本超過非技術工人負擔得起的程度。但在新社區裡不會有剩下的建築。一切都將是嶄新的。居住設施對非技術工人而言不會太貴嗎？在英國，這個困難大多由這種或那種形式的政府補貼來解決。在美國，我們不能指望這類援助。大量生產、廉價的土地，以及依照仔細擬定的計畫建設社區所帶來的種種節約，將有助於在一定程度上降低成本。也許還可能讓非技術工人分享至少一部分增值——也就是把一片農業地區開發成一個大型繁榮社區時，在城市商業部分所產生的增值。由田園城市公司保留控制權的公用事業，大概會非常有利可圖。也許可以把這些利潤的一部分用來降低收入最低的工人的住宅成本。也可以發展一種住宅類型（類似戰時興建的某些房子），使房間的轉租能在比非專為此目的設計的住宅或公寓更好的條件下進行。安德魯．J．湯瑪斯（Andrew J. Thomas）最近在貝永（Bayonne）的案子就運用了這個構想：在公寓入口處設一個房間與浴室，可以出租給房客而不干擾住家的隱私。對每房價值或租金低於一定數額的住宅給予部分稅賦減免，或許也是可取的。藉由其中一種或全部這些方法，或許可以把住宅成本降低到足以應付這個難題。此外，在新社區裡，工人將住在工作地點附近，因此可以省下往返住家與工廠長途通勤的車資與疲勞。某些貨品大概會比較便宜，而且大概可以讓每個人都有機會耕種自己的菜園。</p>
+<p>另一方面，美國的某些習慣會使在最低收入者的購買力範圍內提供體面住宅的困難有所增加。我們習慣有地下室，而且通常要求有。在英國，地下室是可以省去的。我們習慣中央暖氣。在英國與歐陸，小住宅裡完全沒有這種東西。我們的工人習慣比國外好得多的衛浴管線。即使在收入相當低的家庭中，使用汽車、因而需要某種車庫的情況也愈來愈普遍。</p>
+<p>在社會面，在這裡創建一座田園城市大概會比在英國更難。我們的人口缺乏那種使新社區的建立得以簡化的同質性；種族的數目與多樣性會造成障礙。在英國，合作商店的普及以及一般市民對合作方法的熟悉，一直是一大優勢。</p>
+<p>在英國掌握新模範城鎮的某些優點，無疑比在美國容易。但這些考量與其說是指出了創建田園城市有什麼根本障礙，不如說是證明了這裡更需要田園城市。我們比英國或歐陸國家更需要一種新而更好的城鎮計畫類型所帶來的紓解。住宅問題的真正解決，並不在於住宅平面上所能做的些微改進——儘管這些改進是可取的。根本的進展，只有在對整個問題發動攻勢時才會到來。這大概可以透過由非常大型的限制股利公司創建田園城市來達成。</p>
+<p>官方田園城市定義中所包含的所有要素能否應用於美國，是有疑問的。其中最困難的會是土地的社區所有權，特別是因為我們不習慣長期租借。即使土地出售，我們也能施加適當的限制，這使得這項規定不那麼必要。英國與歐陸城鎮規劃者希望為社區的利益保存土地增值的願望，如果公司保留所有商店物業的所有權、只以相對短期的方式出租，大體上就可以實現。住宅用地若在適當的限制下出售，其價值永遠不會大幅增加。農業帶的可行性及其大小，在很大程度上取決於新社區的位置，以及土地的可得性與價值。這條開放土地帶所要提供的保護，在這裡與在英國同樣需要。</p>
+<p>毫無疑問，田園城市實驗在美國是可取而可行的。每一座大城市周圍，都應該有若干這樣的新社區方便地環繞著，彼此競爭，去解決那些作為社區生活商業組織之基礎的社會問題。這一切都能以商業的基礎來完成，也就是說，透過資金的投資。捐贈是不必要的。但投資應以限制股利為基礎。英國限制股利公司的商業成功，在這裡可以有過之而無不及地複製。借鏡他們的經驗，再加上美國更雄厚的資源，這樣的事業應該能取得巨大的財務成功。如果為這樣一項事業所動員的巨大精力與資源，能與我們內心潛藏的那份豐沛理想主義結合起來，就可以期待輝煌的成果。</p>
+<p>在我們那些被石頭包覆的巨大城市的狂熱奔忙中，我們必須為廣大群眾尋求某種紓解——城市生活的弊害最沉重地落在他們身上。在美國，難道不是該給田園城市一個機會的時候了嗎？</p>
+</div>
+</article>
+<article class="sec" id="two-generation" data-sec="two-generation">
+<header class="sec-head">
+  <div class="kicker"><span>專文</span><span class="pages">原刊 <button class="pg" type="button" data-page="46" aria-label="檢視原刊第 174 頁">p.174</button><button class="pg" type="button" data-page="47" aria-label="檢視原刊第 175 頁">p.175</button><button class="pg" type="button" data-page="48" aria-label="檢視原刊第 176 頁">p.176</button></span></div>
+  <h2>兩代社區</h2>
+  <div class="en">Two-Generation Communities</div>
+  <div class="byline">約瑟夫．K．哈特（Joseph K. Hart）</div>
+  
+</header>
+<div class="prose">
+<p>「林蔭大道上的人群永遠不會變老。」一位才華洋溢的法國人這麼說。這是城市生活的一個驚人事實。任何一個個人都會一年一年變老，最後消失，再也不見蹤影。但人群依然如故。它今天幾乎不比五十年前老；一百年後也幾乎不會比現在老。它是無時間的、無年歲的、不變的——只有一點例外：它一年比一年龐大。</p>
+<p>這些我們都隱約感受到的事實，有助於解釋我們的一些城市營建活動，以及我們為文明未來所擬的「計畫」中的一些謎團。我們建造城市，彷彿它們將是這單一一個無時間世代的家；我們在「規劃」一個只屬於成年人的未來。</p>
+<p>這種趨勢也許並不新鮮。人類也許從未把自己看成一場兩個世代的冒險——以一種「雙極的動量」前進——老與少並肩而行，永遠爭執，永遠合作，永遠互換位置、轉換角色。儘管如此，在較單純的社會秩序中，在鄉村與村莊社區，甚至在小城市裡，兩個世代總是或多或少有所區別；一個世代老去、逝去，另一個世代跟上來填補留下的空位。看起來是如此；日常談話也如此暗示；而人們，至少在某種程度上，也是這樣規劃的。那時，古老的「童年節慶」不是懷著追憶的感傷來過的，而是為了讓那些自古以來的歡樂鮮明地成為真實——這些歡樂理所當然地屬於那些世代：它們存在的充分理由，就是使大地的青春與美麗得以更新。</p>
+<p>但城市及其街道上無年歲的人群，即使沒有摧毀，也已經使那些較早的方式黯然失色。現代城市很難意識到還有第二個由真實的人構成的世代。它所擬的「計畫」，大多彷彿人類真的就是不變人群中所見的那個無時間的世代；彷彿人類已經仿效城市引以為傲的發明之一，成了一個永續的法人，以世紀而非凡人的年歲來衡量其存在。</p>
+<p>把人類當成單一、延續不斷的世代，簡化了城市的問題——或者看起來如此。只為成年人建造城市，比只為孩子、或為兩個世代共同生活而建造容易。只考慮成年人，城市就可以被造成人間天堂。柏油與混凝土比黃金更適合鋪路；黃金另有更好的用途。汽車是一輛火焰戰車：它把主人從辦公室載到俱樂部、旅館、公寓大樓或火車站。一種舒適的溫暖——更不用說熱度——瀰漫在所有這些地方，使它們與早年那種嚴酷的生活方式形成鮮明對比。熱烘烘的辦公室；熱騰騰的金融追逐；熾熱的「巨人之戰」；熱乎乎的銀行存款新增額！然後是熱烘烘的公寓、熱水澡、熱騰騰的晚餐、熱門的表演——最後以更多財富的過熱夢境作結，漂浮在已實現慾望的熱帶海洋上——至少在睡夢中！成年人的城市是一個何等熾熱、何等壯麗的世界！至於它的孩子……</p>
+<h3>城市裡的孩子</h3>
+<p>城市裡是有孩子的；至少，那裡有未成熟的人類，雖然他們待在哪裡常常是個謎。在「較好的」公寓大樓裡沒有他們的位置，他們也不怎麼在乎那些成人樂趣的熱度。街道上沒什麼空間給他們，除了充當人群縫隙中的填塞物。他們被正當地以立法排除在工廠之外。遊戲場空間不足，在公園和高爾夫球場上他們又必須「勿踐踏草地」。沒有他們的位置——作為孩子。成年人的城市用不上他們——作為孩子。他們「妨礙交通」。</p>
+<p>城市需要他們作為「未來的公民」；作為未來的勞動力；作為成人方式的替補演員；作為「下一代」。城市為他們留有空間，不是作為孩子，而是作為成人世代的下緣。</p>
+<p>因為這些理由，城市愈來愈照顧他們的健康；健康會帶來股利。城市已學會如何為這些未成熟的成人提供較高的一般健康水準，這是他們若僅僅作為孩子生活在一個效率較低的社區裡所永遠無法擁有的。</p>
+<p>這些未來的成人也必須為他們未來的職責接受訓練。城市提供了精心設計的學校教育；城市有時幾乎相信這種學校教育就是教育。</p>
+<p>學校也回答了先前的一個疑問：城市孩子花很多時間待在校舍裡。他們每年在那裡十個月；而大多數成年人巴不得另外兩個月也看到他們在那裡。那是他們合乎邏輯的歸宿：在那裡，他們正準備成為完整的成人！</p>
+<p>城市的學校也不把孩子當作孩子來認識。它把他們當作成人資格的候選人來認識：他們正準備「在短短幾年內」接管他們開拓者般的父母為他們建立的「宏偉遺產」。他們很少是以自身權利存在的孩子。</p>
+<p>青年必須學習成人世界的方式。成人世界「有它的標準」。工人必須讓自己適應機器的標準節奏，否則後果自負。他們在學校裡的替補演員也必須學習做出同樣的調適。把童年那些各異的神經系統，引入城市產業機器的標準節奏，正是城市學校的任務。如果做到這一點，從學術世界到真實世界的過渡就會比較容易，兩個世代之間也不會出現斷裂。</p>
+<p>為公平起見，必須記錄下來：有些人認為城市可以從這一切中被拯救出來，可以在都市地區為以自身權利存在的孩子騰出一個位置。少數懷抱希望的父母與教師；一些遊憩活動的領袖；偶爾一位傳揚「兒童福音」的牧師：一小群男男女女，英勇地奮鬥著，築起堤防抵擋工業主義與剝削的潮水，以拯救城市的某一小塊。他們的成功是斷斷續續、無法確認的。對工業城市而言，童年是一種感傷主義，「真實世界很快就會把它從他們愚蠢的腦袋裡敲出來」。</p>
+<p>沒有人「刻意」造成這樣的結果。在某些時刻，即使是心腸最硬的城市居民，也會對城市裡的孩子感到一陣憐憫。但「生意就是生意」：「我們正投身於一場爭奪工業霸權的世界鬥爭，如果我們不贏，我們全都會餓死。一個不能及早學會參與這項偉大事業的孩子，很可能會成為一個根本背負不起的負擔。若不是怕被說成提倡『節育』，我們可以主張他根本就不該出生。」</p>
+<p>也就是說，城市被捲入競爭性工業主義的漂流之中，儘管它以自己的力量自豪，卻和那個袖子被飛轉的連桿捲住的不幸工人一樣無助——他被甩得團團轉，直到被拋出去，成為角落裡縮成一團的一攤肉泥。這就是天堂的另一面！</p>
+<figure class="fig"><button class="thumb" type="button" data-page="47" aria-label="放大原刊第 175 頁"><img src="pages/t47.jpg" alt="原刊第 175 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="47" aria-label="檢視原刊第 175 頁">p.175</button></span>城市小巷裡的孩子。A. J. 湯瑪斯（A. J. Thomas）提供照片。</figcaption></figure>
+<p>也許不怎麼溫和的讀者已經想到，這種城市安排可以有一項大大的改進，那就是廢除死亡。這樣一來，單一、無年歲世代的虛構就會成為事實；孩子將變得不必要；不成熟所帶來的一切社會浪費都可以避免。只要蕭伯納能帶我們「回到瑪土撒拉」（back to Methuselah），把壽命延長到三、六或九個世紀，再從受過教育的蛋裡孵出幾個孩子；只要那些返老還童術士能把死亡從地上驅逐，他們的恩惠將是何等偉大：童年被浪費的歲月得以規避；花在學校教育上的錢得以節省；把孩子當孩子對待所帶來的一切情感耗損都變得不必要；甚至連性情感那昂貴的浪費也得以逃脫——這些成就難道不是真正天堂的滋味！一種沒有過去或未來、沒有成長或變化的生活：一個永恆的「現在」，四周是華麗的大理石牆，以柔軟的羽絨墊子襯托——再加上一台報告市場上漲的股票行情機——想像力還能要求什麼更多的呢？</p>
+<p>但一個疑慮闖了進來。那些將活在那個更崇高時代的幸運兒，難道不會感到一種巨大的缺憾——一種意義從大地上消失了？他們難道不會懷念那些即使在城市裡，有時仍能在戀人眼中、在小孩臉上看到的閃耀的歡樂與美麗？他們難道不會一次又一次地發現，那些古老的故事講述著他們從未經歷、甚至從未夢想過的珍貴經驗？</p>
+<p>也許，說到底，我們最好別太確定這樣的城市會帶來終極的文明。也許它所承諾的慵懶已經使我們的頭腦遲鈍了。也許我們最好設法保存那些被機器製造的時代輕視、卻仍使生活可以忍受的基本現實。也許我們最好趁還來得及，設法保留一點點青春與美麗。</p>
+<h3>兩代社區</h3>
+<p>但要如何保存它們？答案隱約顯露在經驗的陰影之中。但其中一個面向似乎很明顯：除非人們能在地球表面上再次找到足夠的空間，讓青春與老年兩個世代並肩過他們的生活，彼此不被對方摧毀，否則這些青春與美麗的寶藏就無法保存。一個成人的世界，只能靠它古老美麗的空殼過活。一個兩代的人類，生活在它的兩代社區裡，將不僅能保存它有效的機械，也能保存那些精神意義——沒有它們，任何機械都注定成為一台哐啷作響、磨出無盡塵土的機器。</p>
+<p>我們要如何描述這裡所提出的「兩代社區」——它的基礎已在本期其他文章中標定？首先，它當然必須有空間，或者說，寬敞。必須有空間讓青年做青年、讓老年做老年，每個世代都能依自己的興趣生活、改變、工作、遊戲——各自承認對方的存在，但誰也不試圖把對方擠出舞台。地球仍有空間提供這樣的寬敞。</p>
+<p>在這裡將會找到多樣性，包括物質的與社會的。城市街道有限的供給，不足以滋養未來的世界公民所必須具備的那種偉大經驗。需要的是大自然無窮的多樣性：某片多變鄉野的山水風景，日日夜夜的雲彩與天穹；野生與馴養的植物與動物，以其全部天然的豐饒；大自然中的生產過程；土壤、生長與腐朽那令人驚嘆的化學與物理：大自然活生生的織物，年復一年以四季的一切圖案編織而成——城市裡的「未成熟成人」對這一切知道些什麼？一個平凡的生命若不長久生活在它們之中、受它們激勵性的影響，又怎能長成一個人？</p>
+<p>但社會的多樣性與物質的多樣性同樣需要，而在這一點上，城市辜負了孩子。在城市裡，產業是一頭噴火的怪獸，會悶死他的身體、灼傷他的靈魂；在一個更寬敞的社區裡，家與工場可以彼此接觸，工作的意義可以被闡明，產業或許能帶給他寬廣的創造性經驗——材料與工序在他眼前、在他手中令人屏息地結合，生產出有用而美麗的東西，而他自己正是這些東西中最重要的一件。在這裡，他或許也能逃離骯髒的街道、追逐「條子」、花俏的遊行以及家人談論如何逃稅的那一團混亂。在這裡，他或許能有讓他生命中每一根原始纖維都為之顫動的遊戲與身體冒險。在這裡，他的心智或許能找到自由，擴展到成人習俗所設的界限之外，因為他可以訴諸他在自己的探索經驗中所發現的現實。在這裡，他的道德或許能逃脫舊民俗、記憶與恐懼的路障，在這裡他或許能學會從生活的事實、未來的希望與自己的創造性想像中，為自己建立一個新的道德世界。在這裡，他的宗教情感或許能不再關注於如何從現實逃入某個教條式的「聖徒團契」，而更致力於發展一個日益成長的善意社群。</p>
+<p>在這裡，最重要的是，他的教育可以不只是以過去的僵硬形式對他全部存在的學校訓練。一個聰明到能為自己重新發現這種兩代社區之必要的人類，也會聰明到發現：教育並不、也不可能只在學校裡進行；它不能是對過去的抄襲；它也不能導致新世代屈從於舊世代。生活的每一個經驗都將具有教育性（就像現在一樣），而負責教育的人將會知道、而不會忽視這個事實。當然還是會有學校；但它們不會擅自規定教育應該是什麼。在那個更明智的時代，教育工作者將會知道，教育人的是整個社區生活，而不是那種生活的任何狹隘面向，甚至不是學校。學校與其說是教孩子，不如說是教社區，再讓社區教孩子，因為他們知道，長遠來看，無論如何事情就是這樣發生的。而那種教育——在學校的引領下由社區生活所鑄成——的最終檢驗將是：它是否為孩子——如今已長大成人——帶來了豐富的經驗、寬廣的視野、精確的技術、人格發展的完整，以及依照這種持續整合而行動的意志？這樣的教育永遠不可能是學校的產物：它只能由具備這些特質的社區生活產生。學校可以參與這種教育的過程——也就是說，一所明智的學校可以！</p>
+<p>沒有一座城市具備這些特質，或許除了在大團塊中這裡那裡的零星片段。當然，現存的城市沒有一座以能使它們成為其成長中孩子日常社區的方式具備這些特質。小城市、城鎮與鄉村鄰里或許能具備它們，如果它們敢於反抗城市的漂流，在自己的基礎上、以這個時代與歷代的道德與精神資源，為自己建立社區生活。這裡那裡，有一些團體與個人正擺弄著這個理想，卻幾乎是猶疑地，彷彿他們害怕生活、文化與知性的去中心化是一種罪行，或者隨時可能被宣布為罪行。啊，但願我們能看清，過度的集中才是罪行！</p>
+<h3>「經濟法則」？</h3>
+<p>一些懶散的人可能會說：「這一切在理論上當然都很好，但它們不切實際，因為它們違反了經濟法則。」但它們違反了什麼「法則」？它們違反的「法則」，正是城市每一次保留一部分區域作為全體人民使用的公園時所違反的那條「法則」。也就是說，它們並不違反任何法則；它們只是干擾了某一類人類慾望。</p>
+<p>人有許多慾望，包括想要更多空間的慾望。對有些人而言，這種想要有空間呼吸的慾望，比「擠在最小空間裡的本能」更像一條「法則」。我們的頭腦已被一種學說腐化了：認為我們的慾望就是「經濟法則」。這些「法則」彼此可恥地衝突著：尋求呼吸空間的「法則」，與擠在盡可能小的面積上的「法則」，處於不可調和的衝突之中。這些不是法則。這些是原始的、未經整合的人類慾望在招搖炫耀。但任何「違反」其中一種慾望的人，所做的不過是主張：這些慾望中沒有任何一種，應該只因為它被更多地施展、因而更加張揚，就被視為比其他慾望更神聖或更不可侵犯。</p>
+<p>因此，問題不在於「服從經濟法則」。問題在於把社會與個人的智慧發展到我們真正需要的水準。世界上有充足的空間容納兩代社區。這樣的社區必須規劃，不僅著眼於滿足我們的某一種慾望——就像我們目前的城市那樣——而是著眼於把它們全部加以明智而均衡的組織。只要我們擺脫舊恐懼、舊民俗與舊的既得錯誤，學會想要為整個人性、而非只為人性中某些被偏頗挑選的部分騰出空間，就能為整個人性找到空間。最終我們將會發現，為兩個世代建造空間足夠的社區，所依據的「法則」，與我們如今自以為依據的、只做我們正在做的事情的「法則」一樣多。關鍵的問題是：誰來制定這些「法則」——偏頗而有既得利益的過去，還是某個更明智的未來？一個明智到能認識到自己不是由單一、無時間的世代構成，而是由兩個不斷變化、輪替的世代構成的文明，也會明智到能擺脫那種先把慾望豎立為「法則」、再賦予那條「法則」不可侵犯之性質的偽造。</p>
+<p>一旦我們的智慧擺脫了那些如今淹沒我們想像、浸透我們意志的古老教條，我們就會看到，除了我們自己的惰性與貪婪、我們的無知與恐懼之外，沒有任何東西阻擋這些更美好的社區。這些障礙確實不易克服；但它們沒有終極的、形而上的實在性；它們只存在於我們的「心中」，當我們的心為新型態的世界準備好時，我們將發現路上沒有任何無法移動的障礙。</p>
+<p>未來為我們——如果我們想要的話——託管著這個新社區的承諾：不是只屬於孩子的社區，因為一個孩子的世界會變成純粹的感傷主義，正如一個成人的世界會變成哐啷作響的機械主義；而是一個兩代社區，在其中青春與老年可以並肩生活——永遠合作，永遠爭執，永遠互換位置、轉換角色——青春與美麗無盡地更新著通往生命難以捉摸之意義的線索，而老年與智慧則承諾著最終的手段，使那條線索能被歡欣地追隨，進入一個真正屬於人的世界。</p>
+</div>
+</article>
+<article class="sec" id="editorials" data-sec="editorials">
+<header class="sec-head">
+  <div class="kicker"><span>社論</span><span class="pages">原刊 <button class="pg" type="button" data-page="49" aria-label="檢視原刊第 177 頁">p.177</button><button class="pg" type="button" data-page="50" aria-label="檢視原刊第 178 頁">p.178</button><button class="pg" type="button" data-page="51" aria-label="檢視原刊第 179 頁">p.179</button></span></div>
+  <h2>社論</h2>
+  <div class="en">Editorials</div>
+  <div class="byline">編者</div>
+  
+</header>
+<div class="prose">
+<h3>規劃的四個階段</h3>
+<p>社區計畫——也就是把明智的預見應用於土地的利用——在這個國家經歷了四個階段。第一個階段是完全沒有規劃，城鎮就這麼長出來的階段；第二個階段是依市政工程師的丁字尺所畫下的例行矩形逐格填滿的階段。第三個階段是過去三十年來我們所熟知的城市計畫——起初是市民中心與紀念碑的事，後來是公路、分區、公園與運輸的事，它關心的是整個城市，並愈來愈關心郊區地帶。第四個階段，就是前面幾頁所定義的區域計畫。</p>
+<p>說成規劃的四個「面向」會更準確，因為這四者今天都與我們同在。在許多城市，「不動產經紀人」與市政工程師仍為新的「開發案」搭設舞台。區域規劃者不管將如何形塑未來，才剛剛開始發聲。另一方面，分區委員會或計畫委員會（或兩者兼有），已被大多數大城市與許多小城市接受為不可或缺的附屬機構，雖然它們距離取得能讓它們自由發揮所長的權威與公眾信任，仍相去甚遠。它們大多仍必須在惰性或公然的抵抗之中奮鬥，以確立城市透過某種程度的公共發起與控制而明智成長的權利。但它們已經使「以規劃作為改善城市生活的手段」這個觀念獲得普遍接受。</p>
+<p>城市計畫（一旦擺脫了對「城市美化」的執迷）三十年來一直在發展一套技術，去做那些在無規劃的城市中，機緣與開明的自利顯然做不到的事——使公用設施配合公共需要。它試圖以功能取代幾何作為街道計畫的基礎，以實用取代政治作為公共建設選址的主要因素。從伯南（Burnham）的芝加哥交通流通計畫開始，主要街道計畫多不勝數；接著是運輸與鐵路計畫；而在過去九年裡，分區管制雖仍處於實驗狀態，已被用來加強對私有財產用途的公共控制。最後，全國各地已擬定了大量的綜合城市計畫，並在某種程度上付諸實施——這些計畫試圖協調全市性的交通幹道、快速運輸、公園與遊戲場、公共建築等方案。今天我們看到，芝加哥大膽地重塑它的湖濱，把它的農產品市場整個遷移，並透過其區域計畫協會，伸手處理周邊地區的電力與交通；匹茲堡有一套精密銜接的計畫；聯邦政府已認可了恢復朗方（L'Enfant）華盛頓原貌的運動；羅素．塞奇基金會正以海克力斯般的努力，向紐約大都會區展示如何避免被自身的龐大所勒死。</p>
+<p>這一切都產生了廣泛的教育影響。大眾已開始明白，城市計畫不只是開闢新街道；依賴個人的自利來自動而明智地提供城市所需的服務是不安全的；而當社區的整體福祉與個人的財產利益衝突時，整體福祉應優先。城市規劃者本身在專業能力上也大有長進。他已學會處理建築高度、街道寬度、運輸路線容量以及其他許多事情，不是一次處理一件，而是一起處理。在任何特定的時刻，他都能把這些要素規劃得使它們合起來更充分地滿足城市的需要。</p>
+<p>但「任何特定的時刻」是一個空洞的抽象概念。在若干年的期間裡，我們目前的城市計畫，是在對原因沒有任何充分控制的情況下，試圖設計出結果。公共設施如何被使用，直接取決於私有土地如何被使用。只要非公有土地受制於不受控制的用途變更與不斷增加的使用密度，在街道、公園或運輸路線方面，就無法規劃或興建任何永久適足的東西。正如匹茲堡的城市規劃者費德里克．比格（Frederick Bigger）所說：「當社區的一部分——私有部分——不斷變化，從而對另一部分——公共部分——產生變更的需求時，以永久的方式為任何社區的未來發展做規劃是不可能的。」</p>
+<p>以主要街道計畫為例。它通常涉及拓寬街道。拓寬街道助長交通增加；交通增加提高房地產價值；價值提高鼓勵所有者蓋更大的建築；這些建築容納更多人，吸引更多交通，並造成進一步拓寬街道或興建地鐵通道的需求。當這些都提供了，價值再度上升，這個序列又重複一遍。與此同時，市政府並不是以「生意」的方式經營，通常只透過稅收取得增值中微不足道的一部分，因此它跟上開發需求的能力幾乎沒有、甚至完全沒有增加。在這個惡性螺旋中，城市傾向於在實體上窒息、在財政上破產。</p>
+<aside class="box"><h4>城市計畫的里程碑</h4><p><strong>十七世紀</strong> 新英格蘭村莊：為公民、家庭、農業與產業生活做了完整的規劃。第一個「田園城市」。 潘恩（Penn）的費城計畫：第一個正式計畫，有作為廣場的開放空間與矩形的街道佈局。</p>
+<p><strong>十八世紀</strong> 朗方的華盛頓計畫：在居高臨下的基地上為政府機構做了完整的安排，以從各中心放射出去的大道相互連結——全都疊加在棋盤式計畫之上。</p>
+<p><strong>十九世紀</strong> 1811年：紐約市至155街的完整計畫。矩形格局；未嘗試選擇特殊基地；完全無視自然地形，不顧出入口位置，抹去既有的村莊與道路——百老匯除外。為了不確定的目的、朝向不確定的未來，對城市做不確定的擴張；一個為了投機利潤而促進土地快速週轉的計畫。這種規劃成為全國其他地方的樣板；甚至鄉村地區也被劃分成矩形的四分之一區塊。 1854年：規劃第一座景觀公園——中央公園。 1893年：芝加哥世界博覽會的佈局，喚起人們注意美國城市缺乏秩序、對稱、規則與公民之美。城市美化運動、市政藝術評審團與市民中心計畫的發端。</p>
+<p><strong>二十世紀</strong> 恢復朗方的華盛頓計畫，並啟動 D. H. 伯南的芝加哥計畫。重新嘗試為大道、公園，以及非為出售目的的基地做綜合規劃。 1916年：紐約分區及建築高度限制法。試圖把城市當作一個功能單元來處理；並為了整體福祉限制私人企業的自由發揮。 1917–1919年：戰時住宅公司與美國航運局規劃完整的工業村，作為產業與住宅全面協調的一部分。 1922年：成立羅素．塞奇紐約區域計畫委員會。成立紐約州住宅與區域計畫委員會。</p></aside>
+<p>同樣的循環也發生在公園上，而眾所周知地發生在運輸的發展上。路易斯．魏岑科恩（Louis Weitzenkorn）在《紐約世界報》上說得一針見血：</p>
+<blockquote><p>給紐約人一吋，他就會搭上「高架」（L）去上班。一週六天，他會從布朗克斯與布魯克林的遠處，汗流浹背地穿過這座島下面的地下鐵去上工。然後，在第七天，他坐下來寫信給編輯，要求更多的地下鐵。</p><p>以常識之名，這個人到底要更多地下鐵幹什麼？給他一條，他就搬遠一點，去找更便宜的房租和漆得花花綠綠的平房，把一個新區擠滿，直到交通又變得令人無法忍受，於是他又開始搬家，又開始嚷著要另一條線。</p><p>以我們遲鈍的經濟思維方式來看，這似乎相當愚蠢。地下鐵越多，郊區越多，人口越多。</p></blockquote>
+<p>我們大多數人把城市運輸的問題，想成是讓人們晚上回家的工作：因此我們以為更多的地下鐵將促成去中心化，最終「每個人都有座位」。但地下鐵與電車之所以存在，同樣真確地——而且作為一門生意，更加明確地——是為了讓人們早上去上班、去商店購物。在某種意義上，它們必須製造壅塞，否則就得關門大吉。</p>
+<p>規劃的本質在於建立全面的關係。沒有這些關係，它只能是一時的權宜之計。把規劃範圍擴展到城市邊界之外，或許能減緩「紓解」與壅塞的循環，但很難從根本上改變它，因為它幾乎並不比城市內部的規劃更能在計畫與人口之間提供平衡。</p>
+<p>正是在這裡，區域計畫的構想與傳統的城市計畫決裂。而這是一次劇烈的扭轉。因為區域規劃者大膽地去發現大片土地——包括鄉村與都市——真正經濟的用途，然後尋求藉由把人們永久地帶入與這些地區最有生產力的關係之中，來穩定人口的漂流。他呼籲我們擺脫「人口普查數字攀升就意味著改善」的錯覺——這可不是件輕鬆的事，因為正如艾克曼先生所指出的，透過價值上漲而獲利的希望是我們每個人都珍視的，珍視到我們實際上都是壅塞的沉默合夥人。他呼籲我們接受「永久」的觀念——儘管我們距離那些荒野不斷向他們招手的人，才短短三代，而我們這一代最大聲的誇耀，正是對變化的誇耀。他呼籲我們擺脫對大城市的迷戀——而此時每一座小城市都在祈求它的第一棟摩天樓、點亮它的「白光大道」，每一座大城市都試圖在建築量體上超越紐約與芝加哥。區域規劃者要求來個向後轉；他唯一能被聽見的希望，在於他這一邊有理性——以及我們內心所殘存的、對土地的任何飢渴與熱愛。</p>
+<h3>教會的競爭</h3>
+<p>幾個月前，《The Survey》刊出一篇有力而證據翔實的控訴，抨擊主要宗教教派以為國內傳教所募集的資金，補貼城鎮與鄉村中相互競爭的小教會的做法。（〈左手所做的〉，弗瑞德．伊斯特曼〔Fred Eastman〕著，1924年6月1日。）這種競爭早已受到譴責，但正如伊斯特曼先生所指出的，只要各教派仍以這種方式資助競爭，譴責就是徒勞的。然而，最近的幾件事，讓人有理由滿懷希望地期待計畫的全面改變。長老會全國傳教委員會的全國工作人員最近通過一項決議：「本委員會的政策是不使用全國傳教經費支持相互競爭的事業。」這是一個極具前瞻性的立場。若能勇敢地堅持下去，它將使該委員會在這方面成為其他教派姊妹委員會的典範；它將為更需要的工作釋出數千美元，它也將在教派重疊的棺材上釘下一根釘子。</p>
+<p>美國鄉村生活協會（American Country Life Association）在哥倫布舉行的大會，又在那具棺材上敲下了一根釘子。鄉村牧師、神學院學生、社會工作者、農業推廣人員、基督教青年會與女青年會、社區教會、宗教教育工作者以及鄉村居民的代表，都提出了譴責教會競爭的分組報告。學生們的態度尤其直言不諱，宣稱他們發現「神國的工作受到阻礙，而其主要障礙就是教派的繁多」。他們的決議進一步記錄了他們拒絕在教會過多的社區服務。出席會議的衛理公會成員通過了一項給他們的主教、教區監督與其他行政人員的呼籲，請求制定一套建設性的鄉村政策，以抵銷教會之間競爭的惡果。基督教協進會（Federal Council of Churches）在亞特蘭大舉行的四年一度大會，也加入了這些聲音，建議所有教會「一方面避免競爭性的重疊，另一方面避免因此而忽略較不吸引人的地區，並達成有效的互助協議」。</p>
+<h3>芝加哥的電車公投</h3>
+<p>在4月7日的公投中，芝加哥選民以壓倒性的多數——在約557,000張選票中多出十萬票以上——否決了所謂的「迪佛—施瓦茲市營電車條例」（Dever-Schwartz municipal-ownership traction ordinance）。（見1925年4月1日號《The Survey》，第50頁。）</p>
+<p>公投的結果令人相當困惑。這項條例得到數百個無私而進步的公民團體支持。它在市議會以40比5的決定性票數通過。一位人格無可指摘、眾所周知同情自由主義的市長曾焦慮地研究它；曾熱切地努力從電車公司爭取最大的讓步來改善它。</p>
+<p>市內的工商界人士據信一致支持這項條例；數十個工會背書支持；民眾一直嚷著要更好的服務與更低的票價。然而，條例卻以非比尋常的多數遭到廢棄！</p>
+<p>這是否可以推斷，芝加哥堅持要真正而完全的市營運輸，寧願等待、忍受多年，也不接受妥協？絕非如此；大批選民反對這項條例，理由是「市政廳那幫人」——市長與市議員——在條例之下將擁有太多而非太少的權力，並有太多錢可花。那麼，芝加哥是否寧可由「電車公司那幫人」經營，並準備給予這些公司新的特許權，即使那份特許權將長達四、五十年？一些詮釋選舉結果的人持這種看法，但市營派的熱烈倡導者則強力挑戰這種看法。</p>
+<p>許多優秀的在地觀察者認為，迪佛的電車計畫之所以被否決，並非因為它實際存在或被指稱的缺陷，而是因為數以萬計因市長的禁酒與執法政策而與他疏遠的選民，決定給他一個教訓。如果計畫通過，迪佛市長將是競選連任的當然人選，任何對手都不會有機會。條例的失敗被認為意味著迪佛政治生涯的終結與他政治希望的破滅。兩位民主黨籍前市長各有自己的解決方案，並反對迪佛的方案。正在競選重返市長之位的前市長威廉．海爾．湯普森（William Hale Thompson）也有一套電車計畫，那是一套激進的計畫，以重大而極其複雜的新州立法為前提，並賦予市府以一般稅收彌補電車虧損的權力。州長倫．斯莫（Len Small）欠湯普森很多人情，對他的電車計畫也很友善。州議會實際上由斯莫州長控制，很可能追隨他的領導，然而它在兩年前否決了一項湯普森的電車法案，今年也可能再否決一項。很多事將取決於工會與伊利諾自由派對湯普森計畫的態度。目前，電車局勢一片混亂，而地面電車公司的特許權再過兩年就要到期。</p>
+<h3>電力工人與愛迪生公司</h3>
+<p>國際電氣工人兄弟會（International Brotherhood of Electrical Workers）與紐約愛迪生公司達成了一項新穎的協議。該工會認識到，為公共以及工業與商業目的供應電流，已變得「在保護生命財產、維持公共秩序與安全上如此不可或缺，以致於不應建立任何可能危及公司對公眾之服務的力量」，因而接受了以下原則：「紐約的電力服務中，有某些部分應透過有組織勞工的機構來進行；而其他與隨時持續、令人滿意地供應電流有關的部分，為了有組織勞工的利益以及一般公眾的利益，應保留在兄弟會已充分佔據的組織範圍之外。」</p>
+<p>紐約愛迪生公司主管商務關係的副總裁亞瑟．威廉斯（Arthur Williams）在評論這項協議時說，界線一向劃在兩者之間：一邊是公司依其特許權為公眾提供、需要持續供電的基本服務；另一邊是不以這種持續性與特許關係為必要部分的工作。在公司存續期間，它的發電廠勞動一向由非工會人員擔任，即使其他電氣工人罷工，他們也堅守崗位。工會從未試圖組織這些工人或號召他們罷工。採取這項政策，是因為公司方面並未利用工會的公益精神佔便宜。據說工時與勞動條件可與全國最好的相比。八小時工作制與三班制已實施多年。工人們全年工作五十二週。如果新的管理階層試圖強制推行較不寬厚的政策，會發生什麼事，就只能臆測了。</p>
+</div>
+</article>
+<article class="sec" id="letters-and-life" data-sec="letters-and-life">
+<header class="sec-head">
+  <div class="kicker"><span>書評欄</span><span class="pages">原刊 <button class="pg" type="button" data-page="52" aria-label="檢視原刊第 180 頁">p.180</button><button class="pg" type="button" data-page="53" aria-label="檢視原刊第 181 頁">p.181</button><button class="pg" type="button" data-page="54" aria-label="檢視原刊第 182 頁">p.182</button><button class="pg" type="button" data-page="55" aria-label="檢視原刊第 183 頁">p.183</button><button class="pg" type="button" data-page="56" aria-label="檢視原刊第 184 頁">p.184</button><button class="pg" type="button" data-page="57" aria-label="檢視原刊第 185 頁">p.185</button><button class="pg" type="button" data-page="58" aria-label="檢視原刊第 186 頁">p.186</button><button class="pg" type="button" data-page="66" aria-label="檢視原刊第 194 頁">p.194</button></span></div>
+  <h2>書信與生活</h2>
+  <div class="en">Letters &amp; Life</div>
+  <div class="byline">李昂．惠普（Leon Whipple）主編</div>
+  <p class="deck">討論書籍、戲劇與人物的專欄</p>
+</header>
+<div class="prose">
+<h3>一位醫師看《阿羅史密斯》</h3>
+<p>所有醫學生當然都會讀辛克萊．路易斯（Sinclair Lewis）的新作，有些醫師也會讀；這些讀者會感興趣，是因為馬丁．阿羅史密斯的故事中，那些醫界人物的影子掩飾得如此單薄——他是鄉村醫師的苦力、沉悶中西部的粗糙學生、漫無目標的十字路口開業醫、衛生冒險家、斷斷續續的實驗室研究者，最後，失去自尊、甚至得不到關愛，成了一個假隱士，一位追逐名流的社交老糊塗的丈夫。</p>
+<p>這個故事當然不是為了娛樂或激勵醫師而寫的，也不是為了傳達教訓或推動某項主張。它是為一般大眾而寫的，據說是根據路易斯家族早年行醫者的家族傳統拼湊而成，並得助於與一位當代哲學博士的密切交往；這個故事可以當作一件藝術品來評判，或者就它對那些人際關係的影響來評判——那些在醫學博士的手與言語勸導下，由應用科學在家庭中培養起來的人際關係。</p>
+<p>全書始終引人入勝；但想以醫學為職業的少年少女，必須有很強的胃口，以及對自己清晰願景的堅定忠誠，才能面對眼前這幅齷齪的圖景，堅持讀完大學、醫院，熬過私人開業變幻無常的命運——這幅圖景中，除了莉奧拉（Leora）那清澈的靈魂——如此勇敢的情人、如此睿智的妻子——之外，沒有任何甜美而全然真實的東西來調劑。</p>
+<p>諷刺是辛辣的，或許也是應得的。然而，就像許多畫家拿來當作自己扭曲情感與粗糙心智之詮釋的那些拙劣塗鴉一樣，原本可能是一部難得的寫實小說，卻同樣受累於比例失調與誇張的離題——正是這些使日報成了一所文學病理學校。偶爾閃現的優良服務、驚鴻一瞥的英勇事蹟、精明的技巧、乾淨的勇氣，以及不時一點救贖性的魯莽，帶著讀者撐過一頁頁浸透酒精與自私的篇幅。衛生官員以及那些搞「江湖衛生週」鬧劇的推動者，會很高興看到書中對皮克博（Pickerbaugh）生活的生動摘要——他與莉奧拉一起，分享了作者最好的筆力。</p>
+<p>我們太清楚地看到，如果美國醫學缺乏背景、誠意，或任何那些使它熬過並超越「嚼菸草時代、玉米穗學院」那些可悲權宜之計的要素，它可能會是什麼模樣。</p>
+<p>對一位如此有才華的作者，我們希望他能為主角選一位更典型的醫師。如果不是他自己遲鈍的疏忽，讓他那珍貴而信任他的達科他新娘失去了當母親的機會，阿羅史密斯會怎麼做？如果他像一般男人那樣交出了人質、被家庭的重擔綁在工作上，他的撲克牌與斷斷續續的酗酒會把他帶到哪裡去？長輩與幼兒，太常是一個人安定下來、急切需要謀生的原因，不該在這幅經典人生的漫畫中被如此完全地忽略。</p>
+<p>我們看到的是一群可憐的棋子：學生、教師、醫學與衛生的從業者！我們該相信它，還是該懷疑辛克萊．路易斯和他的實驗室仲裁者德克魯夫（de Kruif），見過的赫塞林克（Hesselink）之流較少，或者對他們的興趣不如對阿羅史密斯生涯中著墨甚多的那些形形色色、廉價與昂貴的騙子來得大？讀了這樣一本書，接著而來的會是許多娛樂、許多冷笑，以及大量與已知無名小卒的比較。還有什麼呢？</p>
+<p>人們希望，任何關於自己同胞、關於自己同業的故事，都能帶出某種崇高的希望、某種甜美的人生目標。既然精神的貧乏已經平常到不值得如此大量的閒言閒語，作者或出版者又如何能為費這麼大的工夫，從全國各地挖掘可悲人物的典型故事辯護？</p>
+<p>——海文．愛默生，醫學博士（Haven Emerson, M.D.）</p>
+<p>《阿羅史密斯》（ARROWSMITH），辛克萊．路易斯著。Harcourt, Brace &amp; Co. 出版。448頁。由《The Survey》代購，含郵資2.00美元。</p>
+<h3>社會的原罪</h3>
+<p>在《上帝的繼子女》（God's Stepchildren）中，米林夫人（Mrs. Millin）以通俗劇的陳腐材料創造出崇高的悲劇，並意味深長地顯示了一部問題小說如何能成為一件真正的藝術品。她的主題，是種姓與種族偏見和南非混血婚姻所帶來的社會困境之間的悲劇性衝突，透過一位英國傳教士四代混血後裔的生命悲劇反映出來——這位傳教士在盲目但正直的深思熟慮下，娶了一名布須曼女孩，也就是前任傳教士管家的女兒。從這一次對北歐民俗不可挽回的挑戰中，流出了一連串悲劇，其刻畫之深，在整個現代寫實主義的範圍內都罕見。這些悲劇在實質上夠現代，在地方性上也足以成為南非殖民生活的一種戲劇性縮影，而它們的構思如此精妙，在單純的必然性上是希臘式的，在奔騰與辛酸上則是伊莉莎白時代式的崇高。隨著血統愈來愈淡，這些混血的孩子們主張並爭取他們白人血統的社會特權，卻成為社會偏見與分裂的社會忠誠的犧牲品，夾在他們膚色較深與較淺的親屬及同伴的仇恨與反感之間——我們終於看到這場偉大的現代血統悲劇，它常被召喚，卻從未如此具有揭示性、如此同情地被戲劇化。《上帝的繼子女》是英語文學中這個主題的經典之作。</p>
+<figure class="fig"><button class="thumb" type="button" data-page="53" aria-label="放大原刊第 181 頁"><img src="pages/t53.jpg" alt="原刊第 181 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="53" aria-label="檢視原刊第 181 頁">p.181</button></span>紅髮路易斯的驚奇。（辛克萊．路易斯肖像）</figcaption></figure>
+<p>它也不僅僅是風格上的勝利，雖然在風格上它純熟、美麗而潔淨。它構思深刻，動人心弦。而且，儘管違背了科學最好的答案，讀者必須向作者讓步她那「血統遺傳與返祖特徵」的主要藝術公式，它卻並不因此較不動人。真正無情地追逐著黛博拉、克萊因漢斯、艾爾米拉與巴瑞——安德魯．佛洛德牧師（Rev. Andrew Flood）的女兒、孫子、曾孫女與玄孫——的，其實是一種惡毒的社會遺傳；有位評論者不無貼切地稱這位牧師為基督教傳教事業的唐吉訶德。正是社會自身的矛盾，以希臘復仇女神般的無情，把他們從生活的調適中驅趕出去。而它們直到巴瑞才得以平息：就在血統即將在他英國妻子諾拉寬容的漠不關心中漂白殆盡的那一刻，巴瑞在社會上的失敗與道德上的勝利中，決定「回到他的族人那裡」，以他英雄式的幻滅，呼應他遙遠祖先感傷的幻想。</p>
+<p>其間的每一段人生都是枯萎的人生。黛博拉被一個布爾農場主誘姦，若不是她的混血，他本會娶她。兒子克萊因漢斯被逐出一個發跡的機會，淪為林塞爾先生農場上的農奴，當林塞爾的老年與孤寂使他娶了混血的艾爾米拉為妻時，又被流放以化解林塞爾家族的尷尬。艾爾米拉兩度被刺痛到心底，一次在寄宿學校，一次在林塞爾先生缺乏勇氣的舉動所帶來的排斥中。巴瑞，最殘酷的諷刺是，由他的異母姊姊撫養長大——她為了抗議父親再婚而離家——她在老處女自以為是的苦澀中，以猜疑與懷疑毒害了他婚姻的第一年，親手毀掉了自己「試圖讓巴瑞變白」的工作。</p>
+<p>所有這些悲劇都是人為的——這與米林夫人得意的假設相反——然而這並無損於本書的藝術性與效果。事實上，在她一些最深刻的洞見中，她似乎只是把血統當作命運的象徵，把自然當作替社會罪孽受過的某種代罪羔羊。就這個困難的主題而言，我不知道還有哪一部英國小說把人的價值描繪得如此公允、如此富於同情。它真正達成了憐憫與恐懼的淨化，讓我們的社會執念經過一種煉獄般的鍛鍊。它不是那種會滋生、固化偏見的小說，而是把偏見痛切地戲劇化的小說。就像生命本身處於原始力量的劇痛之中，它觸動我們每一個人，並揭示了種族接觸問題最根本的人性面向。哪一位美國小說家若能以同等的勇氣、藝術與洞察深入這個國家的種族困境，就將開啟一條真正的美國悲劇的礦脈，並淨化我們——也許不是淨化偏見，但至少淨化我們不假思索的、傳統的誤解。因為社會一旦促成了它自己的悲劇，便無法逃脫。但藝術之中，有某種救贖。</p>
+<p>——艾倫．洛克（Alain Locke）</p>
+<p>《上帝的繼子女》（GOD'S STEPCHILDREN），莎拉．格特魯德．米林（Sarah Gertrude Millin）著。Boni &amp; Liveright 出版。319頁。由《The Survey》代購，含郵資2.00美元。</p>
+<h3>帝國之癌</h3>
+<p>住宅。城市規劃者、衛生官員、個案工作者的題目。統計數字的分類格。烏托邦幻想的掛鉤。某種大概應該讀一讀的東西。</p>
+<p>但這裡有一本紙裝的小書；封面由布朗溫（Brangwyn）設計，象牙色、棕色與黑色；一位名叫詹姆斯．麥奇沙克（James McKissack）的人所拍攝、魅力令人難忘的照片；五個短短的章節。威廉．波利索（William Bolitho）和他的出版者，以這些元素為社會事實的陳述立下了新的節奏，寫出一本關於格拉斯哥貧民窟的書，如此堅實而出色，以致於它把社會學分類撥到一旁，篤定地走上書架上屬於「朋友」而非僅僅是「資訊包」的那個位置。</p>
+<p>威廉．波利索出版過一本書《利維坦》（Leviathan），不久前在較忠實的英國文學讀者之間引起過一陣短暫的騷動。他每週從歐陸為《紐約世界報》寫一篇專欄，評論那些吸引他的事物——一個法西斯公爵家族的興衰；尼斯爵士樂更微妙的意涵；巴黎沙龍汽車所附帶的神性。題材無關緊要，但那反諷的洞察與散文的形式，幾乎總讓文章有著擦亮黃銅的光澤與閃爍的亮點。除此之外，這位年輕的南非人在大西洋這一邊默默無聞。但他是那種讓人渴望他來見證、詮釋我們美國景象的人才。</p>
+<p>波利索去了「紅色克萊德」（Red Clyde），去了格拉斯哥。他講述他在那裡的發現。一言以蔽之，他發現在1,081,983的人口中，有六十萬人——全部的三分之二——住在「低於衛生局最低標準的房子」裡；40,591個家庭各住一個房間；112,424個家庭住在只有一房一廚的家裡。他發現這種悲慘的擠擁並非戰後的偶然，而是多年過度擁擠累積的果實。</p>
+<blockquote><p>一代又一代骯髒而貧窮的人（他寫道）擠進那些即使在夏天也永遠黑暗的房間，在那裡，白天在一樓窗邊也永遠讀不清印刷字；在那裡，即使他們有心或想到，在永遠點著的昏暗煤氣燈下，也不可能找出並清除污垢。一代又一代的孩子在這些幽深的鵝卵石通道裡玩耍，被關在高聳而不透氣的牆下，把無數垃圾箱的廢物撒出來，踩進黑色潮濕的地裡，造就了現代的格拉斯哥。在這座躺在河霧與煙囪霧中、躺在北方無陽光的寒冷裡的城市，連土壤本身都是不潔的、無法清潔的。這座城市我見過，在冬天，它那些黑色的高大兵營拚命地互相推擠爭奪空間，一個世紀以來，數百萬人住在其中，「像桶裡的鹹魚一樣塞得滿滿的」；巨大、憂鬱、骯髒。</p></blockquote>
+<figure class="fig"><button class="thumb" type="button" data-page="54" aria-label="放大原刊第 182 頁"><img src="pages/t54.jpg" alt="原刊第 182 頁縮圖" loading="lazy" width="90" height="129"></button><figcaption><span class="figtag">圖說 · <button class="pg" type="button" data-page="54" aria-label="檢視原刊第 182 頁">p.182</button></span>英國版由 Putnam 出版。（書中插圖）</figcaption></figure>
+<p>他的發現佔了三章；沒有感傷，卻以極佳的觀察活力，講述了在格拉斯哥貧民窟一日一夜的巡行。在這裡，以兩隻瓷狗和「一些實心黃銅的奇怪形狀——我拿起來，發現是女靴粗略的側影」為代表的「裝飾」，被「留在『後地』（Backlands）的濾網、篩子裡，它無情地篩掉一切可以不要的東西：陽光、空氣、空間，一切多餘之物」；在那裡，一扇門被「一個只穿襯衫的男人突然而輕輕地打開，彷彿被他身後那股壓倒一切的貧民窟氣味推向前來」。</p>
+<p>對此能做什麼？波利索把最後幾章用來回答這個問題，在這裡他同樣牢牢地掌握他的題材，不屑於簡單的解決辦法，也不屑於「歸咎」的瑣碎滿足。格拉斯哥已經發現可行的市府援助住宅的小規模嘗試，為四千個收入比工匠與勞工高的家庭，以及兩千個最貧窮的家庭提供了住所，後者完全是靠著把租金壓到遠低於經濟水準的補貼。但要讓城市擺脫紅色克萊德的前排與後排廉價公寓，需要不少於57,000棟房子。而「格拉斯哥問題那可怕的主根，因此導致以下的兩難：如果找到資本來為格拉斯哥重建住宅，而所建的房子符合最低衛生標準，經濟租金將永遠高到那六十萬人中沒有相當一部分付得起。」</p>
+<p>就算承認格拉斯哥的產業——尤其是造船業——付不起足以讓工人負擔這些經濟租金的工資，承認國家即使有理由如此補貼產業，也永遠找不到資金來為這些工人提供適當的住宅，而且「看不到任何在邏輯上令人滿意的解決辦法」。然而問題不能等待解決。統計數字「令人不快地、無可辯駁地提出：要嘛革命，要嘛補貼」。而牽涉其中的人的力量——被嚇住而絕望的群眾，如今被逼著做出不情願的努力以改善自己；熟練工匠群體中精悍的激進分子——這些都不保證穩定。紅色克萊德是帝國之癌。</p>
+<p>——G. S.</p>
+<p>《帝國之癌》（CANCER OF EMPIRE），威廉．波利索著。Putnam's 出版。60頁。由《The Survey》代購，含郵資1.00美元。</p>
+<h3>春天的補藥</h3>
+<p>靈魂也有春熱症。我們需要補藥，來對付內外都有的那種春分時節的不適感。為了身體，民間傳說在蒲公英嫩葉、硫磺加糖蜜和黃樟茶裡找到了功效；為了靈魂，好心的上帝提供了在陽光下釣魚；但是——如果你不能去釣魚，就讀讀這五本快樂的書吧。它們不是偉大的書。我甚至懷疑它們是不是好書。它們就是很棒的書。讓你咯咯笑、喉頭哽咽的書……讓你熬夜到很晚、血液凍結、汗毛直豎的書……你一定會毫不留情地引述給朋友聽的書。而那些才是我們真正喜愛的書。其餘的都是義務之書。這些是樂趣之書——為了樂趣而寫，為了樂趣而讀。它們沒有任何意義，而且，謝天謝地，它們沒有任何「訊息」。事實上，它們大多觸及不道德的事，而且很可能帶點粗野。眾所周知，春天的補藥略帶苦味時最有效。我提供的不是均衡的閱讀配給，而是不均衡的；不是給前往百慕達的閒人準備的送行書籃（如果他們帶了這些書，就什麼百慕達也看不到了！）；不是給生病朋友的一包書；不是去鄉間度週末的十吋書架——完全沒有任何經驗法則，也沒有任何社會責任感。我在這世上所提供的，只是五本我喜歡的書。它們也許會打開那扇面向危險海洋與淒涼仙境的窗。</p>
+<p>哈德遜．馬克沁（Hudson Maxim）的《回憶錄》做不到這一點。它是一本「硫磺加糖蜜」的書，這對一個一輩子製造炸藥的人來說似乎很恰當。是的，他的哥哥海倫（Hiram）發明了機關槍，而海倫的兒子海倫發明了馬克沁消音器。哈德遜只是發明了「馬克沁炸藥」（Maximite），一種在世界大戰中大量使用的高爆炸藥。顯然是一群槍手——就案情的事實而言我們就說到這裡，接著試著解釋為什麼這是我們今年讀過最好的傳記——而今年本身就是傳記的奇蹟之年。</p>
+<p>偉大的傳記應該做兩件事：呈現一個人，描繪一個背景。它不必在歷史上正確，不必日期無誤，不必對一個人做批判性的評價，也不必說明他的成就如何把社會扭向這邊或那邊。克里夫頓．強森（Clifton Johnson）並沒有嘗試這些可敬的事情：他只是到霍帕孔湖去，和哈德遜（以及他的妻子與秘書們）聊天，於是逮到這位人體雷管正在為家人烤豆子、在大西洋城慶典上扮演海神、以時速六十五英里單手開車、討厭香水到會預先寄一張印好的警告卡給所有要接近他的客人，以及八點就上床、留客人自己互相招待的模樣。（啊，但願我有那種勇氣！）每一章都以這樣一幅畫面開始——然後哈德遜登場，講述他在緬因州的童年、他當學校老師與專利墨水小販的絕技、他與高爆炸藥的冒險、他與海倫的爭吵，講他的手如何被炸掉，他如何從新澤西州雷克伍德一路奔波一整天到紐約上城去找對的醫生，然後還問他的心臟能不能承受麻醉！你看，這就是傳記的必要條件之一——一個人。</p>
+<p>背景在書的前半部——一段關於內戰前後荒涼而風雨交加的緬因州生活的回憶。這些易爆的馬克沁家人那了不起的母親、辛勞的半吊子發明家父親、飢餓、雪、狗、打架、學校、遊戲、愛與勇氣與奮鬥，都被刻畫在幾個章節裡，確實為一個曾經存在的美國的圖景做出了貢獻。這裡就是篷車出發的地方。這是沒有文化慰藉的《雪困》（Snow Bound），卻有著那股把新英格蘭推上權力寶座的求知飢渴。它有助於解釋為什麼北歐人強悍的傳統至今仍然存活。這幾章可以成為「美國化」課程的好教材。而且它是「用美國話」寫的——那種風格是馬克．吐溫會喜愛的，事實上，這個人與這個場景都很像馬克．吐溫，像密西西比河上的生活。逐漸消逝的過去在這裡重新活了過來，這個粗獷的火焰般的人也隨之活了過來，兩者合成了一本大人物尺寸的書。</p>
+<p>麻煩的是，我無法證明別人也會喜歡這些書。談論它們似乎是白費唇舌——而除非引述整本書，否則永遠引述不夠。不過，A. A. 米恩（A. A. Milne）的《當我們很小的時候》（When We Were Very Young）已經賣了大約五萬本，對一本兒童詩集來說算是個紀錄，而且每個人都在引述它。就像棒球術語說的，它什麼都有。米恩先生知道孩子怎麼想；他知道他們怎麼說話；他知道大人怎麼想像孩子怎麼想（所以他搔到了我們的虛榮心）；他也知道一個聰明的作者如何讓孩子這樣想、這樣說，好讓大人對其中隱藏的諷刺與哲理咯咯發笑。我只希望你不要加入目前在知識分子之間流行的那場無謂的辯論——孩子們「是否真的喜歡它」，或者它「是否只吸引大人」。誰在乎呢？太陽照耀所有人——大人、孩子，還有「縮小的大人」。</p>
+<p>湯匙敲打桌面的節奏，就在這幾行裡：</p>
+<blockquote><p>詹姆斯．詹姆斯</p><p>莫里森．莫里森</p><p>魏瑟比．喬治．杜普里</p><p>非常</p><p>照顧他的媽媽</p><p>雖然他才三歲。</p><p>詹姆斯．詹姆斯</p><p>對他的媽媽說：</p><p>「媽媽，」他說，他這麼說；</p><p>「妳千萬不要走到鎮的盡頭去，如果妳</p><p>不和我一起去的話。」</p></blockquote>
+<p>孩子與大人面對宇宙時那被壓抑的自我，就在這裡：</p>
+<blockquote><p>我想，如果我是希臘國王，</p><p>我就要把壁爐架上的東西統統推下來。</p></blockquote>
+<p>孩子缺乏價值的尺度，以及他那包容一切的憐憫，則見於大象厄尼斯特、獅子李奧納德、山羊喬治，以及「詹姆斯，一隻非常小的蝸牛」的故事。</p>
+<blockquote><p>厄尼斯特開始吹號，撞裂了他的食槽，</p><p>李奧納德開始咆哮，震碎了他的獸欄，</p><p>詹姆斯發出一隻蝸牛遇險時的呼呼聲；</p><p>而根本沒有人聽見他。</p></blockquote>
+<p>那位滑下樓梯扶手、雖然「不是個挑剔的人」卻宣稱「我確實喜歡在麵包上抹一點點奶油」的國王的反諷；愛麗絲在白金漢宮看衛兵交接時那世故的評語——「一張臉往外看，但那不是國王的，他忙著簽東西忙得很，愛麗絲說」——都是給老年人看的；那隻過胖的泰迪熊「羨慕那些走來走去、減掉多餘肥肉的人」的故事也是。但這裡，確實就是童年的心：</p>
+<blockquote><p>有沒有人看見我的老鼠？</p><p>我只把他的盒子打開了半分鐘，</p><p>只是想確定他真的在裡面，</p><p>而就在我看的時候，他跳了出去！</p><p>我試著抓他，我試了，我試了。</p><p>我想他就在屋子裡某個地方。</p><p>有沒有人看見我的老鼠？</p></blockquote>
+<p>「我試了，我試了……」其中的悲憫，屬於孩子，也屬於大人——就是人性的，永恆的。</p>
+<p>《名人填字遊戲書》（The Celebrities Cross Word Puzzle Book）有兩項值得稱道之處。第一，它開本寬大，黑白格子大得像附近的棋盤，所以散光的人不必咒罵自己昏花的眼睛。第二，我那本上面寫著：「這是原版填字遊戲書第517,637號。」謎題已經成為一門產業，就像福特汽車一樣，序號衝向百萬。這本合集的賣點在於它們出自名人之手，或多或少。或多或少出自其手，也或多或少是名人。從柏林（Berlin）、愛麗絲．布雷迪（Alice Brady）和布朗（Broun），到范倫（Van Loon）、馮．富爾（Von Phul）和金巴利斯特（Zimbalist）。有慣常的前言之類的東西、後面不可避免的字典廣告，中間還有一些有趣的黑白漫畫。我們推薦這本書，作為慢慢收心的好讀物。</p>
+<p>《黑暗中的聲音》（A Voice From The Dark）是《The Survey》有史以來評論的第一本偵探小說。（「也是最後一本，」編輯說。）它不是屬於刑罰學就是屬於遊憩。為了確定它屬於「我們的領域」，我們挑了我們所知最體面的謀殺故事作者——伊登．菲爾波茨（Eden Phillpotts），你記得的，他寫非常嚴肅的、關於德文郡之類地方的小說，有點像哈代，但沒那麼勇敢，而對人類比較友善。你可能會驚訝地得知，他為了好玩（或者更可能是為了錢），不時涉足推理小說。他的《紅色雷德梅恩家》（Red Redmaynes）提供了這一行有史以來最令人吃驚的結局，他的《灰色房間》（The Grey Room）雖然有點做作，卻充滿脊背發涼的顫慄。這本《聲音》比前兩本都技巧更精練、寫得更緊湊。一位主人和他的手下，在一間暗室裡揭露一尊中世紀的雕像，把一個可憐的小繼承人嚇死了。主人繼承了爵位。偵探在五十頁之後就知道了。其餘是追捕，是一段真正巧妙的悔恨研究、一場良心之死，以及一個充滿科學與機巧的高潮。菲爾波茨不如 J. S. 弗萊徹（J. S. Fletcher）擅長明快的動作與鮮明的人物。（弗萊徹的書可以從麥克米倫的廣告上買到。）他的人物不那麼有血有肉。但他們有更多內在，比較不是為情節服務的機器人，而更是獨立的心靈單元。就像大家說的，他心理描寫得比較好。熱愛象牙雕刻的布魯克勳爵，有著大多數推理小說販子沒時間也沒天分放進驚悚故事裡的層次與複雜性。藝術終究會顯現出來。偉大的小說家寫出的驚悚小說，比驚悚小說作家寫的更好。有些人哀嘆伊登．菲爾波茨如此貶低他的藝術。我們不會：任何寫出更好偵探小說的人，都是人類的恩人。但說到底，何必道歉？所有偉人都讀偵探小說。事實上，如果我們不喜歡偵探小說，我們反而會懷疑自己的命運。這份喜愛是偉大的保證。</p>
+<p>某位盡責的人士建議我把《忠實的仙女》（The Constant Nymph）當作現代教育的研究來評論，因為桑格（Sanger）的孩子們沒有受過任何訓練，卻被偉大的音樂所環繞，對音樂懷著一種十字軍般的熱愛。那就像拿蝴蝶翅膀當洗碗布。如果這本書有什麼不是的，那就是它不是一本宣傳小冊。它是一項關於人的精神的研究，而我夠憤世嫉俗地相信，評論家們——尤其是輕佻的美國評論家——之所以如此大力讚賞它，只是因為他們已經忘了人的精神是多麼熾熱、多麼動人。我們什麼時候在一本「美國製造」的書裡，有機會遇見像泰瑞莎（Teresa）那樣偉大的靈魂？這裡有一幅全身像，畫的正是《阿羅史密斯》中莉奧拉身上那模糊勾勒出來的東西。</p>
+<p>事實上，這正是英國人寫得登峰造極、而我們完全寫不出來的那種書。他們先取青春，再取天才——無論是出身低微的社會階層，還是古怪的奇人——然後把天才的成分混進他們僵硬拘謹的保守社會，通常讓天才群體中的某一人展現出一種不朽的悲愴。由此產生的淚與火之物，就是梅．辛克萊（May Sinclair）的《神聖之火》（Divine Fire）、H. G. 威爾斯的《托諾－邦蓋》（Tono-Bungay）、洛克（Locke）的《可愛的流浪者》（Beloved Vagabond）。也許瑪格麗特．甘迺迪（Margaret Kennedy）的仙女，是比上述任何一部都更深刻的研究，探討那永恆的、包裹在慾望之肉身中的星辰般的精神之愛。也許它以我們在過去十年學到的那種緊繃與節制寫成。請看它的成就：處理放縱、激情與無拘無束的言語，卻從未有一絲猥褻或粗俗的暗示。但它缺乏這類作品可能具有的其他美德，例如《托諾－邦蓋》背後真正的社會意義。</p>
+<p>簡單地說，這是一首抒情詩，不是一部小說。它只是關於年輕女孩、愛與音樂。在一切之下的是精神。那位富有的猶太經紀人贏得了他所愛的人，卻仍為無法分享她的精神而悲傷。路易斯．多德（Lewis Dodd）與泰瑞莎有著從天體回響而來的精神共鳴。塞巴斯欽（Sebastian）口中說出歷代的智慧，因為他讓他的精神說話。是的，這本歌唱般的書，或許標誌著英國小說家所達到的悲愴又往前邁進了一步——他們運用青春與老年、遲鈍與天才、貴族階層與平民階層，製造對比、色彩、犧牲與憐憫。在這裡，我們察覺到又一種階級區分——有些人有靈魂，有些人有肉體，有些人兩者兼有。他們彼此之間的往來，就是美與淚的核心。</p>
+<p>處方如下：</p>
+<p>《哈德遜．馬克沁回憶錄與評論》（HUDSON MAXIM, Reminiscences and Comments），克里夫頓．強森記述。Doubleday Page 出版。343頁。由《The Survey》代購，含郵資5.00美元。 《當我們很小的時候》（WHEN WE WERE VERY YOUNG），A. A. 米恩著。Dutton 出版。由《The Survey》代購，含郵資2.00美元。 《黑暗中的聲音》（A VOICE FROM THE DARK），伊登．菲爾波茨著。Macmillan 出版。由《The Survey》代購，含郵資2.00美元。 《名人填字遊戲書》（CELEBRITIES CROSSWORD PUZZLE BOOK），普羅斯珀．布拉內利（Prosper Buranelli）、F. 葛雷戈里．哈茨維克（F. Gregory Hartswick）、瑪格麗特．佩瑟布里奇（Margaret Petherbridge）編。Simon and Schuster 出版。124頁。由《The Survey》代購，含郵資1.90美元（附維納斯橡皮頭鉛筆一支）。 《忠實的仙女》（THE CONSTANT NYMPH），瑪格麗特．甘迺迪著。Doubleday-Page 出版。344頁。由《The Survey》代購，含郵資2.00美元。</p>
+<h3>原生質的折磨</h3>
+<p>「我對俄國人民的看法——認為他們格外地、奇妙地富於天賦而與眾不同——並沒有讓我失望，」高爾基（Gorky）在本書最後一頁說。「即使是俄國的傻瓜，也以他們自己獨特的方式傻，就像懶漢也有他們自己的天才一樣。」兩百頁之前，他曾說過他那種典型的話：「俄國文學很像那種蔓延的真菌。它從生活中汲取潮濕、污穢與可憎，並不可避免地以它的壞疽感染每一個與它接觸的健康軀體。」再往前幾頁，他又堅稱他的鎮民「以愚蠢的方式生活，純粹由於這個緣故，他們活得骯髒、沉悶、痛苦而犯罪。他們是有天賦的人——但只是對軼事有天賦。」</p>
+<p>好，這裡就是關於他們的軼事——也是關於他們之一的馬克西姆．高爾基的軼事。這是一幅墮落者、流浪漢、知識分子、口拙的老人與目不識丁的農民的全景圖，只有高爾基畫得出來。他們愚蠢而殘忍，格外地、奇妙地如此，然而高爾基在他的酸液中摻入了愛。他對愚蠢的人類有信心。從馬克西姆．高爾基到拉爾夫．沃爾多．愛默生，似乎相距甚遠，然而，以更誠實得多的態度面對泥濘的污濁，高爾基同樣在宣講：在事物的泥淖與渣滓之中，總是、總是有某種東西在歌唱。他痛切而敏銳地意識到俄國人民原生質般的折磨，卻仍然相信——並且說出來——「當它開始在充分意識到勞動的文化意義、甚至宗教意義——那把全世界連成一體的意義——之下工作時，它將開始一種童話般的、英雄的生活，並將在許多方面照亮一個被紛爭耗盡、被罪行逼瘋的世界。」</p>
+<p>——路易斯．甘奈特（Lewis Gannett）</p>
+<p>《我的日記片段》（FRAGMENTS FROM MY DIARY），馬克西姆．高爾基著。McBride 出版。由《The Survey》代購，含郵資3.00美元。</p>
+<h3>建築與惡龍</h3>
+<p>以人的尺度談建築，是孟福先生《木與石》的主題。供人居住、工作、禮拜、遊戲的房子——社區就這樣成長起來，建造者滿足人們的實用需求，在早期新英格蘭城鎮中遵循簡樸與節制裝飾的準則，接著在中西部拓荒聚落——十年之內就長成繁榮城市——爆發了一場「風格」流行病，借用羅馬人驕傲的紀念碑來表達美國公民的穩定與重要性，在兩大洋之間豎立起一片既可怕又奇妙的國度。這是歷史的故事。然後故事中的惡龍登場了，那頭現代的機器怪獸——人的那一面，與每臨街英尺土地的價格相比，就變得微不足道了。</p>
+<p>在他所創造、並使之為他工作的機器的作品面前，人已經變成一隻小蟲。</p>
+<p>接著來了解放的希望，透過有遠見的人們——詩人、建築師、城市規劃者、區域規劃者、工程師——帶著田園城市的計畫，以及對機器惡龍加以限制的計畫。</p>
+<p>如果你喜愛一本能激發想像力、把抽象的思考化為重新征服這頭機械時代怪獸之渴望的書，那麼這本書正合你的胃口。</p>
+<p>《木與石》（STICKS AND STONES），劉易斯．孟福著。Boni and Liveright 出版。247頁。由《The Survey》代購，含郵資2.50美元。</p>
+</div>
+</article>
+    <section class="about" id="about">
+      <h2>關於這份譯本</h2>
+      <ul>
+        <li>底本：<em>The Survey</em>, Vol. LIV, No. 3（Survey Graphic Number），1925年5月1日，原刊頁129–194；掃描本取自網際網路檔案館（archive.org）識別碼 survey-1897_1925-05-01_54_3。本刊已屬美國公有領域。</li>
+        <li>譯文涵蓋全部編輯內容：卷首語、十三篇專文與圖版、社論，以及「書信與生活」書評欄，連同圖說、側欄與續頁（原刊188–194頁）。純廣告頁未譯。</li>
+        <li>每篇標題旁與圖說內的頁碼按鈕（如 p.131）可開啟該頁原刊掃描，對照原文與插圖。</li>
+        <li>人名、地名首次出現附原文；書名、報刊名依通行譯法或直譯並附原名。專有概念以底線標示，點選可看簡短說明，這些說明為譯者所加，非原刊內容。</li>
+        <li>少數圖表內的細小圖例因掃描解析度不足，只譯出可辨識的部分。</li>
+      </ul>
+    </section>
+  </main>
+</div>
+<footer class="wrap">The Survey Graphic, May 1, 1925 · 全文中譯</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="gloss" hidden aria-label="詞彙表">
+  <h2>詞彙 <button class="tb" type="button" data-close>關閉</button></h2>
+  <dl id="glist"><div class="gi"><dt>區域計畫<span>Regional Planning</span></dt><dd>本期的核心概念。不從城市內部修補，而是把整個區域（氣候、土壤、植被、產業與文化具一致性的地理範圍）當作一個整體，規劃人口、產業與土地的分布。孟福說它「不只是一門專業，而是一種思考方式」。</dd></div><div class="gi"><dt>區域社群<span>Regional Community</span></dt><dd>本期提出的新人類環境：城鄉均衡、產業分散、住宅與遊憩完備的生活單元，是區域計畫要達成的目標。</dd></div><div class="gi"><dt>第四次遷徙<span>The Fourth Migration</span></dt><dd>孟福的歷史架構：拓荒（篷車）、工業城鎮（鐵馬）、金融大都會之後，由汽車、電話、收音機與遠距輸電所推動的人口再分布。區域計畫要做的是引導它，而不是創造它。</dd></div><div class="gi"><dt>田園城市<span>Garden City</span></dt><dd>霍華德於1898年提出的模式：規模有限、為產業與健康生活而規劃、由永久農業帶環繞、土地公有或信託持有，使地價增值回歸社區。英國實例為萊奇沃思與威爾溫。</dd></div><div class="gi"><dt>巨型電力<span>Giant Power</span></dt><dd>賓州州長平肖與庫克推動的電力政策：在礦口與水力處大規模發電，以整合的輸電網平均分配到農村與小鎮。與只服務大城的「超級電力」相對。</dd></div><div class="gi"><dt>超級電力<span>Superpower</span></dt><dd>在各電力系統配電線末端交換剩餘電力，主要服務既有的壅塞中心與公司利潤；平肖比喻為不受控的野象。</dd></div><div class="gi"><dt>起源領域<span>Sphere of Origin</span></dt><dd>麥凱的用語：原料所出的源頭區域（山脊、森林、水源），產業之線在此最單純、可逐一分開規劃。相對於城市所在的「配銷領域」。</dd></div><div class="gi"><dt>配銷領域<span>Sphere of Distribution</span></dt><dd>產業之線匯聚交織的河口區域，即沿海與鐵路沿線的城市，問題以大陸尺度交織，必須整合處理。</dd></div><div class="gi"><dt>限制股利公司<span>Limited Dividend Company</span></dt><dd>自願把投資報酬限定在一定比率、其餘收益用於社會目的的公司。英國田園城市與紐約城市住宅公司（陽光花園）都採這種形式。</dd></div><div class="gi"><dt>派翠克．格迪斯<span>Patrick Geddes</span></dt><dd>蘇格蘭生物學家與城市規劃先驅，在愛丁堡設「瞭望塔」，倡議以調查為本、從區域理解城市。卷首語中「留著長鬍子的蘇格蘭人」就是他。</dd></div><div class="gi"><dt>美國區域計畫協會<span>Regional Planning Association of America (RPAA)</span></dt><dd>1923年成立的小團體，成員包括孟福、史坦、萊特、麥凱、艾克曼、蔡斯、賓等人，本期即由他們執筆。</dd></div><div class="gi"><dt>阿帕拉契山徑<span>Appalachian Trail</span></dt><dd>麥凱於1921年提出的長程步道構想，沿東部山脈稜線延伸，他視之為「新探險」的象徵與新的邊疆。</dd></div><div class="gi"><dt>陽光花園<span>Sunnyside Gardens</span></dt><dd>城市住宅公司於紐約皇后區長島市興建的社區（1924起），由史坦與萊特設計，以街廓內部共享花園示範社區規劃的節約。</dd></div></dl>
+</aside>
+<div class="pop" id="pop" role="dialog" hidden></div>
+<div class="lt" id="lt" hidden role="dialog" aria-label="原刊掃描">
+  <div class="lt-top">
+    <button class="tb" type="button" id="lt-prev" aria-label="上一頁">←</button>
+    <button class="tb" type="button" id="lt-next" aria-label="下一頁">→</button>
+    <div class="lab" id="lt-lab"></div>
+    <select id="lt-sel" aria-label="跳到頁碼"></select>
+    <button class="tb" type="button" id="lt-close">關閉</button>
+  </div>
+  <div class="lt-stage" id="lt-stage"><img id="lt-img" alt=""></div>
+  <div class="lt-strip" id="lt-strip"></div>
+</div>
+
+<script>
+(function(){
+const OFFSET=128, N=66;
+const GLOSS=[{"t": "區域計畫", "en": "Regional Planning", "d": "本期的核心概念。不從城市內部修補，而是把整個區域（氣候、土壤、植被、產業與文化具一致性的地理範圍）當作一個整體，規劃人口、產業與土地的分布。孟福說它「不只是一門專業，而是一種思考方式」。"}, {"t": "區域社群", "en": "Regional Community", "d": "本期提出的新人類環境：城鄉均衡、產業分散、住宅與遊憩完備的生活單元，是區域計畫要達成的目標。"}, {"t": "第四次遷徙", "en": "The Fourth Migration", "d": "孟福的歷史架構：拓荒（篷車）、工業城鎮（鐵馬）、金融大都會之後，由汽車、電話、收音機與遠距輸電所推動的人口再分布。區域計畫要做的是引導它，而不是創造它。"}, {"t": "田園城市", "en": "Garden City", "d": "霍華德於1898年提出的模式：規模有限、為產業與健康生活而規劃、由永久農業帶環繞、土地公有或信託持有，使地價增值回歸社區。英國實例為萊奇沃思與威爾溫。"}, {"t": "巨型電力", "en": "Giant Power", "d": "賓州州長平肖與庫克推動的電力政策：在礦口與水力處大規模發電，以整合的輸電網平均分配到農村與小鎮。與只服務大城的「超級電力」相對。"}, {"t": "超級電力", "en": "Superpower", "d": "在各電力系統配電線末端交換剩餘電力，主要服務既有的壅塞中心與公司利潤；平肖比喻為不受控的野象。"}, {"t": "起源領域", "en": "Sphere of Origin", "d": "麥凱的用語：原料所出的源頭區域（山脊、森林、水源），產業之線在此最單純、可逐一分開規劃。相對於城市所在的「配銷領域」。"}, {"t": "配銷領域", "en": "Sphere of Distribution", "d": "產業之線匯聚交織的河口區域，即沿海與鐵路沿線的城市，問題以大陸尺度交織，必須整合處理。"}, {"t": "限制股利公司", "en": "Limited Dividend Company", "d": "自願把投資報酬限定在一定比率、其餘收益用於社會目的的公司。英國田園城市與紐約城市住宅公司（陽光花園）都採這種形式。"}, {"t": "派翠克．格迪斯", "en": "Patrick Geddes", "d": "蘇格蘭生物學家與城市規劃先驅，在愛丁堡設「瞭望塔」，倡議以調查為本、從區域理解城市。卷首語中「留著長鬍子的蘇格蘭人」就是他。"}, {"t": "美國區域計畫協會", "en": "Regional Planning Association of America (RPAA)", "d": "1923年成立的小團體，成員包括孟福、史坦、萊特、麥凱、艾克曼、蔡斯、賓等人，本期即由他們執筆。"}, {"t": "阿帕拉契山徑", "en": "Appalachian Trail", "d": "麥凱於1921年提出的長程步道構想，沿東部山脈稜線延伸，他視之為「新探險」的象徵與新的邊疆。"}, {"t": "陽光花園", "en": "Sunnyside Gardens", "d": "城市住宅公司於紐約皇后區長島市興建的社區（1924起），由史坦與萊特設計，以街廓內部共享花園示範社區規劃的節約。"}];
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+/* theme */
+const root=document.documentElement;
+const savedTheme=store.get('sg-theme'); if(savedTheme) root.setAttribute('data-theme',savedTheme);
+$('#btn-theme').addEventListener('click',()=>{
+  const dark = root.getAttribute('data-theme') ? root.getAttribute('data-theme')==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const next = dark?'light':'dark'; root.setAttribute('data-theme',next); store.set('sg-theme',next); drawMig();
+});
+/* font size */
+const sizes=['1rem','1.0625rem','1.1875rem','1.3125rem']; let fi=+(store.get('sg-fs')||1); if(!(fi>=0&&fi<4)) fi=1;
+const applyFs=()=>{root.style.setProperty('--fs',sizes[fi]); $('#btn-fs').textContent='字級 '+(fi+1)};
+applyFs();
+$('#btn-fs').addEventListener('click',()=>{fi=(fi+1)%sizes.length; store.set('sg-fs',fi); applyFs();});
+
+/* drawers & scrim */
+const scrim=$('#scrim'), rail=$('#rail'), gloss=$('#gloss');
+const narrow=()=>matchMedia('(max-width:1000px)').matches;
+function closeAll(){rail.classList.remove('open'); gloss.hidden=true; scrim.hidden=true; $('#btn-toc').setAttribute('aria-pressed','false'); $('#btn-gloss').setAttribute('aria-pressed','false');}
+scrim.addEventListener('click',closeAll);
+$('#btn-toc').addEventListener('click',()=>{
+  if(!narrow()){ rail.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+  const o=!rail.classList.contains('open'); closeAll(); if(o){rail.classList.add('open'); scrim.hidden=false; $('#btn-toc').setAttribute('aria-pressed','true');}
+});
+rail.addEventListener('click',e=>{ if(e.target.closest('a') && narrow()) closeAll(); });
+function openGloss(idx){ closeAll(); hidePop(); gloss.hidden=false; scrim.hidden=false; $('#btn-gloss').setAttribute('aria-pressed','true');
+  $$('.gi').forEach((g,i)=>g.classList.toggle('hl',i===idx)); if(idx!=null){ $$('.gi')[idx].scrollIntoView({block:'center'}); } }
+$('#btn-gloss').addEventListener('click',()=>{ gloss.hidden? openGloss(null) : closeAll(); });
+gloss.querySelector('[data-close]').addEventListener('click',closeAll);
+
+/* glossary popover */
+const pop=$('#pop'); let popFor=null;
+function hidePop(){pop.hidden=true; popFor=null;}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('.term');
+  if(t){ e.preventDefault(); if(popFor===t){hidePop();return;}
+    const g=GLOSS[+t.dataset.g]; pop.innerHTML='<b></b><i></i><div></div><button class="more" type="button">看全部詞彙</button>';
+    pop.querySelector('b').textContent=g.t; pop.querySelector('i').textContent=g.en; pop.querySelector('div').textContent=g.d;
+    pop.querySelector('.more').onclick=()=>openGloss(+t.dataset.g);
+    pop.hidden=false; const r=t.getBoundingClientRect(); const w=pop.offsetWidth;
+    let x=r.left+window.scrollX; x=Math.max(16+window.scrollX, Math.min(x, window.scrollX+document.documentElement.clientWidth-w-16));
+    pop.style.left=x+'px'; pop.style.top=(r.bottom+window.scrollY+8)+'px'; popFor=t; return; }
+  if(!e.target.closest('#pop')) hidePop();
+});
+
+/* light table */
+const lt=$('#lt'), img=$('#lt-img'), sel=$('#lt-sel'), strip=$('#lt-strip'); let cur=1;
+for(let p=1;p<=N;p++){ const o=document.createElement('option'); o.value=p; o.textContent='p.'+(p+OFFSET); sel.appendChild(o);
+  const b=document.createElement('button'); b.type='button'; b.dataset.p=p; b.setAttribute('aria-label','原刊第 '+(p+OFFSET)+' 頁'); b.innerHTML='<img loading="lazy" alt="" src="pages/t'+String(p).padStart(2,'0')+'.jpg">'; strip.appendChild(b); }
+function show(p){ cur=Math.min(N,Math.max(1,p)); img.src='pages/p'+String(cur).padStart(2,'0')+'.jpg'; img.alt='原刊第 '+(cur+OFFSET)+' 頁掃描';
+  $('#lt-lab').textContent='原刊 p.'+(cur+OFFSET)+'　·　掃描 '+cur+' / '+N; sel.value=cur;
+  strip.querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.p===cur));
+  const on=strip.querySelector('button.on'); if(on) on.scrollIntoView({inline:'center',block:'nearest'}); $('#lt-stage').scrollTop=0; }
+function openLT(p){ hidePop(); closeAll(); lt.hidden=false; document.body.style.overflow='hidden'; show(p); $('#lt-close').focus(); }
+function closeLT(){ lt.hidden=true; document.body.style.overflow=''; }
+document.addEventListener('click',e=>{ const b=e.target.closest('[data-page]'); if(b){ openLT(+b.dataset.page); } });
+strip.addEventListener('click',e=>{ const b=e.target.closest('button'); if(b) show(+b.dataset.p); });
+$('#lt-prev').onclick=()=>show(cur-1); $('#lt-next').onclick=()=>show(cur+1); $('#lt-close').onclick=closeLT;
+sel.onchange=()=>show(+sel.value);
+$('#btn-scan').addEventListener('click',()=>{ const s=activeSec(); const b=s&&s.querySelector('[data-page]'); openLT(b?+b.dataset.page:1); });
+document.addEventListener('keydown',e=>{
+  if(!lt.hidden){ if(e.key==='Escape') closeLT(); else if(e.key==='ArrowRight') show(cur+1); else if(e.key==='ArrowLeft') show(cur-1); return; }
+  if(e.key==='Escape'){ closeAll(); hidePop(); }
+});
+
+/* scroll spy + progress */
+const secs=$$('.sec'), links=$$('.toc a');
+function activeSec(){ let a=secs[0]; const y=window.innerHeight*0.3; for(const s of secs){ if(s.getBoundingClientRect().top<y) a=s; } return a; }
+let ticking=false;
+function onScroll(){ ticking=false;
+  const h=document.documentElement; const max=h.scrollHeight-h.clientHeight; $('#prog').style.width=(max>0? (h.scrollTop/max*100):0)+'%';
+  const a=activeSec(); const started=$('#main').getBoundingClientRect().top<window.innerHeight*0.3;
+  links.forEach(l=>l.classList.toggle('on', started && l.dataset.sec===a.dataset.sec));
+  $('#cur').textContent= started? a.querySelector('h2').textContent+'　'+a.querySelector('.byline').textContent : '';
+}
+window.addEventListener('scroll',()=>{ if(!ticking){ticking=true; requestAnimationFrame(onScroll);} },{passive:true});
+onScroll();
+
+/* four migrations */
+const MIG=[
+ {n:'一',t:'第一次遷徙：開墾大陸',y0:1790,y1:1890,sym:'篷車',d:'越過阿勒格尼山脈，焚林墾地、搶地炒地，鐵路有時佈得精明、有時愚蠢。留下被屠戮的森林、荒廢的農場與留不住年輕人的村莊。',to:'fourth-migration'},
+ {n:'二',t:'第二次遷徙：工廠城鎮',y0:1840,y1:1910,sym:'鐵馬',d:'人口從鄉村與海外湧入以煤與蒸汽為動力的工廠城鎮。城市只被當作工作場所，狄更斯的「焦炭鎮」在匹茲堡、芝加哥、紐華克一再複製。',to:'fourth-migration'},
+ {n:'三',t:'第三次遷徙：金融大都會',y0:1870,y1:1925,open:true,sym:'摩天樓',d:'人與物資流向紐約及十二座次級大都會。銷售、廣告與金融指揮吸走人口，建築與利潤以金字塔之勢竄升，代價是住宅、健康與幸福。',to:'dinosaur-cities'},
+ {n:'四',t:'第四次遷徙：區域的再分布',y0:1925,y1:1960,open:true,sym:'汽車・輸電',d:'汽車把市場面狀地連起來，電話與收音機讓聚集不再必要，三百英里輸電帶讓工廠離開鐵路。它已經開始；區域計畫要把它導入新的渠道。',to:'regions-to-live-in'}
+];
+let selMig=3;
+function cssv(n){return getComputedStyle(root).getPropertyValue(n).trim();}
+function drawMig(){
+  const W=900,H=200,L=40,R=870, x=y=>L+(y-1780)/(1960-1780)*(R-L);
+  const ink=cssv('--ink'),mut=cssv('--muted'),rule=cssv('--rule'),acc=cssv('--accent'),och=cssv('--ochre');
+  const fills=[och,mut,ink,acc];
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="group" aria-label="四次遷徙時間軸" font-family="IBM Plex Mono, monospace">`;
+  for(let y=1790;y<=1950;y+=20){ s+=`<line x1="${x(y)}" x2="${x(y)}" y1="18" y2="166" stroke="${rule}" stroke-width="1"/><text x="${x(y)}" y="186" font-size="12" text-anchor="middle" fill="${mut}">${y}</text>`; }
+  MIG.forEach((m,i)=>{ const yy=26+i*35, x0=x(m.y0), x1=x(m.y1); const on=i===selMig;
+    s+=`<g class="band" tabindex="0" role="button" aria-pressed="${on}" data-i="${i}" aria-label="${m.t}">`;
+    s+=`<rect class="b" x="${x0}" y="${yy}" width="${x1-x0}" height="24" fill="${fills[i]}" opacity="${on?1:.72}"/>`;
+    if(m.open) s+=`<path d="M${x1} ${yy} l12 12 l-12 12 z" fill="${fills[i]}" opacity="${on?1:.72}"/>`;
+    s+=`<text x="${x0+8}" y="${yy+16}" font-size="12.5" fill="${i===0?ink:cssv('--paper')}" font-family="Noto Sans TC, sans-serif" font-weight="700">${m.n}・${m.sym}</text></g>`; });
+  s+=`<line x1="${x(1925)}" x2="${x(1925)}" y1="10" y2="168" stroke="${acc}" stroke-width="2" stroke-dasharray="4 3"/><text x="${x(1925)+6}" y="14" font-size="12" fill="${acc}">1925 本期出刊</text>`;
+  s+='</svg>'; $('#migsvg').innerHTML=s;
+  $$('#migsvg .band').forEach(g=>{ const pick=()=>{selMig=+g.dataset.i; drawMig(); renderCard();}; g.addEventListener('click',pick); g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(); $(`#migsvg .band[data-i="${selMig}"]`).focus();} }); });
+}
+function renderCard(){ const m=MIG[selMig]; const c=$('#migcard'); c.innerHTML='<div class="n"></div><h3></h3><p></p>';
+  c.querySelector('.n').textContent=m.n; c.querySelector('h3').textContent=m.t+'（'+m.y0+'–'+(m.open?(m.y0===1925?'':'？'):m.y1)+'）';
+  c.querySelector('p').textContent=m.d+' '; const a=document.createElement('a'); a.href='#'+m.to; a.textContent='讀原文 →'; c.querySelector('p').appendChild(a); }
+drawMig(); renderCard();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',drawMig);
+})();
+</script>
+</body>
+</html>
